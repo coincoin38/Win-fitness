@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13B926071E64C430003E7DD0 /* WFFaceBookServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B926061E64C430003E7DD0 /* WFFaceBookServices.m */; };
+		1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */; };
+		13B926071E64C430003E7DD0 /* WFFacebookServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B926061E64C430003E7DD0 /* WFFacebookServices.m */; };
 		13DAA9C11E65AA3900C8F343 /* WFFacebookConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DAA9C01E65AA3900C8F343 /* WFFacebookConstants.m */; };
 		13E328221E64AB9D00F1A4EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328211E64AB9D00F1A4EC /* main.m */; };
 		13E328251E64AB9D00F1A4EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328241E64AB9D00F1A4EC /* AppDelegate.m */; };
@@ -20,8 +21,10 @@
 
 /* Begin PBXFileReference section */
 		0EF74C24827EAF855223A2C0 /* libPods-Win Fitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Win Fitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B926051E64C430003E7DD0 /* WFFaceBookServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFaceBookServices.h; sourceTree = "<group>"; };
-		13B926061E64C430003E7DD0 /* WFFaceBookServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFaceBookServices.m; sourceTree = "<group>"; };
+		1348EC571E66150100FA3843 /* WFFacebookFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookFeedModel.h; sourceTree = "<group>"; };
+		1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookFeedModel.m; sourceTree = "<group>"; };
+		13B926051E64C430003E7DD0 /* WFFacebookServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookServices.h; sourceTree = "<group>"; };
+		13B926061E64C430003E7DD0 /* WFFacebookServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookServices.m; sourceTree = "<group>"; };
 		13DAA9BF1E65AA3900C8F343 /* WFFacebookConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookConstants.h; sourceTree = "<group>"; };
 		13DAA9C01E65AA3900C8F343 /* WFFacebookConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookConstants.m; sourceTree = "<group>"; };
 		13E3281D1E64AB9D00F1A4EC /* Win Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Win Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,11 +53,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1348EC541E660EC100FA3843 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1348EC571E66150100FA3843 /* WFFacebookFeedModel.h */,
+				1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1348EC551E660ECB00FA3843 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		1348EC561E660EDE00FA3843 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		13B926041E64C3DE003E7DD0 /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
-				13B926051E64C430003E7DD0 /* WFFaceBookServices.h */,
-				13B926061E64C430003E7DD0 /* WFFaceBookServices.m */,
+				13B926051E64C430003E7DD0 /* WFFacebookServices.h */,
+				13B926061E64C430003E7DD0 /* WFFacebookServices.m */,
 			);
 			name = Facebook;
 			sourceTree = "<group>";
@@ -89,6 +115,9 @@
 		13E3281F1E64AB9D00F1A4EC /* Win Fitness */ = {
 			isa = PBXGroup;
 			children = (
+				1348EC541E660EC100FA3843 /* Models */,
+				1348EC551E660ECB00FA3843 /* ViewModels */,
+				1348EC561E660EDE00FA3843 /* ViewControllers */,
 				13DAA9BE1E65AA1600C8F343 /* Constants */,
 				13B926041E64C3DE003E7DD0 /* Facebook */,
 				13E328231E64AB9D00F1A4EC /* AppDelegate.h */,
@@ -255,8 +284,9 @@
 			files = (
 				13E328281E64AB9D00F1A4EC /* ViewController.m in Sources */,
 				13E328251E64AB9D00F1A4EC /* AppDelegate.m in Sources */,
-				13B926071E64C430003E7DD0 /* WFFaceBookServices.m in Sources */,
+				13B926071E64C430003E7DD0 /* WFFacebookServices.m in Sources */,
 				13E328221E64AB9D00F1A4EC /* main.m in Sources */,
+				1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */,
 				13DAA9C11E65AA3900C8F343 /* WFFacebookConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "WFFacebookConstants.h"
 
-@implementation WFFaceBookServices
+@implementation WFFacebookServices
 
 - (instancetype)init{
     if ((self = [super init])) {

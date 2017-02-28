@@ -10,7 +10,7 @@
 
 typedef void (^WFFacebookHandler)(id result,NSError *error);
 
-@interface WFFaceBookServices : NSObject
+@interface WFFacebookServices : NSObject
 
 @property (strong, nonatomic) NSString *token;
 

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "WFFaceBookServices.h"
+#import "WFFacebookFeedModel.h"
 
 @interface AppDelegate ()
 
@@ -24,10 +25,18 @@
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
     
-    WFFaceBookServices *FBService = [WFFaceBookServices new];
+    WFFacebookServices *FBService = [WFFacebookServices new];
     [FBService grabNews:^(id news, NSError *error) {
         if (news) {
-            NSLog(@"result news %@",news);
+            
+            NSDictionary *dictionary = (NSDictionary *)news;
+            NSMutableArray<WFFacebookFeedModel *> *newsArray = [NSMutableArray new];
+            
+            for (NSDictionary * newDictionary in dictionary[@"data"]) {
+                WFFacebookFeedModel * newModel = [[WFFacebookFeedModel alloc]initWithDictionary:newDictionary];
+                [newsArray addObject:newModel];
+            }
+            NSLog(@"newsArray %@",newsArray);
         }
         else{
             NSLog(@"error news %@",error);
