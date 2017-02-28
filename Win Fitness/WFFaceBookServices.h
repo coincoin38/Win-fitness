@@ -12,7 +12,8 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 
 @interface WFFaceBookServices : NSObject
 
-- (void)generateToken:(WFFacebookHandler)handler;
-- (void)grabNews:(NSString *)token :(WFFacebookHandler)handler;
+@property (strong, nonatomic) NSString *token;
+
+- (void)grabNews:(WFFacebookHandler)handler;
 
 @end

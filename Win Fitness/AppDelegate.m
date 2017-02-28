@@ -25,20 +25,12 @@
                              didFinishLaunchingWithOptions:launchOptions];
     
     WFFaceBookServices *FBService = [WFFaceBookServices new];
-    
-    [FBService generateToken:^(id token, NSError *error) {
-        if (token) {
-            [FBService grabNews:token :^(id news, NSError *error) {
-                if (news) {
-                    NSLog(@"result news %@",news);
-                }
-                else{
-                    NSLog(@"error news %@",error);
-                }
-            }];
+    [FBService grabNews:^(id news, NSError *error) {
+        if (news) {
+            NSLog(@"result news %@",news);
         }
         else{
-            NSLog(@"error token %@",error);
+            NSLog(@"error news %@",error);
         }
     }];
     

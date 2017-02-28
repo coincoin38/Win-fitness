@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13B926071E64C430003E7DD0 /* WFFaceBookServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B926061E64C430003E7DD0 /* WFFaceBookServices.m */; };
-		13B9260B1E64C947003E7DD0 /* WFNetworkConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B9260A1E64C947003E7DD0 /* WFNetworkConstants.m */; };
+		13DAA9C11E65AA3900C8F343 /* WFFacebookConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DAA9C01E65AA3900C8F343 /* WFFacebookConstants.m */; };
 		13E328221E64AB9D00F1A4EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328211E64AB9D00F1A4EC /* main.m */; };
 		13E328251E64AB9D00F1A4EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328241E64AB9D00F1A4EC /* AppDelegate.m */; };
 		13E328281E64AB9D00F1A4EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328271E64AB9D00F1A4EC /* ViewController.m */; };
@@ -22,8 +22,8 @@
 		0EF74C24827EAF855223A2C0 /* libPods-Win Fitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Win Fitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B926051E64C430003E7DD0 /* WFFaceBookServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFaceBookServices.h; sourceTree = "<group>"; };
 		13B926061E64C430003E7DD0 /* WFFaceBookServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFaceBookServices.m; sourceTree = "<group>"; };
-		13B926091E64C947003E7DD0 /* WFNetworkConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNetworkConstants.h; sourceTree = "<group>"; };
-		13B9260A1E64C947003E7DD0 /* WFNetworkConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNetworkConstants.m; sourceTree = "<group>"; };
+		13DAA9BF1E65AA3900C8F343 /* WFFacebookConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookConstants.h; sourceTree = "<group>"; };
+		13DAA9C01E65AA3900C8F343 /* WFFacebookConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookConstants.m; sourceTree = "<group>"; };
 		13E3281D1E64AB9D00F1A4EC /* Win Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Win Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13E328211E64AB9D00F1A4EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13E328231E64AB9D00F1A4EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -59,11 +59,11 @@
 			name = Facebook;
 			sourceTree = "<group>";
 		};
-		13B926081E64C4B9003E7DD0 /* Constants */ = {
+		13DAA9BE1E65AA1600C8F343 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				13B926091E64C947003E7DD0 /* WFNetworkConstants.h */,
-				13B9260A1E64C947003E7DD0 /* WFNetworkConstants.m */,
+				13DAA9BF1E65AA3900C8F343 /* WFFacebookConstants.h */,
+				13DAA9C01E65AA3900C8F343 /* WFFacebookConstants.m */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -89,7 +89,7 @@
 		13E3281F1E64AB9D00F1A4EC /* Win Fitness */ = {
 			isa = PBXGroup;
 			children = (
-				13B926081E64C4B9003E7DD0 /* Constants */,
+				13DAA9BE1E65AA1600C8F343 /* Constants */,
 				13B926041E64C3DE003E7DD0 /* Facebook */,
 				13E328231E64AB9D00F1A4EC /* AppDelegate.h */,
 				13E328241E64AB9D00F1A4EC /* AppDelegate.m */,
@@ -256,8 +256,8 @@
 				13E328281E64AB9D00F1A4EC /* ViewController.m in Sources */,
 				13E328251E64AB9D00F1A4EC /* AppDelegate.m in Sources */,
 				13B926071E64C430003E7DD0 /* WFFaceBookServices.m in Sources */,
-				13B9260B1E64C947003E7DD0 /* WFNetworkConstants.m in Sources */,
 				13E328221E64AB9D00F1A4EC /* main.m in Sources */,
+				13DAA9C11E65AA3900C8F343 /* WFFacebookConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

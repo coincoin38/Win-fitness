@@ -8,34 +8,72 @@
 
 #import "WFFaceBookServices.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "WFFacebookConstants.h"
 
 @implementation WFFaceBookServices
 
-- (void)generateToken:(WFFacebookHandler)handler{
+- (instancetype)init{
+    if ((self = [super init])) {
+        _token = nil;
+    }
+    return self;
+};
 
-    FBSDKGraphRequest *grabToken = [[FBSDKGraphRequest alloc]initWithGraphPath:@"/oauth/access_token"
-                                                                    parameters:@{@"client_id":@"1188664067920799",
-                                                                                 @"client_secret":@"aef4309801db979e175817353cc18427",
-                                                                                 @"grant_type":@"client_credentials",
-                                                                                 @"fields":@"access_token"}];
-   
-    [grabToken startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-        handler(result[@"access_token"],error);
+- (void)grabNews:(WFFacebookHandler)handler{
+    
+    if (self.token == nil) {
+        [self generateToken:^(id result, NSError *error) {
+            if (result) {
+                [self downloadNews:^(id result, NSError *error) {
+                    handler(result,error);
+                }];
+            }
+            else{
+                handler(nil,error);
+            }
+        }];
+    }
+    else{
+        
+        [self downloadNews:^(id result, NSError *error) {
+            if (error) {
+                self.token = nil;
+            }
+            handler(result,error);
+        }];
+    }
+}
+
+- (void)downloadNews:(WFFacebookHandler)handler{
+    
+    [[self grapRequestNewsWithToken:self.token] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+        handler(result,error);
     }];
 }
 
-- (void)grabNews:(NSString *)token :(WFFacebookHandler)handler{
+- (void)generateToken:(WFFacebookHandler)handler{
     
-    FBSDKGraphRequest *grabInfos = [[FBSDKGraphRequest alloc]initWithGraphPath:@"1207136935980128/feed"
-                                                                    parameters:@{@"limit":@"10",
-                                                                                 @"fields":@"full_picture,actions,description,message,created_time,type"}
-                                                                   tokenString:token
-                                                                       version:@"v2.8"
-                                                                    HTTPMethod:@"GET"];
-    
-    [grabInfos startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-        handler(result,error);
+    [[self graphRequestToken] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+        if (result) {
+            self.token = result[kValueFieldsToken];
+        }
+        handler(self.token,error);
     }];
+}
+
+- (FBSDKGraphRequest *)graphRequestToken{
+    
+    return [[FBSDKGraphRequest alloc]initWithGraphPath:kPathAuthToken
+                                            parameters:[WFFacebookConstants authTokenParameters]];
+}
+
+- (FBSDKGraphRequest *)grapRequestNewsWithToken:(NSString *)token{
+    
+    return [[FBSDKGraphRequest alloc]initWithGraphPath:kFeedNews
+                                            parameters:[WFFacebookConstants newsParameters]
+                                           tokenString:token
+                                               version:kVersionAPI
+                                            HTTPMethod:kGetMethod];
 }
 
 @end
