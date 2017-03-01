@@ -6,9 +6,9 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFFaceBookServices.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "WFFacebookConstants.h"
+#import "WFFaceBookServices.h"
 
 @implementation WFFacebookServices
 
@@ -18,6 +18,19 @@
     }
     return self;
 };
+
+- (RACSignal *)newsGetSignal{
+    
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        
+        return [RACDisposable disposableWithBlock:^{
+            [self grabNews:^(id result, NSError *error) {
+                [subscriber sendNext:result];
+            }];
+
+        }];
+    }];
+}
 
 - (void)grabNews:(WFFacebookHandler)handler{
     

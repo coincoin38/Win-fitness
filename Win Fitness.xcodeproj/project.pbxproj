@@ -10,6 +10,7 @@
 		1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */; };
 		13B926071E64C430003E7DD0 /* WFFacebookServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B926061E64C430003E7DD0 /* WFFacebookServices.m */; };
 		13DAA9C11E65AA3900C8F343 /* WFFacebookConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DAA9C01E65AA3900C8F343 /* WFFacebookConstants.m */; };
+		13DAA9C41E672D3400C8F343 /* WFFacebookNewsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DAA9C31E672D3400C8F343 /* WFFacebookNewsViewModel.m */; };
 		13E328221E64AB9D00F1A4EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328211E64AB9D00F1A4EC /* main.m */; };
 		13E328251E64AB9D00F1A4EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328241E64AB9D00F1A4EC /* AppDelegate.m */; };
 		13E328281E64AB9D00F1A4EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328271E64AB9D00F1A4EC /* ViewController.m */; };
@@ -27,6 +28,8 @@
 		13B926061E64C430003E7DD0 /* WFFacebookServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookServices.m; sourceTree = "<group>"; };
 		13DAA9BF1E65AA3900C8F343 /* WFFacebookConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookConstants.h; sourceTree = "<group>"; };
 		13DAA9C01E65AA3900C8F343 /* WFFacebookConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookConstants.m; sourceTree = "<group>"; };
+		13DAA9C21E672D3400C8F343 /* WFFacebookNewsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookNewsViewModel.h; sourceTree = "<group>"; };
+		13DAA9C31E672D3400C8F343 /* WFFacebookNewsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookNewsViewModel.m; sourceTree = "<group>"; };
 		13E3281D1E64AB9D00F1A4EC /* Win Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Win Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13E328211E64AB9D00F1A4EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13E328231E64AB9D00F1A4EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +68,8 @@
 		1348EC551E660ECB00FA3843 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				13DAA9C21E672D3400C8F343 /* WFFacebookNewsViewModel.h */,
+				13DAA9C31E672D3400C8F343 /* WFFacebookNewsViewModel.m */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -72,6 +77,8 @@
 		1348EC561E660EDE00FA3843 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				13E328261E64AB9D00F1A4EC /* ViewController.h */,
+				13E328271E64AB9D00F1A4EC /* ViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -122,8 +129,6 @@
 				13B926041E64C3DE003E7DD0 /* Facebook */,
 				13E328231E64AB9D00F1A4EC /* AppDelegate.h */,
 				13E328241E64AB9D00F1A4EC /* AppDelegate.m */,
-				13E328261E64AB9D00F1A4EC /* ViewController.h */,
-				13E328271E64AB9D00F1A4EC /* ViewController.m */,
 				13E328291E64AB9D00F1A4EC /* Main.storyboard */,
 				13E3282C1E64AB9D00F1A4EC /* Assets.xcassets */,
 				13E3282E1E64AB9D00F1A4EC /* LaunchScreen.storyboard */,
@@ -286,6 +291,7 @@
 				13E328251E64AB9D00F1A4EC /* AppDelegate.m in Sources */,
 				13B926071E64C430003E7DD0 /* WFFacebookServices.m in Sources */,
 				13E328221E64AB9D00F1A4EC /* main.m in Sources */,
+				13DAA9C41E672D3400C8F343 /* WFFacebookNewsViewModel.m in Sources */,
 				1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */,
 				13DAA9C11E65AA3900C8F343 /* WFFacebookConstants.m in Sources */,
 			);

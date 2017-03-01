@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ReactiveObjC.h>
 
 typedef void (^WFFacebookHandler)(id result,NSError *error);
 
@@ -15,5 +16,6 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 @property (strong, nonatomic) NSString *token;
 
 - (void)grabNews:(WFFacebookHandler)handler;
+- (RACSignal *)newsGetSignal;
 
 @end
