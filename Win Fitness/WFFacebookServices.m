@@ -10,30 +10,44 @@
 #import "WFFacebookConstants.h"
 #import "WFFaceBookServices.h"
 
+typedef void (^WFFacebookHandler)(id result,NSError *error);
+
+@interface WFFacebookServices ()
+
+@property (strong, nonatomic) NSString *token;
+
+@end
+
 @implementation WFFacebookServices
 
-- (instancetype)init{
+#pragma mark - Init
+
+- (instancetype)init
+{
     if ((self = [super init])) {
         _token = nil;
     }
     return self;
 };
 
-- (RACSignal *)newsGetSignal{
-    
+#pragma mark - RAC
+
+- (RACSignal *)newsGetSignal
+{
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
-        return [RACDisposable disposableWithBlock:^{
-            [self grabNews:^(id result, NSError *error) {
-                [subscriber sendNext:result];
-            }];
-
+        [self grabNews:^(id result, NSError *error) {
+            [subscriber sendNext:result];
+            [subscriber sendCompleted];
         }];
+        return [RACDisposable disposableWithBlock:^{}];
     }];
 }
 
-- (void)grabNews:(WFFacebookHandler)handler{
-    
+#pragma mark - Logic
+
+- (void)grabNews:(WFFacebookHandler)handler
+{
     if (self.token == nil) {
         [self generateToken:^(id result, NSError *error) {
             if (result) {
@@ -57,15 +71,15 @@
     }
 }
 
-- (void)downloadNews:(WFFacebookHandler)handler{
-    
+- (void)downloadNews:(WFFacebookHandler)handler
+{
     [[self grapRequestNewsWithToken:self.token] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         handler(result,error);
     }];
 }
 
-- (void)generateToken:(WFFacebookHandler)handler{
-    
+- (void)generateToken:(WFFacebookHandler)handler
+{
     [[self graphRequestToken] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         if (result) {
             self.token = result[kValueFieldsToken];
@@ -74,14 +88,16 @@
     }];
 }
 
-- (FBSDKGraphRequest *)graphRequestToken{
-    
+#pragma mark - FBSDKGraphRequest
+
+- (FBSDKGraphRequest *)graphRequestToken
+{
     return [[FBSDKGraphRequest alloc]initWithGraphPath:kPathAuthToken
                                             parameters:[WFFacebookConstants authTokenParameters]];
 }
 
-- (FBSDKGraphRequest *)grapRequestNewsWithToken:(NSString *)token{
-    
+- (FBSDKGraphRequest *)grapRequestNewsWithToken:(NSString *)token
+{
     return [[FBSDKGraphRequest alloc]initWithGraphPath:kFeedNews
                                             parameters:[WFFacebookConstants newsParameters]
                                            tokenString:token

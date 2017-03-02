@@ -13,7 +13,7 @@
 		13DAA9C41E672D3400C8F343 /* WFFacebookNewsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DAA9C31E672D3400C8F343 /* WFFacebookNewsViewModel.m */; };
 		13E328221E64AB9D00F1A4EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328211E64AB9D00F1A4EC /* main.m */; };
 		13E328251E64AB9D00F1A4EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328241E64AB9D00F1A4EC /* AppDelegate.m */; };
-		13E328281E64AB9D00F1A4EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328271E64AB9D00F1A4EC /* ViewController.m */; };
+		13E328281E64AB9D00F1A4EC /* WFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328271E64AB9D00F1A4EC /* WFViewController.m */; };
 		13E3282B1E64AB9D00F1A4EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E328291E64AB9D00F1A4EC /* Main.storyboard */; };
 		13E3282D1E64AB9D00F1A4EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13E3282C1E64AB9D00F1A4EC /* Assets.xcassets */; };
 		13E328301E64AB9D00F1A4EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E3282E1E64AB9D00F1A4EC /* LaunchScreen.storyboard */; };
@@ -34,8 +34,8 @@
 		13E328211E64AB9D00F1A4EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13E328231E64AB9D00F1A4EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13E328241E64AB9D00F1A4EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		13E328261E64AB9D00F1A4EC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		13E328271E64AB9D00F1A4EC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		13E328261E64AB9D00F1A4EC /* WFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFViewController.h; sourceTree = "<group>"; };
+		13E328271E64AB9D00F1A4EC /* WFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFViewController.m; sourceTree = "<group>"; };
 		13E3282A1E64AB9D00F1A4EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13E3282C1E64AB9D00F1A4EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13E3282F1E64AB9D00F1A4EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,8 +77,8 @@
 		1348EC561E660EDE00FA3843 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				13E328261E64AB9D00F1A4EC /* ViewController.h */,
-				13E328271E64AB9D00F1A4EC /* ViewController.m */,
+				13E328261E64AB9D00F1A4EC /* WFViewController.h */,
+				13E328271E64AB9D00F1A4EC /* WFViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -287,7 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13E328281E64AB9D00F1A4EC /* ViewController.m in Sources */,
+				13E328281E64AB9D00F1A4EC /* WFViewController.m in Sources */,
 				13E328251E64AB9D00F1A4EC /* AppDelegate.m in Sources */,
 				13B926071E64C430003E7DD0 /* WFFacebookServices.m in Sources */,
 				13E328221E64AB9D00F1A4EC /* main.m in Sources */,

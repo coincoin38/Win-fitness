@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WFFacebookNewsViewModel.h"
 
-@interface ViewController : UIViewController
+@interface WFViewController : UIViewController
 
+- (instancetype)initWithFacebookNewsViewModel:(WFFacebookNewsViewModel *)viewModel;
 
 @end
 

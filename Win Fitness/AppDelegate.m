@@ -9,9 +9,15 @@
 #import "AppDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "WFFaceBookServices.h"
-#import "WFFacebookFeedModel.h"
+#import "WFFacebookNewsViewModel.h"
+#import "WFFaceBookServices.h"
+#import "WFViewController.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, retain) UINavigationController *navigationController;
+@property (strong, nonatomic) WFFacebookServices *facebookServices;
+@property (strong, nonatomic) WFFacebookNewsViewModel *facebookNewsViewModel;
 
 @end
 
@@ -24,7 +30,29 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
+    
+    self.navigationController = [UINavigationController new];
+    self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
+    // create and navigate to a view controller
+    UIViewController *viewController = [self createInitialViewController];
+    [self.navigationController pushViewController:viewController animated:NO];
+    
+    // show the navigation controller
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+- (UIViewController *)createInitialViewController {
+    self.facebookServices = [[WFFacebookServices alloc] init];
+    self.facebookNewsViewModel = [[WFFacebookNewsViewModel alloc]
+                      initWithFacebookServices:self.facebookServices];
+    return [[WFViewController alloc]
+            initWithFacebookNewsViewModel:self.facebookNewsViewModel];
 }
 
 - (BOOL)application:(UIApplication *)application

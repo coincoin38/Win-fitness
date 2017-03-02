@@ -31,7 +31,8 @@ NSString * const kValueFieldsNews = @"full_picture,actions,description,message,c
 
 @implementation WFFacebookConstants
 
-+ (NSDictionary *)authTokenParameters{
++ (NSDictionary *)authTokenParameters
+{
     return @{kKeyClientId : kValueClientId,
              kKeyClientSecret : kValueClientSecret,
              kKeyGrantType : kValueGrantType,
