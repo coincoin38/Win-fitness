@@ -35,6 +35,8 @@
             }
             
             self.firstNewsTitle = newsArray[0]._description;
+            self.facebookNews = [newsArray copy];
+
             NSLog(@"message %@",newsArray[0]._description);
         }];
     }

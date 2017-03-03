@@ -12,6 +12,8 @@
 @interface WFFacebookNewsViewModel : NSObject
 
 @property (nonatomic, strong) NSString *firstNewsTitle;
+@property (nonatomic, strong) NSString *facebookNews;
+
 @property (nonatomic, strong) RACCommand *executeGetNews;
 
 - (instancetype) initWithFacebookServices:(WFFacebookServices *)services;

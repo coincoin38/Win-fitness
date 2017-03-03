@@ -7,17 +7,20 @@ PODS:
   - Bolts/Tasks (1.8.4)
   - FBSDKCoreKit (4.18.0):
     - Bolts (~> 1.7)
+  - Masonry (1.0.2)
   - ReactiveObjC (2.1.2)
 
 DEPENDENCIES:
   - FBSDKCoreKit
+  - Masonry (~> 1.0)
   - ReactiveObjC (~> 2.1)
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
 
-PODFILE CHECKSUM: d58bd3b8eae704a2ddc9132a57997c80c504b477
+PODFILE CHECKSUM: e2502bc3025ffb73c2b22d05a5fe14ebc3ae0559
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

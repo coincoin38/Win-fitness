@@ -41,6 +41,11 @@
     [self.view addSubview:newLabel];
 }
 
+- (void)setupConstraints
+{
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

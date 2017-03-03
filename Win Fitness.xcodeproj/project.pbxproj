@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */; };
+		13A3D4241E68A39E00B38EEF /* WFNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3D4231E68A39E00B38EEF /* WFNewsTableViewController.m */; };
+		13A3D4271E697F5000B38EEF /* WFBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3D4261E697F5000B38EEF /* WFBaseTableViewController.m */; };
 		13B926071E64C430003E7DD0 /* WFFacebookServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B926061E64C430003E7DD0 /* WFFacebookServices.m */; };
 		13DAA9C11E65AA3900C8F343 /* WFFacebookConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DAA9C01E65AA3900C8F343 /* WFFacebookConstants.m */; };
 		13DAA9C41E672D3400C8F343 /* WFFacebookNewsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DAA9C31E672D3400C8F343 /* WFFacebookNewsViewModel.m */; };
 		13E328221E64AB9D00F1A4EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328211E64AB9D00F1A4EC /* main.m */; };
 		13E328251E64AB9D00F1A4EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328241E64AB9D00F1A4EC /* AppDelegate.m */; };
 		13E328281E64AB9D00F1A4EC /* WFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328271E64AB9D00F1A4EC /* WFViewController.m */; };
-		13E3282B1E64AB9D00F1A4EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E328291E64AB9D00F1A4EC /* Main.storyboard */; };
 		13E3282D1E64AB9D00F1A4EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13E3282C1E64AB9D00F1A4EC /* Assets.xcassets */; };
 		13E328301E64AB9D00F1A4EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E3282E1E64AB9D00F1A4EC /* LaunchScreen.storyboard */; };
 		D0D54CFB9229702CA6FF98FF /* libPods-Win Fitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF74C24827EAF855223A2C0 /* libPods-Win Fitness.a */; };
@@ -24,6 +25,10 @@
 		0EF74C24827EAF855223A2C0 /* libPods-Win Fitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Win Fitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1348EC571E66150100FA3843 /* WFFacebookFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookFeedModel.h; sourceTree = "<group>"; };
 		1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookFeedModel.m; sourceTree = "<group>"; };
+		13A3D4221E68A39D00B38EEF /* WFNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNewsTableViewController.h; sourceTree = "<group>"; };
+		13A3D4231E68A39E00B38EEF /* WFNewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsTableViewController.m; sourceTree = "<group>"; };
+		13A3D4251E697F5000B38EEF /* WFBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBaseTableViewController.h; sourceTree = "<group>"; };
+		13A3D4261E697F5000B38EEF /* WFBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBaseTableViewController.m; sourceTree = "<group>"; };
 		13B926051E64C430003E7DD0 /* WFFacebookServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookServices.h; sourceTree = "<group>"; };
 		13B926061E64C430003E7DD0 /* WFFacebookServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookServices.m; sourceTree = "<group>"; };
 		13DAA9BF1E65AA3900C8F343 /* WFFacebookConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookConstants.h; sourceTree = "<group>"; };
@@ -36,7 +41,6 @@
 		13E328241E64AB9D00F1A4EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		13E328261E64AB9D00F1A4EC /* WFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFViewController.h; sourceTree = "<group>"; };
 		13E328271E64AB9D00F1A4EC /* WFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFViewController.m; sourceTree = "<group>"; };
-		13E3282A1E64AB9D00F1A4EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13E3282C1E64AB9D00F1A4EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13E3282F1E64AB9D00F1A4EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13E328311E64AB9D00F1A4EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,10 +81,22 @@
 		1348EC561E660EDE00FA3843 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				13A3D4291E697F6400B38EEF /* Bases */,
 				13E328261E64AB9D00F1A4EC /* WFViewController.h */,
 				13E328271E64AB9D00F1A4EC /* WFViewController.m */,
+				13A3D4221E68A39D00B38EEF /* WFNewsTableViewController.h */,
+				13A3D4231E68A39E00B38EEF /* WFNewsTableViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		13A3D4291E697F6400B38EEF /* Bases */ = {
+			isa = PBXGroup;
+			children = (
+				13A3D4251E697F5000B38EEF /* WFBaseTableViewController.h */,
+				13A3D4261E697F5000B38EEF /* WFBaseTableViewController.m */,
+			);
+			name = Bases;
 			sourceTree = "<group>";
 		};
 		13B926041E64C3DE003E7DD0 /* Facebook */ = {
@@ -129,7 +145,6 @@
 				13B926041E64C3DE003E7DD0 /* Facebook */,
 				13E328231E64AB9D00F1A4EC /* AppDelegate.h */,
 				13E328241E64AB9D00F1A4EC /* AppDelegate.m */,
-				13E328291E64AB9D00F1A4EC /* Main.storyboard */,
 				13E3282C1E64AB9D00F1A4EC /* Assets.xcassets */,
 				13E3282E1E64AB9D00F1A4EC /* LaunchScreen.storyboard */,
 				13E328311E64AB9D00F1A4EC /* Info.plist */,
@@ -228,7 +243,6 @@
 			files = (
 				13E328301E64AB9D00F1A4EC /* LaunchScreen.storyboard in Resources */,
 				13E3282D1E64AB9D00F1A4EC /* Assets.xcassets in Resources */,
-				13E3282B1E64AB9D00F1A4EC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,21 +307,15 @@
 				13E328221E64AB9D00F1A4EC /* main.m in Sources */,
 				13DAA9C41E672D3400C8F343 /* WFFacebookNewsViewModel.m in Sources */,
 				1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */,
+				13A3D4271E697F5000B38EEF /* WFBaseTableViewController.m in Sources */,
 				13DAA9C11E65AA3900C8F343 /* WFFacebookConstants.m in Sources */,
+				13A3D4241E68A39E00B38EEF /* WFNewsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		13E328291E64AB9D00F1A4EC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13E3282A1E64AB9D00F1A4EC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		13E3282E1E64AB9D00F1A4EC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -417,6 +425,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "julieng38.Win-Fitness";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -430,6 +439,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "julieng38.Win-Fitness";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
