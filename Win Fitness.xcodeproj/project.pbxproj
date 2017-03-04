@@ -18,6 +18,7 @@
 		13E328281E64AB9D00F1A4EC /* WFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E328271E64AB9D00F1A4EC /* WFViewController.m */; };
 		13E3282D1E64AB9D00F1A4EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13E3282C1E64AB9D00F1A4EC /* Assets.xcassets */; };
 		13E328301E64AB9D00F1A4EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E3282E1E64AB9D00F1A4EC /* LaunchScreen.storyboard */; };
+		13EC255B1E6ABB9A003FC5D4 /* WFNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC25591E6ABB9A003FC5D4 /* WFNewsTableViewCell.m */; };
 		D0D54CFB9229702CA6FF98FF /* libPods-Win Fitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF74C24827EAF855223A2C0 /* libPods-Win Fitness.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,8 @@
 		13E3282C1E64AB9D00F1A4EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13E3282F1E64AB9D00F1A4EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13E328311E64AB9D00F1A4EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13EC25581E6ABB9A003FC5D4 /* WFNewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNewsTableViewCell.h; sourceTree = "<group>"; };
+		13EC25591E6ABB9A003FC5D4 /* WFNewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsTableViewCell.m; sourceTree = "<group>"; };
 		DFA6135EA312EC0F07715376 /* Pods-Win Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Win Fitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-Win Fitness/Pods-Win Fitness.release.xcconfig"; sourceTree = "<group>"; };
 		F7DB2C4EE4DDD48508778454 /* Pods-Win Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Win Fitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Win Fitness/Pods-Win Fitness.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +144,7 @@
 				1348EC541E660EC100FA3843 /* Models */,
 				1348EC551E660ECB00FA3843 /* ViewModels */,
 				1348EC561E660EDE00FA3843 /* ViewControllers */,
+				13EC25541E6ABB36003FC5D4 /* Views */,
 				13DAA9BE1E65AA1600C8F343 /* Constants */,
 				13B926041E64C3DE003E7DD0 /* Facebook */,
 				13E328231E64AB9D00F1A4EC /* AppDelegate.h */,
@@ -159,6 +163,15 @@
 				13E328211E64AB9D00F1A4EC /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		13EC25541E6ABB36003FC5D4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				13EC25581E6ABB9A003FC5D4 /* WFNewsTableViewCell.h */,
+				13EC25591E6ABB9A003FC5D4 /* WFNewsTableViewCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		313D8DCCBC8062C91EC40E05 /* Pods */ = {
@@ -304,6 +317,7 @@
 				13E328281E64AB9D00F1A4EC /* WFViewController.m in Sources */,
 				13E328251E64AB9D00F1A4EC /* AppDelegate.m in Sources */,
 				13B926071E64C430003E7DD0 /* WFFacebookServices.m in Sources */,
+				13EC255B1E6ABB9A003FC5D4 /* WFNewsTableViewCell.m in Sources */,
 				13E328221E64AB9D00F1A4EC /* main.m in Sources */,
 				13DAA9C41E672D3400C8F343 /* WFFacebookNewsViewModel.m in Sources */,
 				1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */,

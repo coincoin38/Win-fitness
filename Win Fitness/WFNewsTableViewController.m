@@ -9,6 +9,7 @@
 #import "WFNewsTableViewController.h"
 #import "WFFacebookNewsViewModel.h"
 #import "WFFacebookFeedModel.h"
+#import "WFNewsTableViewCell.h"
 
 static NSString * const identifier = @"newsIdentifier";
 
@@ -24,7 +25,8 @@ static NSString * const identifier = @"newsIdentifier";
 - (instancetype)initWithFacebookNewsViewModel:(WFFacebookNewsViewModel *)viewModel
 {
     self = [super init];
-    if (self ) {
+    if (self)
+    {
         _facebookNewsViewModel = viewModel;
     }
     return self;
@@ -33,7 +35,7 @@ static NSString * const identifier = @"newsIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:identifier];
+    [self.tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:identifier];
     RAC(self,newsArray) = RACObserve(self.facebookNewsViewModel, facebookNews);
     [RACObserve(self, newsArray) subscribeNext:^(id news) {
         if(news)
@@ -65,9 +67,9 @@ static NSString * const identifier = @"newsIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier
+    WFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier
                                                             forIndexPath:indexPath];
-    cell.textLabel.text = self.newsArray[indexPath.row].created_time;
+    [cell setupCellWithModel:self.newsArray[indexPath.row]];
         
     return cell;
 }

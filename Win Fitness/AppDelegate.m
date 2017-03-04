@@ -11,7 +11,6 @@
 #import "WFFaceBookServices.h"
 #import "WFFacebookNewsViewModel.h"
 #import "WFFaceBookServices.h"
-#import "WFViewController.h"
 #import "WFNewsTableViewController.h"
 
 @interface AppDelegate ()
@@ -24,7 +23,8 @@
 
 @implementation AppDelegate
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
     [FBSDKAppEvents activateApp];
 }
 
@@ -52,10 +52,9 @@
 - (UIViewController *)createInitialViewController
 {
     self.facebookServices = [[WFFacebookServices alloc] init];
-    self.facebookNewsViewModel = [[WFFacebookNewsViewModel alloc]
-                      initWithFacebookServices:self.facebookServices];
-    return [[WFNewsTableViewController alloc]
-            initWithFacebookNewsViewModel:self.facebookNewsViewModel];
+    self.facebookNewsViewModel = [[WFFacebookNewsViewModel alloc] initWithFacebookServices:self.facebookServices];
+    
+    return [[WFNewsTableViewController alloc] initWithFacebookNewsViewModel:self.facebookNewsViewModel];
 }
 
 - (BOOL)application:(UIApplication *)application
