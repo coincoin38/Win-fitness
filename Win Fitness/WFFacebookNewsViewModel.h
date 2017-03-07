@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "WFFaceBookServices.h"
+@class WFFacebookFeedModel;
 
 @interface WFFacebookNewsViewModel : NSObject
 
-@property (nonatomic, strong) NSString *firstNewsTitle;
-@property (nonatomic, strong) NSString *facebookNews;
+@property (nonatomic, strong) NSArray<WFFacebookFeedModel *> *facebookNews;
 
 @property (nonatomic, strong) RACCommand *executeGetNews;
 

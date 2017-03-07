@@ -24,7 +24,6 @@
     self = [super init];
     if (self) {
         _services = services;
-        _firstNewsTitle = @"coucou";
         [[self.executeGetNews execute:self]subscribeNext:^(id  _Nullable x) {
             NSDictionary *dictionary = (NSDictionary *)x;
             NSMutableArray<WFFacebookFeedModel *> *newsArray = [NSMutableArray new];
@@ -34,10 +33,8 @@
                 [newsArray addObject:newModel];
             }
             
-            self.firstNewsTitle = newsArray[0]._description;
             self.facebookNews = [newsArray copy];
-
-            NSLog(@"message %@",newsArray[0]._description);
+            NSLog(@"data %@",x);
         }];
     }
     return self;

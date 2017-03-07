@@ -10,6 +10,7 @@
 #import "WFFacebookNewsViewModel.h"
 #import "WFFacebookFeedModel.h"
 #import "WFNewsTableViewCell.h"
+#import "WFDownloadImageService.h"
 
 static NSString * const identifier = @"newsIdentifier";
 
@@ -68,20 +69,16 @@ static NSString * const identifier = @"newsIdentifier";
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier
-                                                            forIndexPath:indexPath];
+                                                                forIndexPath:indexPath];
     [cell setupCellWithModel:self.newsArray[indexPath.row]];
-        
+    [WFDownloadImageService downloadImage:self.newsArray[indexPath.row].full_picture
+                                  forCell:cell];
     return cell;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 75.0f;
 }
-*/
 
 @end
