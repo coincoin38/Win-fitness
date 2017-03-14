@@ -13,7 +13,6 @@
 @interface WFFacebookNewsViewModel : NSObject
 
 @property (nonatomic, strong) NSArray<WFFacebookFeedModel *> *facebookNews;
-
 @property (nonatomic, strong) RACCommand *executeGetNews;
 
 - (instancetype) initWithFacebookServices:(WFFacebookServices *)services;

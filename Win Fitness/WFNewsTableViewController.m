@@ -17,11 +17,12 @@ static NSString * const identifier = @"newsIdentifier";
 @interface WFNewsTableViewController ()
 
 @property(nonatomic,strong) WFFacebookNewsViewModel *facebookNewsViewModel;
-@property(nonatomic,strong) NSArray<WFFacebookFeedModel *> *newsArray;
 
 @end
 
 @implementation WFNewsTableViewController
+
+#pragma mark - Init
 
 - (instancetype)initWithFacebookNewsViewModel:(WFFacebookNewsViewModel *)viewModel
 {
@@ -29,56 +30,47 @@ static NSString * const identifier = @"newsIdentifier";
     if (self)
     {
         _facebookNewsViewModel = viewModel;
+        [self.tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:identifier];
+        [self bindViewModel];
     }
+
     return self;
 }
 
-- (void)viewDidLoad
+#pragma mark - Binding
+
+- (void)bindViewModel
 {
-    [super viewDidLoad];
-    [self.tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:identifier];
-    RAC(self,newsArray) = RACObserve(self.facebookNewsViewModel, facebookNews);
-    [RACObserve(self, newsArray) subscribeNext:^(id news) {
+    RAC(self,datasArray) = RACObserve(self.facebookNewsViewModel, facebookNews);
+    [RACObserve(self, datasArray) subscribeNext:^(id news) {
         if(news)
         {
-            [self.tableView reloadData];
+            [self.loadindActivityIndicator stopAnimating];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [UIView transitionWithView:self.tableView
+                                  duration:0.25f
+                                   options:UIViewAnimationOptionTransitionCrossDissolve
+                                animations:^(void) {
+                                    [self.tableView reloadData];
+                                } completion:NULL];        
+            });
         }
     }];
-}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
+    self.dataRefreshControl.rac_command = self.facebookNewsViewModel.executeGetNews;
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section
-{
-    return [self.newsArray count];
-}
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier
-                                                                forIndexPath:indexPath];
-    [cell setupCellWithModel:self.newsArray[indexPath.row]];
-    [WFDownloadImageService downloadImage:self.newsArray[indexPath.row].full_picture
-                                  forCell:cell];
-    return cell;
-}
+    WFFacebookFeedModel *news = (WFFacebookFeedModel *)self.datasArray[indexPath.row];
+    WFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    [cell setupCellWithModel:news];
+    [WFDownloadImageService downloadImage:news.full_picture forCell:cell];
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 75.0f;
+    return cell;
 }
 
 @end

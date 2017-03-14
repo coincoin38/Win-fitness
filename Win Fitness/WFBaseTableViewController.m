@@ -14,24 +14,62 @@
 
 @implementation WFBaseTableViewController
 
+#pragma mark - Views
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.backgroundView = self.loadindActivityIndicator;
+    [self.tableView addSubview:self.dataRefreshControl];
 }
 
-- (void)didReceiveMemoryWarning
+- (UIRefreshControl *)dataRefreshControl
 {
-    [super didReceiveMemoryWarning];
+    if (!_dataRefreshControl)
+    {
+        _dataRefreshControl = [[UIRefreshControl alloc]initWithFrame:CGRectZero];
+    }
+
+    return _dataRefreshControl;
+}
+
+- (UIActivityIndicatorView *)loadindActivityIndicator
+{
+    if (!_loadindActivityIndicator)
+    {
+        _loadindActivityIndicator = [[UIActivityIndicatorView alloc]initWithFrame:CGRectZero];
+        _loadindActivityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+        _loadindActivityIndicator.hidesWhenStopped = YES;
+        [_loadindActivityIndicator startAnimating];
+    }
+    
+    return _loadindActivityIndicator;
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 75.0f;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
+{
+    return [self.datasArray count];
+}
+
+#pragma mark - Memory
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
 }
 
 @end
