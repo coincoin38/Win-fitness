@@ -17,6 +17,5 @@
 @property (strong, nonatomic) RACCommand *executeSearch;
 
 - (instancetype) initWithFacebookServices:(WFFacebookServices *)services;
-- (void)parseModel:(id)json;
 
 @end

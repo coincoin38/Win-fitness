@@ -44,6 +44,7 @@ static NSString * const identifier = @"newsIdentifier";
     @weakify(self)
 
     RAC(self,datasArray) = RACObserve(self.facebookNewsViewModel, facebookNews);
+
     [RACObserve(self, datasArray)
      subscribeNext:^(id news) {
             @strongify(self)
@@ -55,7 +56,7 @@ static NSString * const identifier = @"newsIdentifier";
          @strongify(self);
          [[self.facebookNewsViewModel.executeGetNews execute:self]
           subscribeNext:^(id  _Nullable x) {
-              [self.facebookNewsViewModel parseModel:x];
+              self.facebookNewsViewModel.facebookNews = x;
               [self.dataRefreshControl endRefreshing];
           }];
      }];

@@ -9,6 +9,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "WFFacebookConstants.h"
 #import "WFFaceBookServices.h"
+#import "WFFacebookFeedModel.h"
 
 typedef void (^WFFacebookHandler)(id result,NSError *error);
 
@@ -37,7 +38,16 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
         [self grabNews:^(id result, NSError *error) {
-            [subscriber sendNext:result];
+
+            NSDictionary *dictionary = (NSDictionary *)result;
+            NSMutableArray<WFFacebookFeedModel *> *newsArray = [NSMutableArray new];
+
+            for (NSDictionary * newDictionary in dictionary[@"data"]) {
+                WFFacebookFeedModel * newModel = [[WFFacebookFeedModel alloc]initWithDictionary:newDictionary];
+                [newsArray addObject:newModel];
+            }
+            
+            [subscriber sendNext:newsArray];
             [subscriber sendCompleted];
         }];
         return [RACDisposable disposableWithBlock:^{}];
