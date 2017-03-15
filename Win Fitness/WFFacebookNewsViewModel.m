@@ -24,13 +24,21 @@
     self = [super init];
     if (self) {
         _services = services;
-        @weakify(self)
-        [[self.executeGetNews execute:self]subscribeNext:^(id  _Nullable x) {
-            @strongify(self)
-            self.facebookNews = x;
+        [self start:^(id result, NSError *error) {
+            
         }];
     }
     return self;
+}
+
+- (void)start:(WFFacebookHandler)handler
+{
+    @weakify(self)
+    [[self.executeGetNews execute:self]subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        self.facebookNews = x;
+        handler(x,nil);
+    }];
 }
 
 - (RACCommand *)executeGetNews

@@ -54,11 +54,9 @@ static NSString * const identifier = @"newsIdentifier";
     [[self.dataRefreshControl rac_signalForControlEvents:UIControlEventValueChanged]
      subscribeNext:^(__kindof UIControl * _Nullable x) {
          @strongify(self);
-         [[self.facebookNewsViewModel.executeGetNews execute:self]
-          subscribeNext:^(id  _Nullable x) {
-              self.facebookNewsViewModel.facebookNews = x;
-              [self.dataRefreshControl endRefreshing];
-          }];
+         [self.facebookNewsViewModel start:^(id result, NSError *error) {
+             [self.dataRefreshControl endRefreshing];
+         }];
      }];
 }
 
