@@ -14,7 +14,9 @@
 
 @property (nonatomic, strong) NSArray<WFFacebookFeedModel *> *facebookNews;
 @property (nonatomic, strong) RACCommand *executeGetNews;
+@property (strong, nonatomic) RACCommand *executeSearch;
 
 - (instancetype) initWithFacebookServices:(WFFacebookServices *)services;
+- (void)parseModel:(id)json;
 
 @end

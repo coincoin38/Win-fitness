@@ -16,4 +16,6 @@
 @property(nonatomic,strong) UIActivityIndicatorView *loadindActivityIndicator;
 @property(nonatomic,strong) UIRefreshControl *dataRefreshControl;
 
+- (void)reloadTableView;
+
 @end

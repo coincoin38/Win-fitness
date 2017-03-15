@@ -41,23 +41,24 @@ static NSString * const identifier = @"newsIdentifier";
 
 - (void)bindViewModel
 {
+    @weakify(self)
+
     RAC(self,datasArray) = RACObserve(self.facebookNewsViewModel, facebookNews);
-    [RACObserve(self, datasArray) subscribeNext:^(id news) {
-        if(news)
-        {
-            [self.loadindActivityIndicator stopAnimating];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [UIView transitionWithView:self.tableView
-                                  duration:0.25f
-                                   options:UIViewAnimationOptionTransitionCrossDissolve
-                                animations:^(void) {
-                                    [self.tableView reloadData];
-                                } completion:NULL];        
-            });
-        }
+    [RACObserve(self, datasArray)
+     subscribeNext:^(id news) {
+            @strongify(self)
+            [self reloadTableView];
     }];
 
-    self.dataRefreshControl.rac_command = self.facebookNewsViewModel.executeGetNews;
+    [[self.dataRefreshControl rac_signalForControlEvents:UIControlEventValueChanged]
+     subscribeNext:^(__kindof UIControl * _Nullable x) {
+         @strongify(self);
+         [[self.facebookNewsViewModel.executeGetNews execute:self]
+          subscribeNext:^(id  _Nullable x) {
+              [self.facebookNewsViewModel parseModel:x];
+              [self.dataRefreshControl endRefreshing];
+          }];
+     }];
 }
 
 #pragma mark - Table view data source

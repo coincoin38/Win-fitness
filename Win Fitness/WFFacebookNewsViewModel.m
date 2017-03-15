@@ -24,20 +24,26 @@
     self = [super init];
     if (self) {
         _services = services;
+        @weakify(self)
         [[self.executeGetNews execute:self]subscribeNext:^(id  _Nullable x) {
-            NSDictionary *dictionary = (NSDictionary *)x;
-            NSMutableArray<WFFacebookFeedModel *> *newsArray = [NSMutableArray new];
-            
-            for (NSDictionary * newDictionary in dictionary[@"data"]) {
-                WFFacebookFeedModel * newModel = [[WFFacebookFeedModel alloc]initWithDictionary:newDictionary];
-                [newsArray addObject:newModel];
-            }
-            
-            self.facebookNews = [newsArray copy];
-            NSLog(@"data %@",x);
+            @strongify(self)
+            [self parseModel:x];
         }];
     }
     return self;
+}
+
+- (void)parseModel:(id)json
+{
+    NSDictionary *dictionary = (NSDictionary *)json;
+    NSMutableArray<WFFacebookFeedModel *> *newsArray = [NSMutableArray new];
+
+    for (NSDictionary * newDictionary in dictionary[@"data"]) {
+        WFFacebookFeedModel * newModel = [[WFFacebookFeedModel alloc]initWithDictionary:newDictionary];
+        [newsArray addObject:newModel];
+    }
+
+    self.facebookNews = [newsArray copy];
 }
 
 - (RACCommand *)executeGetNews
