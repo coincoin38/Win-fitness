@@ -19,20 +19,16 @@
 
 @implementation WFFacebookNewsViewModel
 
-- (instancetype) initWithFacebookServices:(WFFacebookServices *)services
-{
+- (instancetype) initWithFacebookServices:(WFFacebookServices *)services {
     self = [super init];
     if (self) {
         _services = services;
-        [self start:^(id result, NSError *error) {
-            
-        }];
+        [self start:^(id result __unused, NSError *error __unused) {}];
     }
     return self;
 }
 
-- (void)start:(WFFacebookHandler)handler
-{
+- (void)start:(WFFacebookHandler)handler {
     @weakify(self)
     [[self.executeGetNews execute:self]subscribeNext:^(id  _Nullable x) {
         @strongify(self)
@@ -41,15 +37,13 @@
     }];
 }
 
-- (RACCommand *)executeGetNews
-{
+- (RACCommand *)executeGetNews {
     return [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         return [self executeGetNewsSignal];
     }];
 }
 
-- (RACSignal *)executeGetNewsSignal
-{
+- (RACSignal *)executeGetNewsSignal {
     return [[self.services newsGetSignal]deliverOnMainThread];
 }
 

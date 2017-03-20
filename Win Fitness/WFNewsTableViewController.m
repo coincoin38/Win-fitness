@@ -24,32 +24,33 @@ static NSString * const identifier = @"newsIdentifier";
 
 #pragma mark - Init
 
-- (instancetype)initWithFacebookNewsViewModel:(WFFacebookNewsViewModel *)viewModel
-{
+- (instancetype)initWithFacebookNewsViewModel:(WFFacebookNewsViewModel *)viewModel {
     self = [super init];
-    if (self)
-    {
+    
+    if (self) {
         _facebookNewsViewModel = viewModel;
         [self.tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:identifier];
         [self bindViewModel];
     }
-
     return self;
 }
 
 #pragma mark - Binding
 
-- (void)bindViewModel
-{
+- (void)bindViewModel {
     @weakify(self)
 
     RAC(self,datasArray) = RACObserve(self.facebookNewsViewModel, facebookNews);
 
     [RACObserve(self, datasArray)
      subscribeNext:^(id news) {
-            @strongify(self)
-            [self reloadTableView];
-    }];
+         @strongify(self)
+
+         if (news) {
+             [self.loadindActivityIndicator stopAnimating];
+             [self reloadTableView];
+         }
+     }];
 
     [[self.dataRefreshControl rac_signalForControlEvents:UIControlEventValueChanged]
      subscribeNext:^(__kindof UIControl * _Nullable x) {
@@ -62,9 +63,7 @@ static NSString * const identifier = @"newsIdentifier";
 
 #pragma mark - Table view data source
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WFFacebookFeedModel *news = (WFFacebookFeedModel *)self.datasArray[indexPath.row];
     WFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     [cell setupCellWithModel:news];

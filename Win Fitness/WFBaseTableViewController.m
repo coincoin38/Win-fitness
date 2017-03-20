@@ -16,39 +16,31 @@
 
 #pragma mark - Views
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.backgroundView = self.loadindActivityIndicator;
     [self.tableView addSubview:self.dataRefreshControl];
 }
 
-- (UIRefreshControl *)dataRefreshControl
-{
-    if (!_dataRefreshControl)
-    {
+- (UIRefreshControl *)dataRefreshControl {
+    if (!_dataRefreshControl) {
         _dataRefreshControl = [[UIRefreshControl alloc]initWithFrame:CGRectZero];
     }
-
     return _dataRefreshControl;
 }
 
-- (UIActivityIndicatorView *)loadindActivityIndicator
-{
-    if (!_loadindActivityIndicator)
-    {
+- (UIActivityIndicatorView *)loadindActivityIndicator {
+    if (!_loadindActivityIndicator) {
         _loadindActivityIndicator = [[UIActivityIndicatorView alloc]initWithFrame:CGRectZero];
         _loadindActivityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
         _loadindActivityIndicator.hidesWhenStopped = YES;
         [_loadindActivityIndicator startAnimating];
     }
-    
     return _loadindActivityIndicator;
 }
 
-- (void)reloadTableView
-{
+- (void)reloadTableView {
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIView transitionWithView:self.tableView
                           duration:0.25f
@@ -61,26 +53,21 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 75.0f;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.datasArray count];
 }
 
 #pragma mark - Memory
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 

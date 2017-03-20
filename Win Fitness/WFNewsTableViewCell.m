@@ -22,34 +22,27 @@
 
 #pragma mark - init
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib{
     [super awakeFromNib];
 }
 
-- (UIImageView *)newsImage
-{
-    if (!_newsImage)
-    {
+- (UIImageView *)newsImage {
+    if (!_newsImage) {
         _newsImage = [[UIImageView alloc]initWithFrame:CGRectZero];
         _newsImage.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _newsImage;
 }
 
-- (UILabel *)dayLabel
-{
-    if (!_dayLabel)
-    {
+- (UILabel *)dayLabel {
+    if (!_dayLabel) {
         _dayLabel = [[UILabel alloc]initWithFrame:CGRectZero];
     }
     return _dayLabel;
 }
 
-- (UITextView *)bodyTextView
-{
-    if (!_bodyTextView)
-    {
+- (UITextView *)bodyTextView {
+    if (!_bodyTextView) {
         _bodyTextView = [[UITextView alloc]initWithFrame:CGRectZero];
         _bodyTextView.scrollEnabled = NO;
         _bodyTextView.userInteractionEnabled = NO;
@@ -60,8 +53,7 @@
 
 #pragma mark - Data
 
-- (void)setupCellWithModel:(WFFacebookFeedModel *)model
-{
+- (void)setupCellWithModel:(WFFacebookFeedModel *)model {
     self.facebookModel = model;
     self.dayLabel.text = model.created_time;
     self.bodyTextView.text = model._description;
@@ -71,15 +63,13 @@
 
 #pragma mark - User Interface Elements
 
-- (void)setupView
-{
+- (void)setupView {
     [self addSubview:self.newsImage];
     [self addSubview:self.bodyTextView];
     [self addSubview:self.dayLabel];
 }
 
-- (void)setupConstraints
-{
+- (void)setupConstraints {
     [self.newsImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top);
         make.bottom.equalTo(self.mas_bottom);
@@ -104,8 +94,7 @@
 
 #pragma mark - User Actions
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
 

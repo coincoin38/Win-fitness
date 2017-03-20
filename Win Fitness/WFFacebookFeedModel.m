@@ -10,8 +10,7 @@
 
 @implementation WFFacebookFeedModel
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary
-{    
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {    
     if ((self = [super init])) {
         _identifier  = dictionary[@"id"];
         __description = dictionary[@"description"];

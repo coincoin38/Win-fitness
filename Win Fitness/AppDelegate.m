@@ -23,13 +23,11 @@
 
 @implementation AppDelegate
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
+- (void)applicationDidBecomeActive:(UIApplication *)application {
     [FBSDKAppEvents activateApp];
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
     
@@ -50,8 +48,7 @@
     return YES;
 }
 
-- (UIViewController *)createInitialViewController
-{
+- (UIViewController *)createInitialViewController {
     self.facebookServices = [[WFFacebookServices alloc] init];
     self.facebookNewsViewModel = [[WFFacebookNewsViewModel alloc] initWithFacebookServices:self.facebookServices];
     
