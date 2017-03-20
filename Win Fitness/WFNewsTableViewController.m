@@ -47,7 +47,9 @@ static NSString * const identifier = @"newsIdentifier";
          @strongify(self)
 
          if (news) {
-             [self.loadindActivityIndicator stopAnimating];
+             if ([self.loadindActivityIndicator isAnimating]) {
+                 [self.loadindActivityIndicator stopAnimating];
+             }
              [self reloadTableView];
          }
      }];
