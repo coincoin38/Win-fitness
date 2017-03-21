@@ -12,12 +12,14 @@
 
 @implementation WFDownloadImageService
 
-+ (void)downloadImage:(NSString *)urlString forCell:(WFNewsTableViewCell *)cell {
++ (void)downloadImage:(NSString *)urlString forCell:(WFNewsTableViewCell *)cell
+{
     __weak WFNewsTableViewCell *weakCell = cell;
     UIImage *defaultImage = [UIImage imageNamed:@"logo_winfitness"];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     
-    if (urlString) {
+    if (urlString)
+    {
         [cell.newsImage setImageWithURLRequest:request
                               placeholderImage:defaultImage
                                        success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
@@ -25,7 +27,8 @@
                                            [weakCell setNeedsLayout];
                                        } failure:nil];
     }
-    else {
+    else
+    {
         cell.newsImage.image = defaultImage;
     }
 }
