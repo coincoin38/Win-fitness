@@ -70,7 +70,6 @@ static NSString * const identifier = @"newsIdentifier";
     WFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     [cell setupCellWithModel:news];
     [WFDownloadImageService downloadImage:news.full_picture forCell:cell];
-
     return cell;
 }
 

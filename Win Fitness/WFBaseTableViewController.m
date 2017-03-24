@@ -21,6 +21,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.backgroundView = self.loadindActivityIndicator;
     [self.tableView addSubview:self.dataRefreshControl];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (UIRefreshControl *)dataRefreshControl {

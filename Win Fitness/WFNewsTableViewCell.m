@@ -10,10 +10,11 @@
 #import <Masonry/Masonry.h>
 #import "WFFacebookFeedModel.h"
 #import "WFDatesConverter.h"
+#import "WFCustomLabel.h"
 
 @interface WFNewsTableViewCell ()
 
-@property(nonatomic,strong) UILabel *dayLabel;
+@property(nonatomic,strong) WFCustomLabel *dayLabel;
 @property(nonatomic,strong) UITextView *bodyTextView;
 @property(nonatomic,strong) WFFacebookFeedModel *facebookModel;
 
@@ -38,9 +39,7 @@
 
 - (UILabel *)dayLabel {
     if (!_dayLabel) {
-        _dayLabel = [[UILabel alloc]initWithFrame:CGRectZero];
-        _dayLabel.font = [UIFont boldSystemFontOfSize:12];
-        _dayLabel.backgroundColor = [UIColor whiteColor];
+        _dayLabel = [[WFCustomLabel alloc]initWithFrame:CGRectZero andStyle:DateStyle];
     }
     return _dayLabel;
 }
@@ -52,7 +51,6 @@
         _bodyTextView.userInteractionEnabled = NO;
         _bodyTextView.textAlignment = NSTextAlignmentJustified;
         _bodyTextView.font = [UIFont systemFontOfSize:14];
-        _bodyTextView.backgroundColor = [UIColor whiteColor];
     }
     return _bodyTextView;
 }
@@ -60,6 +58,8 @@
 #pragma mark - Data
 
 - (void)setupCellWithModel:(WFFacebookFeedModel *)model {
+
+    self.backgroundColor = [UIColor redColor];
     self.facebookModel = model;
     self.dayLabel.text = [WFDatesConverter formatMMddFromDateString:model.created_time];
     self.bodyTextView.text = model._description;
@@ -79,13 +79,14 @@
     [self.newsImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left);
         make.top.equalTo(self.mas_top);
-        make.bottom.equalTo(self.mas_bottom);
-        make.width.equalTo(@75);
+        make.bottom.equalTo(self.mas_bottom).offset(-1);
+        make.width.equalTo(@74);
     }];
 
     [self.dayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.newsImage.mas_right).offset(5);
+        make.left.equalTo(self.newsImage.mas_right);
         make.top.equalTo(self.mas_top);
+        make.right.equalTo(self.mas_right);
         make.height.equalTo(@20);
     }];
     
@@ -93,7 +94,7 @@
         make.left.equalTo(self.newsImage.mas_right);
         make.top.equalTo(self.dayLabel.mas_bottom);
         make.right.equalTo(self.mas_right);
-        make.bottom.equalTo(self.mas_bottom);
+        make.bottom.equalTo(self.mas_bottom).offset(-1);
     }];
 }
 

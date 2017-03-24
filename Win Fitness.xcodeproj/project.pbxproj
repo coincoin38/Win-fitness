@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		130E4B631E812202001C33DE /* WFDatesConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E4B621E812202001C33DE /* WFDatesConverter.m */; };
 		1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */; };
+		136342CC1E85308900BBBCC6 /* WFCustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 136342CB1E85308900BBBCC6 /* WFCustomLabel.m */; };
 		13A3D4241E68A39E00B38EEF /* WFNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3D4231E68A39E00B38EEF /* WFNewsTableViewController.m */; };
 		13A3D4271E697F5000B38EEF /* WFBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3D4261E697F5000B38EEF /* WFBaseTableViewController.m */; };
 		13B926071E64C430003E7DD0 /* WFFacebookServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B926061E64C430003E7DD0 /* WFFacebookServices.m */; };
@@ -29,6 +30,8 @@
 		130E4B621E812202001C33DE /* WFDatesConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFDatesConverter.m; sourceTree = "<group>"; };
 		1348EC571E66150100FA3843 /* WFFacebookFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookFeedModel.h; sourceTree = "<group>"; };
 		1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookFeedModel.m; sourceTree = "<group>"; };
+		136342CA1E85308900BBBCC6 /* WFCustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFCustomLabel.h; sourceTree = "<group>"; };
+		136342CB1E85308900BBBCC6 /* WFCustomLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFCustomLabel.m; sourceTree = "<group>"; };
 		13A3D4221E68A39D00B38EEF /* WFNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNewsTableViewController.h; sourceTree = "<group>"; };
 		13A3D4231E68A39E00B38EEF /* WFNewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsTableViewController.m; sourceTree = "<group>"; };
 		13A3D4251E697F5000B38EEF /* WFBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBaseTableViewController.h; sourceTree = "<group>"; };
@@ -71,6 +74,8 @@
 			children = (
 				130E4B611E812202001C33DE /* WFDatesConverter.h */,
 				130E4B621E812202001C33DE /* WFDatesConverter.m */,
+				136342CA1E85308900BBBCC6 /* WFCustomLabel.h */,
+				136342CB1E85308900BBBCC6 /* WFCustomLabel.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -247,7 +252,7 @@
 				TargetAttributes = {
 					13E3281C1E64AB9D00F1A4EC = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 27X585C4QL;
+						DevelopmentTeam = BQ534PD778;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -341,6 +346,7 @@
 				13E328221E64AB9D00F1A4EC /* main.m in Sources */,
 				13DAA9C41E672D3400C8F343 /* WFFacebookNewsViewModel.m in Sources */,
 				1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */,
+				136342CC1E85308900BBBCC6 /* WFCustomLabel.m in Sources */,
 				13A3D4271E697F5000B38EEF /* WFBaseTableViewController.m in Sources */,
 				13DAA9C11E65AA3900C8F343 /* WFFacebookConstants.m in Sources */,
 				13F3F2E61E6EEF9F007ABCD2 /* WFDownloadImageService.m in Sources */,
@@ -403,7 +409,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -444,7 +450,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -456,10 +462,11 @@
 			baseConfigurationReference = F7DB2C4EE4DDD48508778454 /* Pods-Win Fitness.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 27X585C4QL;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = BQ534PD778;
 				INFOPLIST_FILE = "Win Fitness/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "julieng38.Win-Fitness";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sqli.Win-Fitness";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -470,10 +477,11 @@
 			baseConfigurationReference = DFA6135EA312EC0F07715376 /* Pods-Win Fitness.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 27X585C4QL;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = BQ534PD778;
 				INFOPLIST_FILE = "Win Fitness/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "julieng38.Win-Fitness";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sqli.Win-Fitness";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
