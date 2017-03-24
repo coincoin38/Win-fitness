@@ -10,12 +10,13 @@
 #import <Masonry/Masonry.h>
 #import "WFFacebookFeedModel.h"
 #import "WFDatesConverter.h"
-#import "WFCustomLabel.h"
+#import "WFDayCellLabel.h"
+#import "WFCustomTextView.h"
 
 @interface WFNewsTableViewCell ()
 
-@property(nonatomic,strong) WFCustomLabel *dayLabel;
-@property(nonatomic,strong) UITextView *bodyTextView;
+@property(nonatomic,strong) WFDayCellLabel *dayLabel;
+@property(nonatomic,strong) WFCustomTextView *bodyTextView;
 @property(nonatomic,strong) WFFacebookFeedModel *facebookModel;
 
 @end
@@ -39,18 +40,14 @@
 
 - (UILabel *)dayLabel {
     if (!_dayLabel) {
-        _dayLabel = [[WFCustomLabel alloc]initWithFrame:CGRectZero andStyle:DateStyle];
+        _dayLabel = [[WFDayCellLabel alloc]initWithFrame:CGRectZero];
     }
     return _dayLabel;
 }
 
 - (UITextView *)bodyTextView {
     if (!_bodyTextView) {
-        _bodyTextView = [[UITextView alloc]initWithFrame:CGRectZero];
-        _bodyTextView.scrollEnabled = NO;
-        _bodyTextView.userInteractionEnabled = NO;
-        _bodyTextView.textAlignment = NSTextAlignmentJustified;
-        _bodyTextView.font = [UIFont systemFontOfSize:14];
+        _bodyTextView = [[WFCustomTextView alloc]initWithFrame:CGRectZero];
     }
     return _bodyTextView;
 }
@@ -58,8 +55,7 @@
 #pragma mark - Data
 
 - (void)setupCellWithModel:(WFFacebookFeedModel *)model {
-
-    self.backgroundColor = [UIColor redColor];
+    self.backgroundColor = [UIColor lightGrayColor];
     self.facebookModel = model;
     self.dayLabel.text = [WFDatesConverter formatMMddFromDateString:model.created_time];
     self.bodyTextView.text = model._description;

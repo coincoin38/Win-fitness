@@ -8,13 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
-    DateStyle = 1,
-    DescriptionStyle
-} styles;
+@interface WFDayCellLabel : UILabel
 
-@interface WFCustomLabel : UILabel
-
-- (instancetype)initWithFrame:(CGRect)frame andStyle:(styles)type;
+- (instancetype)initWithFrame:(CGRect)frame;
 
 @end

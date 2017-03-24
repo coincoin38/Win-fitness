@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 @class WFNewsTableViewCell;
 
 @interface WFDownloadImageService : NSObject
 
 + (void)downloadImage:(NSString *)urlString forCell:(WFNewsTableViewCell *)cell;
++ (void)downloadImage:(NSString *)urlString forUIImageView:(UIImageView *)imageView;
 
 @end

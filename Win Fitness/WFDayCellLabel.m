@@ -6,23 +6,17 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFCustomLabel.h"
+#import "WFDayCellLabel.h"
 
-@implementation WFCustomLabel
+@implementation WFDayCellLabel
 
-- (instancetype)initWithFrame:(CGRect)frame andStyle:(styles)type {
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        if (type == DateStyle) {
-            [self setDayStyle];
-        }
+        self.font = [UIFont boldSystemFontOfSize:12];
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
-}
-
-- (void)setDayStyle {
-    self.font = [UIFont boldSystemFontOfSize:12];
-    self.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)drawRect:(CGRect)rect {

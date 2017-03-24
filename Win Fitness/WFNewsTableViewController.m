@@ -11,6 +11,7 @@
 #import "WFFacebookFeedModel.h"
 #import "WFNewsTableViewCell.h"
 #import "WFDownloadImageService.h"
+#import "WFNewsViewController.h"
 
 static NSString * const identifier = @"newsIdentifier";
 
@@ -31,6 +32,7 @@ static NSString * const identifier = @"newsIdentifier";
         _facebookNewsViewModel = viewModel;
         [self.tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:identifier];
         [self bindViewModel];
+        self.title = NSLocalizedString(@"NEWS", nil);
     }
     return self;
 }
@@ -71,6 +73,12 @@ static NSString * const identifier = @"newsIdentifier";
     [cell setupCellWithModel:news];
     [WFDownloadImageService downloadImage:news.full_picture forCell:cell];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    WFFacebookFeedModel *news = (WFFacebookFeedModel *)self.datasArray[indexPath.row];
+    WFNewsViewController * newsViewController = [[WFNewsViewController alloc]initWithNews:news];
+    [self.navigationController pushViewController:newsViewController animated:YES];
 }
 
 @end

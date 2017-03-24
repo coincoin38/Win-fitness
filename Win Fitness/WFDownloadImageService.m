@@ -12,8 +12,7 @@
 
 @implementation WFDownloadImageService
 
-+ (void)downloadImage:(NSString *)urlString forCell:(WFNewsTableViewCell *)cell
-{
++ (void)downloadImage:(NSString *)urlString forCell:(WFNewsTableViewCell *)cell {
     __weak WFNewsTableViewCell *weakCell = cell;
     UIImage *defaultImage = [UIImage imageNamed:@"logo_winfitness"];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
@@ -30,6 +29,26 @@
     else
     {
         cell.newsImage.image = defaultImage;
+    }
+}
+
++ (void)downloadImage:(NSString *)urlString forUIImageView:(UIImageView *)imageView {
+    __weak UIImageView *weakImage = imageView;
+    UIImage *defaultImage = [UIImage imageNamed:@"logo_winfitness"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+
+    if (urlString)
+    {
+        [imageView setImageWithURLRequest:request
+                              placeholderImage:defaultImage
+                                       success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+                                           weakImage.image = image;
+                                           [weakImage setNeedsLayout];
+                                       } failure:nil];
+    }
+    else
+    {
+        weakImage.image = defaultImage;
     }
 }
 
