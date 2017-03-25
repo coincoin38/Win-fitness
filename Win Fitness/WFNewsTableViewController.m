@@ -30,11 +30,27 @@ static NSString * const identifier = @"newsIdentifier";
     
     if (self) {
         _facebookNewsViewModel = viewModel;
-        [self.tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:identifier];
-        [self bindViewModel];
-        self.title = NSLocalizedString(@"NEWS", nil);
     }
     return self;
+}
+
+- (void)setupViews {
+    [self.tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:identifier];
+    self.title = NSLocalizedString(@"NEWS", nil);
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"BACK", nil)
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:nil
+                                                                            action:nil];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.backgroundView = self.loadindActivityIndicator;
+    [self.tableView addSubview:self.dataRefreshControl];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self setupViews];
+    [self bindViewModel];
 }
 
 #pragma mark - Binding

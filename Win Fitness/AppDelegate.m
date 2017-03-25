@@ -32,6 +32,8 @@
                              didFinishLaunchingWithOptions:launchOptions];
     
     self.navigationController = [UINavigationController new];
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor orangeColor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
