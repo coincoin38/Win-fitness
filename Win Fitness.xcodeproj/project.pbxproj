@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		130E4B631E812202001C33DE /* WFDatesConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E4B621E812202001C33DE /* WFDatesConverter.m */; };
+		132BAB821E89554300471DBB /* WFFacebookFeedModel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 132BAB811E89554300471DBB /* WFFacebookFeedModel+Additions.m */; };
 		1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */; };
 		136342CC1E85308900BBBCC6 /* WFDayCellLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 136342CB1E85308900BBBCC6 /* WFDayCellLabel.m */; };
 		138A1CF71E856CC10010D83D /* WFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138A1CF61E856CC10010D83D /* WFBaseViewController.m */; };
@@ -32,6 +33,8 @@
 		0EF74C24827EAF855223A2C0 /* libPods-Win Fitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Win Fitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		130E4B611E812202001C33DE /* WFDatesConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFDatesConverter.h; sourceTree = "<group>"; };
 		130E4B621E812202001C33DE /* WFDatesConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFDatesConverter.m; sourceTree = "<group>"; };
+		132BAB801E89554300471DBB /* WFFacebookFeedModel+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WFFacebookFeedModel+Additions.h"; sourceTree = "<group>"; };
+		132BAB811E89554300471DBB /* WFFacebookFeedModel+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WFFacebookFeedModel+Additions.m"; sourceTree = "<group>"; };
 		1348EC571E66150100FA3843 /* WFFacebookFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookFeedModel.h; sourceTree = "<group>"; };
 		1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookFeedModel.m; sourceTree = "<group>"; };
 		136342CA1E85308900BBBCC6 /* WFDayCellLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFDayCellLabel.h; sourceTree = "<group>"; };
@@ -101,9 +104,19 @@
 			name = Download;
 			sourceTree = "<group>";
 		};
+		132BAB7F1E89550700471DBB /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				132BAB801E89554300471DBB /* WFFacebookFeedModel+Additions.h */,
+				132BAB811E89554300471DBB /* WFFacebookFeedModel+Additions.m */,
+			);
+			name = Additions;
+			sourceTree = "<group>";
+		};
 		1348EC541E660EC100FA3843 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				132BAB7F1E89550700471DBB /* Additions */,
 				1348EC571E66150100FA3843 /* WFFacebookFeedModel.h */,
 				1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */,
 			);
@@ -403,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				132BAB821E89554300471DBB /* WFFacebookFeedModel+Additions.m in Sources */,
 				13E328251E64AB9D00F1A4EC /* AppDelegate.m in Sources */,
 				13B926071E64C430003E7DD0 /* WFFacebookServices.m in Sources */,
 				13EC255B1E6ABB9A003FC5D4 /* WFNewsTableViewCell.m in Sources */,

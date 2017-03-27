@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface WFFacebookFeedModel : NSObject
 
@@ -17,6 +18,8 @@
 @property(nonatomic,strong) NSString *identifier;
 @property(nonatomic,strong) NSString *type;
 @property(nonatomic,strong) NSArray<NSString *>*actions;
+
+@property(nonatomic,strong) UIImage * downloadedPicture;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

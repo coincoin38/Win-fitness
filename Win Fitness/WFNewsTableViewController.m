@@ -77,7 +77,7 @@ static NSString * const identifier = @"newsIdentifier";
     [[self.dataRefreshControl rac_signalForControlEvents:UIControlEventValueChanged]
      subscribeNext:^(__kindof UIControl * _Nullable x) {
          @strongify(self);
-         [self.facebookNewsViewModel startNewsFeed:^(id result, NSError *error) {
+         [self.facebookNewsViewModel startNewsFeedWithHandler:^(id result, NSError *error) {
              [self.dataRefreshControl endRefreshing];
          }];
      }];
@@ -89,7 +89,7 @@ static NSString * const identifier = @"newsIdentifier";
     WFFacebookFeedModel *news = (WFFacebookFeedModel *)self.datasArray[indexPath.row];
     WFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     [cell setupCellWithModel:news];
-    [WFDownloadImageService downloadImage:news.full_picture forCell:cell];
+    [WFDownloadImageService downloadImage:news.full_picture forCell:cell forNews:news];
     return cell;
 }
 

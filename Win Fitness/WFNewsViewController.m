@@ -7,7 +7,7 @@
 //
 
 #import "WFNewsViewController.h"
-#import "WFFacebookFeedModel.h"
+#import "WFFacebookFeedModel+Additions.h"
 #import "WFDownloadImageService.h"
 #import "WFFacebookNewsViewModel.h"
 #import "WFCustomTextView.h"
@@ -45,14 +45,8 @@
 }
 
 - (void)bindViewModel {
-    [WFDownloadImageService downloadImage:self.facebookNewsViewModel.currentNews.full_picture
-                           forUIImageView:self.newsImage];
-    
-    RAC(self.bodyTextView,text) = RACObserve(self.facebookNewsViewModel, newsDetails);
-
-    [self.facebookNewsViewModel createNewsDetail:^(id result, NSError *error) {
-
-    }];
+    RAC(self.newsImage,image) = RACObserve(self.facebookNewsViewModel, currentNews.downloadedPicture);
+    RAC(self.bodyTextView,text) = RACObserve(self.facebookNewsViewModel, currentNews.bodyDetail);
 }
 
 #pragma mark - User Interface Elements

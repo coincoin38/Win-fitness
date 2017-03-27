@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class WFFacebookFeedModel;
 @class WFNewsTableViewCell;
 
 @interface WFDownloadImageService : NSObject
 
-+ (void)downloadImage:(NSString *)urlString forCell:(WFNewsTableViewCell *)cell;
++ (void)downloadImage:(NSString *)urlString forCell:(WFNewsTableViewCell *)cell forNews:(WFFacebookFeedModel *)newsws;
 + (void)downloadImage:(NSString *)urlString forUIImageView:(UIImageView *)imageView;
 
 @end

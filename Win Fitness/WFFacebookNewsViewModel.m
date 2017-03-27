@@ -23,12 +23,20 @@
     self = [super init];
     if (self) {
         _services = services;
-        [self startNewsFeed:^(id result __unused, NSError *error __unused) {}];
+        [self startNewsFeed];
     }
     return self;
 }
 
-- (void)startNewsFeed:(WFFacebookHandler)handler {
+- (void)startNewsFeed {
+    @weakify(self)
+    [[self.executeGetNews execute:self]subscribeNext:^(id  _Nullable news) {
+        @strongify(self)
+        self.facebookNews = news;
+    }];
+}
+
+- (void)startNewsFeedWithHandler:(WFFacebookHandler)handler {
     @weakify(self)
     [[self.executeGetNews execute:self]subscribeNext:^(id  _Nullable news) {
         @strongify(self)
@@ -37,12 +45,11 @@
     }];
 }
 
-- (void)createNewsDetail:(WFFacebookHandler)handler {
+- (void)createNewsDetail {
     @weakify(self)
     [[self.executeSetNewsDetails execute:self]subscribeNext:^(id  _Nullable newsDetail) {
         @strongify(self)
         self.newsDetails = newsDetail;
-        handler(newsDetail,nil);
     }];
 }
 

@@ -22,7 +22,7 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 @property (nonatomic, strong) RACCommand *executeGetNewsDetails;
 
 - (instancetype) initWithFacebookServices:(WFFacebookServices *)services;
-- (void)startNewsFeed:(WFFacebookHandler)handler;
-- (void)createNewsDetail:(WFFacebookHandler)handler;
+- (void)startNewsFeedWithHandler:(WFFacebookHandler)handler;
+- (void)createNewsDetail;
 
 @end

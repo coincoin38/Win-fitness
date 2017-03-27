@@ -9,11 +9,14 @@
 #import "WFDownloadImageService.h"
 #import "UIImageView+AFNetworking.h"
 #import "WFNewsTableViewCell.h"
+#import "WFFacebookFeedModel.h"
 
 @implementation WFDownloadImageService
 
-+ (void)downloadImage:(NSString *)urlString forCell:(WFNewsTableViewCell *)cell {
++ (void)downloadImage:(NSString *)urlString forCell:(WFNewsTableViewCell *)cell forNews:(WFFacebookFeedModel *)news {
     __weak WFNewsTableViewCell *weakCell = cell;
+    __weak WFFacebookFeedModel *weakNews = news;
+
     UIImage *defaultImage = [UIImage imageNamed:@"logo_winfitness"];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     
@@ -23,6 +26,7 @@
                               placeholderImage:defaultImage
                                        success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
                                            weakCell.newsImage.image = image;
+                                           weakNews.downloadedPicture = image;
                                            [weakCell setNeedsLayout];
                                        } failure:nil];
     }
