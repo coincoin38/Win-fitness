@@ -15,8 +15,8 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 @interface WFFacebookNewsViewModel : NSObject
 
 @property (nonatomic, strong) NSArray<WFFacebookFeedModel *> *facebookNews;
+@property (nonatomic, strong) WFFacebookFeedModel *currentNews;
 @property (nonatomic, strong) RACCommand *executeGetNews;
-@property (strong, nonatomic) RACCommand *executeSearch;
 
 - (instancetype) initWithFacebookServices:(WFFacebookServices *)services;
 - (void)start:(WFFacebookHandler)handler;

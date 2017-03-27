@@ -8,10 +8,10 @@
 
 #import "WFBaseViewController.h"
 
-@class WFFacebookFeedModel;
+@class WFFacebookNewsViewModel;
 
 @interface WFNewsViewController : WFBaseViewController
 
-- (instancetype)initWithNews:(WFFacebookFeedModel *)news;
+- (instancetype)initWithFacebookNewsViewModel:(WFFacebookNewsViewModel *)viewModel;
 
 @end

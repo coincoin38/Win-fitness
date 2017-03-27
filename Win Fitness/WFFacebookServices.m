@@ -16,6 +16,7 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 @interface WFFacebookServices ()
 
 @property (strong, nonatomic) NSString *token;
+@property (strong, nonatomic) WFFacebookFeedModel *currentNews;
 
 @end
 
@@ -23,7 +24,7 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 
 #pragma mark - Init
 
-- (instancetype)init{
+- (instancetype)initNews {
     if ((self = [super init])) {
         _token = nil;
     }

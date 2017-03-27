@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <ReactiveObjC.h>
 
+@class WFFacebookFeedModel;
+
 @interface WFFacebookServices : NSObject
+
+- (instancetype)initNews;
 
 - (RACSignal *)newsGetSignal;
 

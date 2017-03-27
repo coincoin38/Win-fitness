@@ -18,6 +18,7 @@ static NSString * const identifier = @"newsIdentifier";
 @interface WFNewsTableViewController ()
 
 @property(nonatomic,strong) WFFacebookNewsViewModel *facebookNewsViewModel;
+@property(nonatomic,strong) WFFacebookFeedModel *selectedNews;
 
 @end
 
@@ -59,7 +60,8 @@ static NSString * const identifier = @"newsIdentifier";
     @weakify(self)
 
     RAC(self,datasArray) = RACObserve(self.facebookNewsViewModel, facebookNews);
-
+    RAC(self.facebookNewsViewModel,currentNews) = RACObserve(self, selectedNews);
+    
     [RACObserve(self, datasArray)
      subscribeNext:^(id news) {
          @strongify(self)
@@ -92,8 +94,8 @@ static NSString * const identifier = @"newsIdentifier";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    WFFacebookFeedModel *news = (WFFacebookFeedModel *)self.datasArray[indexPath.row];
-    WFNewsViewController * newsViewController = [[WFNewsViewController alloc]initWithNews:news];
+    self.selectedNews = (WFFacebookFeedModel *)self.datasArray[indexPath.row];
+    WFNewsViewController * newsViewController = [[WFNewsViewController alloc]initWithFacebookNewsViewModel:self.facebookNewsViewModel];
     [self.navigationController pushViewController:newsViewController animated:YES];
 }
 

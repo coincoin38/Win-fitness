@@ -9,6 +9,7 @@
 #import "WFNewsViewController.h"
 #import "WFFacebookFeedModel.h"
 #import "WFDownloadImageService.h"
+#import "WFFacebookNewsViewModel.h"
 #import "WFCustomTextView.h"
 
 @interface WFNewsViewController ()
@@ -18,6 +19,7 @@
 @property(nonatomic,strong) UIView *contentView;
 @property(nonatomic,strong) WFCustomTextView *bodyTextView;
 @property(nonatomic,strong) WFFacebookFeedModel *news;
+@property(nonatomic,strong) WFFacebookNewsViewModel *facebookNewsViewModel;
 
 @end
 
@@ -25,11 +27,11 @@
 
 #pragma mark - Init
 
-- (instancetype)initWithNews:(WFFacebookFeedModel *)news {
+- (instancetype)initWithFacebookNewsViewModel:(WFFacebookNewsViewModel *)viewModel {
     self = [super init];
     
     if (self) {
-        _news = news;
+        _news = viewModel.currentNews;
     }
     return self;
 }
@@ -44,6 +46,11 @@
     self.bodyTextView.text = self.news._description;
     [self setupView];
     [self setupConstraints];
+    [self bindViewModel];
+}
+
+- (void)bindViewModel {
+    
 }
 
 #pragma mark - User Interface Elements
