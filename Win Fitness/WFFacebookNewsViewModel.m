@@ -23,17 +23,26 @@
     self = [super init];
     if (self) {
         _services = services;
-        [self start:^(id result __unused, NSError *error __unused) {}];
+        [self startNewsFeed:^(id result __unused, NSError *error __unused) {}];
     }
     return self;
 }
 
-- (void)start:(WFFacebookHandler)handler {
+- (void)startNewsFeed:(WFFacebookHandler)handler {
     @weakify(self)
-    [[self.executeGetNews execute:self]subscribeNext:^(id  _Nullable x) {
+    [[self.executeGetNews execute:self]subscribeNext:^(id  _Nullable news) {
         @strongify(self)
-        self.facebookNews = x;
-        handler(x,nil);
+        self.facebookNews = news;
+        handler(news,nil);
+    }];
+}
+
+- (void)createNewsDetail:(WFFacebookHandler)handler {
+    @weakify(self)
+    [[self.executeSetNewsDetails execute:self]subscribeNext:^(id  _Nullable newsDetail) {
+        @strongify(self)
+        self.newsDetails = newsDetail;
+        handler(newsDetail,nil);
     }];
 }
 
@@ -43,8 +52,18 @@
     }];
 }
 
+- (RACCommand *)executeSetNewsDetails {
+    return [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [self executeGetNewsDetailsSignal];
+    }];
+}
+
 - (RACSignal *)executeGetNewsSignal {
     return [[self.services newsGetSignal]deliverOnMainThread];
+}
+
+- (RACSignal *)executeGetNewsDetailsSignal {
+    return [[self.services detailsNewsGetSignal:self.currentNews]deliverOnMainThread];
 }
 
 @end

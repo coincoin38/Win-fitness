@@ -18,7 +18,6 @@
 @property(nonatomic,strong) UIScrollView *newsScrollView;
 @property(nonatomic,strong) UIView *contentView;
 @property(nonatomic,strong) WFCustomTextView *bodyTextView;
-@property(nonatomic,strong) WFFacebookFeedModel *news;
 @property(nonatomic,strong) WFFacebookNewsViewModel *facebookNewsViewModel;
 
 @end
@@ -31,7 +30,7 @@
     self = [super init];
     
     if (self) {
-        _news = viewModel.currentNews;
+        _facebookNewsViewModel = viewModel;
     }
     return self;
 }
@@ -40,17 +39,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.view.backgroundColor = [UIColor whiteColor];
-    [WFDownloadImageService downloadImage:self.news.full_picture forUIImageView:self.newsImage];
-    self.bodyTextView.text = self.news._description;
     [self setupView];
     [self setupConstraints];
     [self bindViewModel];
 }
 
 - (void)bindViewModel {
+    [WFDownloadImageService downloadImage:self.facebookNewsViewModel.currentNews.full_picture
+                           forUIImageView:self.newsImage];
     
+    RAC(self.bodyTextView,text) = RACObserve(self.facebookNewsViewModel, newsDetails);
+
+    [self.facebookNewsViewModel createNewsDetail:^(id result, NSError *error) {
+
+    }];
 }
 
 #pragma mark - User Interface Elements
@@ -86,6 +88,7 @@
 }
 
 - (void)setupView {
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.newsScrollView];
     [self.newsScrollView addSubview:self.contentView];
     [self.contentView addSubview:self.newsImage];

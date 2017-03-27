@@ -92,6 +92,15 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		132BAB7E1E89155800471DBB /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				13F3F2E41E6EEF9F007ABCD2 /* WFDownloadImageService.h */,
+				13F3F2E51E6EEF9F007ABCD2 /* WFDownloadImageService.m */,
+			);
+			name = Download;
+			sourceTree = "<group>";
+		};
 		1348EC541E660EC100FA3843 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,9 +255,8 @@
 		13F3F2E31E6EEF67007ABCD2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				132BAB7E1E89155800471DBB /* Download */,
 				13B926041E64C3DE003E7DD0 /* Facebook */,
-				13F3F2E41E6EEF9F007ABCD2 /* WFDownloadImageService.h */,
-				13F3F2E51E6EEF9F007ABCD2 /* WFDownloadImageService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";

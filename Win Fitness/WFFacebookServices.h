@@ -14,7 +14,7 @@
 @interface WFFacebookServices : NSObject
 
 - (instancetype)initNews;
-
 - (RACSignal *)newsGetSignal;
+- (RACSignal *)detailsNewsGetSignal:(WFFacebookFeedModel *)news;
 
 @end

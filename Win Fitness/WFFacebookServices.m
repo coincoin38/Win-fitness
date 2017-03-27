@@ -51,6 +51,29 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
     }];
 }
 
+- (RACSignal *)detailsNewsGetSignal:(WFFacebookFeedModel *)news {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+
+        if (news._description && news.message) {
+            NSString * details = [NSString stringWithFormat:@"%@\n\n%@",news.message, news._description];
+            [subscriber sendNext:details];
+        }
+        else if(news.message){
+            [subscriber sendNext:news.message];
+        }
+        else if(news._description){
+            [subscriber sendNext:news._description];
+        }
+        else{
+            [subscriber sendNext:@"No description"];
+        }
+
+        [subscriber sendCompleted];
+
+        return [RACDisposable disposableWithBlock:^{}];
+    }];
+}
+
 #pragma mark - Logic
 
 - (void)grabNews:(WFFacebookHandler)handler {
