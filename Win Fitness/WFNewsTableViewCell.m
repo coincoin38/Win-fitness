@@ -17,7 +17,6 @@
 
 @property(nonatomic,strong) WFDayCellLabel *dayLabel;
 @property(nonatomic,strong) WFCustomTextView *bodyTextView;
-@property(nonatomic,strong) WFFacebookFeedModel *facebookModel;
 
 @end
 

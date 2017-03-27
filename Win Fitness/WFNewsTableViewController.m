@@ -86,10 +86,9 @@ static NSString * const identifier = @"newsIdentifier";
 #pragma mark - Table view data source
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WFFacebookFeedModel *news = (WFFacebookFeedModel *)self.datasArray[indexPath.row];
     WFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    [cell setupCellWithModel:news];
-    [WFDownloadImageService downloadImage:news.full_picture forCell:cell forNews:news];
+    [cell setupCellWithModel:(WFFacebookFeedModel *)self.datasArray[indexPath.row]];
+    [self.facebookNewsViewModel handleImage:cell];
     return cell;
 }
 

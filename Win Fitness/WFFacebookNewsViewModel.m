@@ -10,6 +10,7 @@
 #import "WFFacebookFeedModel.h"
 #import "WFFacebookServices.h"
 #import <ReactiveObjC.h>
+#import "WFDownloadImageService.h"
 
 @interface WFFacebookNewsViewModel ()
 
@@ -43,6 +44,23 @@
         self.facebookNews = news;
         handler(news,nil);
     }];
+}
+
+- (void)handleImage:(WFNewsTableViewCell *)cell {
+
+    if (cell.facebookModel.downloadedPicture) {
+        cell.newsImage.image = cell.facebookModel.downloadedPicture;
+    }
+    else{
+        if (cell.facebookModel.full_picture) {
+            [WFDownloadImageService downloadImage:cell.facebookModel.full_picture
+                                          forCell:cell
+                                          forNews:cell.facebookModel];
+        }
+        else{
+            cell.newsImage.image = [UIImage imageNamed:@"logo_winfitness"];
+        }
+    }
 }
 
 - (void)createNewsDetail {

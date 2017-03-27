@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WFFaceBookServices.h"
+#import "WFNewsTableViewCell.h"
 
 @class WFFacebookFeedModel;
 
@@ -24,5 +25,6 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 - (instancetype) initWithFacebookServices:(WFFacebookServices *)services;
 - (void)startNewsFeedWithHandler:(WFFacebookHandler)handler;
 - (void)createNewsDetail;
+- (void)handleImage:(WFNewsTableViewCell *)cell;
 
 @end

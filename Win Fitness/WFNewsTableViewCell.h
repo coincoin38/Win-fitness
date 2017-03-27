@@ -12,6 +12,7 @@
 @interface WFNewsTableViewCell : UITableViewCell
 
 @property(nonatomic,strong) UIImageView *newsImage;
+@property(nonatomic,strong) WFFacebookFeedModel *facebookModel;
 
 - (void)setupCellWithModel:(WFFacebookFeedModel *)model;
 
