@@ -6,19 +6,19 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFNewsTableViewController.h"
-#import "WFFacebookNewsViewModel.h"
-#import "WFFacebookFeedModel.h"
-#import "WFNewsTableViewCell.h"
 #import "WFDownloadImageService.h"
+#import "WFFacebookFeedModel.h"
+#import "WFFacebookNewsViewModel.h"
+#import "WFNewsTableViewCell.h"
+#import "WFNewsTableViewController.h"
 #import "WFNewsViewController.h"
 
-static NSString * const identifier = @"newsIdentifier";
+static NSString * const cellIdentifier = @"newsIdentifier";
 
 @interface WFNewsTableViewController ()
 
-@property(nonatomic,strong) WFFacebookNewsViewModel *facebookNewsViewModel;
 @property(nonatomic,strong) WFFacebookFeedModel *selectedNews;
+@property(nonatomic,strong) WFFacebookNewsViewModel *facebookNewsViewModel;
 
 @end
 
@@ -36,7 +36,7 @@ static NSString * const identifier = @"newsIdentifier";
 }
 
 - (void)setupViews {
-    [self.tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:identifier];
+    [self.tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:cellIdentifier];
     self.title = NSLocalizedString(@"NEWS", nil);
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"BACK", nil)
                                                                              style:UIBarButtonItemStylePlain
@@ -86,7 +86,7 @@ static NSString * const identifier = @"newsIdentifier";
 #pragma mark - Table view data source
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    WFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     [cell setupCellWithModel:(WFFacebookFeedModel *)self.datasArray[indexPath.row]];
     [self.facebookNewsViewModel startNewsImageDownloadForCell:cell];
     return cell;

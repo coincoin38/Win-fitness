@@ -24,7 +24,7 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 
 #pragma mark - Init
 
-- (instancetype)initNews {
+- (instancetype)initService {
     if ((self = [super init])) {
         _token = nil;
     }
@@ -33,7 +33,7 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 
 #pragma mark - RAC
 
-- (RACSignal *)newsGetSignal {
+- (RACSignal *)newsServiceSignal {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         [self grabNews:^(id result, NSError *error) {
             NSDictionary *dictionary = (NSDictionary *)result;
@@ -51,7 +51,7 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
     }];
 }
 
-- (RACSignal *)detailsNewsGetSignal:(WFFacebookFeedModel *)news {
+- (RACSignal *)detailsNewsServiceSignal:(WFFacebookFeedModel *)news {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
 
         if (news._description && news.message) {
@@ -101,7 +101,7 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 }
 
 - (void)downloadNews:(WFFacebookHandler)handler {
-    [[self grapRequestNewsWithToken:self.token] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+    [[self graphRequestNewsWithToken:self.token] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         handler(result,error);
     }];
 }
@@ -122,7 +122,7 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
                                             parameters:[WFFacebookConstants authTokenParameters]];
 }
 
-- (FBSDKGraphRequest *)grapRequestNewsWithToken:(NSString *)token {
+- (FBSDKGraphRequest *)graphRequestNewsWithToken:(NSString *)token {
     return [[FBSDKGraphRequest alloc]initWithGraphPath:kFeedNews
                                             parameters:[WFFacebookConstants newsParameters]
                                            tokenString:token

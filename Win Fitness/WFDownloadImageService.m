@@ -6,10 +6,10 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFDownloadImageService.h"
 #import "UIImageView+AFNetworking.h"
-#import "WFNewsTableViewCell.h"
+#import "WFDownloadImageService.h"
 #import "WFFacebookFeedModel.h"
+#import "WFNewsTableViewCell.h"
 
 @implementation WFDownloadImageService
 

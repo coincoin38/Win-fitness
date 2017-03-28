@@ -6,9 +6,9 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <ReactiveObjC.h>
 #import <Masonry/Masonry.h>
+#import <ReactiveObjC.h>
+#import <UIKit/UIKit.h>
 
 @interface WFBaseViewController : UIViewController
 

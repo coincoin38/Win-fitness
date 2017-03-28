@@ -6,17 +6,17 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFNewsTableViewCell.h"
 #import <Masonry/Masonry.h>
-#import "WFFacebookFeedModel.h"
+#import "WFCustomTextView.h"
 #import "WFDatesConverter.h"
 #import "WFDayCellLabel.h"
-#import "WFCustomTextView.h"
+#import "WFFacebookFeedModel.h"
+#import "WFNewsTableViewCell.h"
 
 @interface WFNewsTableViewCell ()
 
-@property(nonatomic,strong) WFDayCellLabel *dayLabel;
 @property(nonatomic,strong) WFCustomTextView *bodyTextView;
+@property(nonatomic,strong) WFDayCellLabel *dayLabel;
 
 @end
 

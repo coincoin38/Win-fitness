@@ -6,11 +6,11 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFNewsViewController.h"
-#import "WFFacebookFeedModel+Additions.h"
-#import "WFDownloadImageService.h"
-#import "WFFacebookNewsViewModel.h"
 #import "WFCustomTextView.h"
+#import "WFDownloadImageService.h"
+#import "WFFacebookFeedModel+Additions.h"
+#import "WFFacebookNewsViewModel.h"
+#import "WFNewsViewController.h"
 
 @interface WFNewsViewController ()
 

@@ -6,11 +6,11 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFFacebookNewsViewModel.h"
-#import "WFFacebookFeedModel.h"
-#import "WFFacebookServices.h"
-#import <ReactiveObjC.h>
 #import "WFDownloadImageService.h"
+#import "WFFacebookFeedModel.h"
+#import "WFFacebookNewsViewModel.h"
+#import "WFFacebookServices.h"
+#import "WFNewsTableViewCell.h"
 
 @interface WFFacebookNewsViewModel ()
 
@@ -91,11 +91,11 @@
 #pragma mark - Signals
 
 - (RACSignal *)newsSignal {
-    return [[self.services newsGetSignal]deliverOnMainThread];
+    return [[self.services newsServiceSignal]deliverOnMainThread];
 }
 
 - (RACSignal *)newsDetailsSignal {
-    return [[self.services detailsNewsGetSignal:self.currentNews]deliverOnMainThread];
+    return [[self.services detailsNewsServiceSignal:self.currentNews]deliverOnMainThread];
 }
 
 @end

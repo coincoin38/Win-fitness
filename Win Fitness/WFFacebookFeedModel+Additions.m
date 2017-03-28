@@ -11,7 +11,6 @@
 @implementation WFFacebookFeedModel (Additions)
 
 - (NSString *)bodyDetail {
-
     if (self._description && self.message) {
         return [NSString stringWithFormat:@"%@\n\n%@",self.message, self._description];
     }
@@ -22,7 +21,7 @@
        return self._description;
     }
     else{
-        return @"No description";
+        return NSLocalizedString(@"NO DESCRIPTION", nil);
     }
 }
 
