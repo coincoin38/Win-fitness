@@ -8,9 +8,8 @@
 
 #import "AppDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import "WFFaceBookServices.h"
+#import "WFFacebookServices.h"
 #import "WFFacebookNewsViewModel.h"
-#import "WFFaceBookServices.h"
 #import "WFNewsTableViewController.h"
 
 @interface AppDelegate ()

@@ -8,7 +8,7 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "WFFacebookConstants.h"
-#import "WFFaceBookServices.h"
+#import "WFFacebookServices.h"
 #import "WFFacebookFeedModel.h"
 
 typedef void (^WFFacebookHandler)(id result,NSError *error);

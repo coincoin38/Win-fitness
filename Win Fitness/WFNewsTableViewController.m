@@ -77,7 +77,7 @@ static NSString * const identifier = @"newsIdentifier";
     [[self.dataRefreshControl rac_signalForControlEvents:UIControlEventValueChanged]
      subscribeNext:^(__kindof UIControl * _Nullable x) {
          @strongify(self);
-         [self.facebookNewsViewModel startNewsFeedWithHandler:^(id result, NSError *error) {
+         [self.facebookNewsViewModel startNewsDownload:^(id result, NSError *error) {
              [self.dataRefreshControl endRefreshing];
          }];
      }];
@@ -88,7 +88,7 @@ static NSString * const identifier = @"newsIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     [cell setupCellWithModel:(WFFacebookFeedModel *)self.datasArray[indexPath.row]];
-    [self.facebookNewsViewModel handleImage:cell];
+    [self.facebookNewsViewModel startNewsImageDownloadForCell:cell];
     return cell;
 }
 

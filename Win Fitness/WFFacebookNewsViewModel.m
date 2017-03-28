@@ -20,34 +20,37 @@
 
 @implementation WFFacebookNewsViewModel
 
+#pragma mark - Init
+
 - (instancetype) initWithFacebookServices:(WFFacebookServices *)services {
     self = [super init];
     if (self) {
         _services = services;
-        [self startNewsFeed];
+        [self startNewsDownload];
     }
     return self;
 }
 
-- (void)startNewsFeed {
+#pragma mark - Start processes
+
+- (void)startNewsDownload {
     @weakify(self)
-    [[self.executeGetNews execute:self]subscribeNext:^(id  _Nullable news) {
+    [[self.newsCommand execute:self]subscribeNext:^(id  _Nullable news) {
         @strongify(self)
         self.facebookNews = news;
     }];
 }
 
-- (void)startNewsFeedWithHandler:(WFFacebookHandler)handler {
+- (void)startNewsDownload:(WFFacebookHandler)handler {
     @weakify(self)
-    [[self.executeGetNews execute:self]subscribeNext:^(id  _Nullable news) {
+    [[self.newsCommand execute:self]subscribeNext:^(id  _Nullable news) {
         @strongify(self)
         self.facebookNews = news;
         handler(news,nil);
     }];
 }
 
-- (void)handleImage:(WFNewsTableViewCell *)cell {
-
+- (void)startNewsImageDownloadForCell:(WFNewsTableViewCell *)cell {
     if (cell.facebookModel.downloadedPicture) {
         cell.newsImage.image = cell.facebookModel.downloadedPicture;
     }
@@ -63,31 +66,35 @@
     }
 }
 
-- (void)createNewsDetail {
+- (void)startNewsDetailCreation {
     @weakify(self)
-    [[self.executeSetNewsDetails execute:self]subscribeNext:^(id  _Nullable newsDetail) {
+    [[self.newsDetailsCommand execute:self]subscribeNext:^(id  _Nullable newsDetail) {
         @strongify(self)
         self.newsDetails = newsDetail;
     }];
 }
 
-- (RACCommand *)executeGetNews {
+#pragma mark - Commands
+
+- (RACCommand *)newsCommand {
     return [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        return [self executeGetNewsSignal];
+        return [self newsSignal];
     }];
 }
 
-- (RACCommand *)executeSetNewsDetails {
+- (RACCommand *)newsDetailsCommand {
     return [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        return [self executeGetNewsDetailsSignal];
+        return [self newsDetailsSignal];
     }];
 }
 
-- (RACSignal *)executeGetNewsSignal {
+#pragma mark - Signals
+
+- (RACSignal *)newsSignal {
     return [[self.services newsGetSignal]deliverOnMainThread];
 }
 
-- (RACSignal *)executeGetNewsDetailsSignal {
+- (RACSignal *)newsDetailsSignal {
     return [[self.services detailsNewsGetSignal:self.currentNews]deliverOnMainThread];
 }
 
