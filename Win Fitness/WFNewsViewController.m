@@ -14,6 +14,7 @@
 
 @interface WFNewsViewController ()
 
+@property(nonatomic,strong) UIBarButtonItem *facebookButton;
 @property(nonatomic,strong) UIImageView *newsImage;
 @property(nonatomic,strong) UIScrollView *newsScrollView;
 @property(nonatomic,strong) UIView *contentView;
@@ -51,6 +52,41 @@
 
 #pragma mark - User Interface Elements
 
+- (void)setupView {
+    self.view.backgroundColor = [UIColor whiteColor];
+
+    [self.view addSubview:self.newsScrollView];
+    [self.newsScrollView addSubview:self.contentView];
+    [self.contentView addSubview:self.newsImage];
+    [self.contentView addSubview:self.bodyTextView];
+}
+
+- (UIBarButtonItem *)facebookBarButtonItem {
+
+    if (!_facebookButton) {
+
+        UIView*buttonView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 110, 50)];
+
+        UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        rightButton.backgroundColor = [UIColor clearColor];
+        rightButton.frame = buttonView.frame;
+        [rightButton setImage:[UIImage imageNamed:@"FB-f-Logo__white_72"] forState:UIControlStateNormal];
+        [rightButton setTitle:@"YourTitle" forState:UIControlStateNormal];
+        rightButton.tintColor = [UIColor redColor];
+        rightButton.autoresizesSubviews = YES;
+        rightButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
+        [rightButton addTarget:self action:@selector(openFacebook) forControlEvents:UIControlEventTouchUpInside];
+        [buttonView addSubview:rightButton];
+
+        _facebookButton = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    }
+    return _facebookButton;
+}
+
+- (void)openFacebook {
+
+}
+
 - (UIImageView *)newsImage {
     if (!_newsImage) {
         _newsImage = [[UIImageView alloc]initWithFrame:CGRectZero];
@@ -79,14 +115,6 @@
         _contentView = [[UIView alloc]initWithFrame:CGRectZero];
     }
     return _contentView;
-}
-
-- (void)setupView {
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.newsScrollView];
-    [self.newsScrollView addSubview:self.contentView];
-    [self.contentView addSubview:self.newsImage];
-    [self.contentView addSubview:self.bodyTextView];
 }
 
 #pragma mark - Constraints
