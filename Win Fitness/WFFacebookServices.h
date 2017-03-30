@@ -15,7 +15,6 @@
 
 - (instancetype)initService;
 
-- (RACSignal *)detailsNewsServiceSignal:(WFFacebookFeedModel *)news;
 - (RACSignal *)newsServiceSignal;
 
 @end

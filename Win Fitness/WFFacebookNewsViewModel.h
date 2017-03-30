@@ -20,12 +20,10 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 @property (nonatomic, strong) NSArray<WFFacebookFeedModel *> *facebookNews;
 @property (nonatomic, strong) NSString *newsDetails;
 @property (nonatomic, strong) RACCommand *newsCommand;
-@property (nonatomic, strong) RACCommand *newsDetailsCommand;
 @property (nonatomic, strong) WFFacebookFeedModel *currentNews;
 
 - (instancetype) initWithFacebookServices:(WFFacebookServices *)services;
 
-- (void)startNewsDetailCreation;
 - (void)startNewsDownload:(WFFacebookHandler)handler;
 - (void)startNewsImageDownloadForCell:(WFNewsTableViewCell *)cell;
 

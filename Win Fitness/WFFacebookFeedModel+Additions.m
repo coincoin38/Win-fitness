@@ -6,9 +6,34 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
+#import "NSString+Additions.h"
+#import "WFDatesConverter.h"
 #import "WFFacebookFeedModel+Additions.h"
 
 @implementation WFFacebookFeedModel (Additions)
+
+- (NSString *)dataTitle {
+    return [self.data valueForKey:@"title"];
+}
+
+- (NSString *)dataUrl {
+    return [self.data valueForKey:@"url"];
+}
+
+- (NSString *)headerCell {
+    if (self.name) {
+        return [NSString stringWithFormat:@"%@, %@",[WFDatesConverter formatddMMFromDateString:self.created_time],self.name];
+    }
+    return [WFDatesConverter formatddMMMMHHmmFromDateString:self.created_time];
+}
+
+- (NSString *)bodyCell {
+    return [self._description removeNewlines] ? : [self.message removeNewlines];
+}
+
+- (NSString *)headerDetail {
+    return [WFDatesConverter formatddMMMMHHmmFromDateString:self.created_time];
+}
 
 - (NSString *)bodyDetail {
     if (self._description && self.message) {

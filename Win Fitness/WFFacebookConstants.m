@@ -23,11 +23,11 @@ NSString * const kKeyGrantType = @"grant_type";
 NSString * const kValueGrantType = @"client_credentials";
 
 NSString * const kKeyLimit = @"limit";
-NSString * const kValueLimit = @"10";
+NSString * const kValueLimit = @"20";
 
 NSString * const kKeyFields = @"fields";
 NSString * const kValueFieldsToken = @"access_token";
-NSString * const kValueFieldsNews = @"full_picture,actions,description,message,created_time,type";
+NSString * const kValueFieldsNews = @"message,description,name,attachments{title,url},status_type,full_picture,created_time";
 
 @implementation WFFacebookConstants
 

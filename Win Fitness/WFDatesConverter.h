@@ -10,6 +10,7 @@
 
 @interface WFDatesConverter : NSObject
 
-+ (NSString *)formatMMddFromDateString:(NSString *)dateString;
++ (NSString *)formatddMMMMHHmmFromDateString:(NSString *)dateString;
++ (NSString *)formatddMMFromDateString:(NSString *)dateString;
 
 @end

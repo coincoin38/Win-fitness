@@ -35,23 +35,23 @@ static NSString * const cellIdentifier = @"newsIdentifier";
     return self;
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setupViews];
+    [self bindViewModel];
+}
+
 - (void)setupViews {
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.backgroundView = self.loadindActivityIndicator;
+    [self.tableView addSubview:self.dataRefreshControl];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:cellIdentifier];
     self.title = NSLocalizedString(@"NEWS", nil);
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"BACK", nil)
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:nil
                                                                             action:nil];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.tableView.backgroundView = self.loadindActivityIndicator;
-    [self.tableView addSubview:self.dataRefreshControl];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self setupViews];
-    [self bindViewModel];
 }
 
 #pragma mark - Binding

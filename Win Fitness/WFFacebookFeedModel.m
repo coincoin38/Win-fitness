@@ -19,6 +19,8 @@
         _full_picture = dictionary[@"full_picture"];
         _type = dictionary[@"type"];
         _actions = dictionary[@"actions"];
+        _name = dictionary[@"name"];
+        _data = dictionary[@"attachments"][@"data"];
     }
     return self;
 }

@@ -15,7 +15,7 @@
     if (self) {
         self.scrollEnabled = NO;
         self.userInteractionEnabled = NO;
-        self.textAlignment = NSTextAlignmentJustified;
+        self.textAlignment = NSTextAlignmentLeft;
         self.font = [UIFont systemFontOfSize:14];
     }
     return self;

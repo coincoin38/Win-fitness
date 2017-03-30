@@ -10,7 +10,7 @@
 
 @implementation WFDatesConverter
 
-+ (NSString *)formatMMddFromDateString:(NSString *)dateString {
++ (NSString *)formatddMMMMHHmmFromDateString:(NSString *)dateString {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'+'0000";
     NSDate *dateFromString = [dateFormatter dateFromString:dateString];
@@ -20,4 +20,13 @@
     return [dateFormatter stringFromDate:dateFromString];
 }
 
++ (NSString *)formatddMMFromDateString:(NSString *)dateString {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'+'0000";
+    NSDate *dateFromString = [dateFormatter dateFromString:dateString];
+    dateFormatter.dateFormat = @"dd/MM";
+    dateFormatter.locale = [[NSLocale alloc]initWithLocaleIdentifier:@"fr_BI"];
+
+    return [dateFormatter stringFromDate:dateFromString];
+}
 @end

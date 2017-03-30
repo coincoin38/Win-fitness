@@ -7,9 +7,11 @@
 //
 
 #import "WFCustomTextView.h"
+#import "WFDayCellLabel.h"
 #import "WFDownloadImageService.h"
 #import "WFFacebookFeedModel+Additions.h"
 #import "WFFacebookNewsViewModel.h"
+#import "WFNewsTableViewCell.h"
 #import "WFNewsViewController.h"
 
 @interface WFNewsViewController ()
@@ -19,6 +21,7 @@
 @property(nonatomic,strong) UIScrollView *newsScrollView;
 @property(nonatomic,strong) UIView *contentView;
 @property(nonatomic,strong) WFCustomTextView *bodyTextView;
+@property(nonatomic,strong) WFDayCellLabel *headerLabel;
 @property(nonatomic,strong) WFFacebookNewsViewModel *facebookNewsViewModel;
 
 @end
@@ -36,6 +39,10 @@
     return self;
 }
 
+- (void)bindViewModel {
+    RAC(self.newsImage,image) = RACObserve(self.facebookNewsViewModel, currentNews.downloadedPicture);
+}
+
 #pragma mark - View Life Cycle
 
 - (void)viewDidLoad {
@@ -45,46 +52,23 @@
     [self bindViewModel];
 }
 
-- (void)bindViewModel {
-    RAC(self.newsImage,image) = RACObserve(self.facebookNewsViewModel, currentNews.downloadedPicture);
-    RAC(self.bodyTextView,text) = RACObserve(self.facebookNewsViewModel, currentNews.bodyDetail);
-}
-
 #pragma mark - User Interface Elements
 
 - (void)setupView {
     self.view.backgroundColor = [UIColor whiteColor];
 
+    self.navigationItem.title = self.facebookNewsViewModel.currentNews.name;
+    self.bodyTextView.text = self.facebookNewsViewModel.currentNews.bodyDetail;
+    self.headerLabel.text = self.facebookNewsViewModel.currentNews.headerDetail;
+
+    NSLog(@"#### data url %@",self.facebookNewsViewModel.currentNews.dataUrl);
+    NSLog(@"#### data title %@",self.facebookNewsViewModel.currentNews.dataTitle);
+
     [self.view addSubview:self.newsScrollView];
     [self.newsScrollView addSubview:self.contentView];
     [self.contentView addSubview:self.newsImage];
+    [self.contentView addSubview:self.headerLabel];
     [self.contentView addSubview:self.bodyTextView];
-}
-
-- (UIBarButtonItem *)facebookBarButtonItem {
-
-    if (!_facebookButton) {
-
-        UIView*buttonView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 110, 50)];
-
-        UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        rightButton.backgroundColor = [UIColor clearColor];
-        rightButton.frame = buttonView.frame;
-        [rightButton setImage:[UIImage imageNamed:@"FB-f-Logo__white_72"] forState:UIControlStateNormal];
-        [rightButton setTitle:@"YourTitle" forState:UIControlStateNormal];
-        rightButton.tintColor = [UIColor redColor];
-        rightButton.autoresizesSubviews = YES;
-        rightButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
-        [rightButton addTarget:self action:@selector(openFacebook) forControlEvents:UIControlEventTouchUpInside];
-        [buttonView addSubview:rightButton];
-
-        _facebookButton = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-    }
-    return _facebookButton;
-}
-
-- (void)openFacebook {
-
 }
 
 - (UIImageView *)newsImage {
@@ -94,6 +78,13 @@
         _newsImage.clipsToBounds = YES;
     }
     return _newsImage;
+}
+
+- (WFDayCellLabel *)headerLabel {
+    if(!_headerLabel) {
+        _headerLabel = [[WFDayCellLabel alloc]initWithFrame:CGRectZero];
+    }
+    return _headerLabel;
 }
 
 - (WFCustomTextView *)bodyTextView {
@@ -129,17 +120,23 @@
         make.width.equalTo(self.newsScrollView);
         make.bottom.equalTo(self.bodyTextView.mas_bottom).offset(5);
     }];
-    
+
     [self.newsImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left);
         make.top.equalTo(self.contentView.mas_top);
         make.right.equalTo(self.contentView.mas_right);
     }];
 
-    [self.bodyTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView.mas_left).offset(5);
+    [self.headerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left);
         make.top.equalTo(self.newsImage.mas_bottom).offset(5);
-        make.right.equalTo(self.contentView.mas_right).offset(-5);
+        make.right.equalTo(self.contentView.mas_right);
+    }];
+
+    [self.bodyTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left);
+        make.top.equalTo(self.headerLabel.mas_bottom).offset(5);
+        make.right.equalTo(self.contentView.mas_right);
     }];
 }
 

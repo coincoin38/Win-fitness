@@ -13,14 +13,15 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.font = [UIFont boldSystemFontOfSize:12];
+        self.font = [UIFont boldSystemFontOfSize:14];
+        self.textColor = [UIColor darkGrayColor];
         self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
 
 - (void)drawRect:(CGRect)rect {
-    UIEdgeInsets insets = {0, 5, 0, 0};
+    UIEdgeInsets insets = {5, 5, 0, 0};
     return [super drawTextInRect:UIEdgeInsetsInsetRect(rect, insets)];
 }
 

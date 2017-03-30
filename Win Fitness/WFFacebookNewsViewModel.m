@@ -66,14 +66,6 @@
     }
 }
 
-- (void)startNewsDetailCreation {
-    @weakify(self)
-    [[self.newsDetailsCommand execute:self]subscribeNext:^(id  _Nullable newsDetail) {
-        @strongify(self)
-        self.newsDetails = newsDetail;
-    }];
-}
-
 #pragma mark - Commands
 
 - (RACCommand *)newsCommand {
@@ -82,20 +74,10 @@
     }];
 }
 
-- (RACCommand *)newsDetailsCommand {
-    return [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        return [self newsDetailsSignal];
-    }];
-}
-
 #pragma mark - Signals
 
 - (RACSignal *)newsSignal {
     return [[self.services newsServiceSignal]deliverOnMainThread];
-}
-
-- (RACSignal *)newsDetailsSignal {
-    return [[self.services detailsNewsServiceSignal:self.currentNews]deliverOnMainThread];
 }
 
 @end

@@ -10,13 +10,13 @@
 #import "WFCustomTextView.h"
 #import "WFDatesConverter.h"
 #import "WFDayCellLabel.h"
-#import "WFFacebookFeedModel.h"
+#import "WFFacebookFeedModel+Additions.h"
 #import "WFNewsTableViewCell.h"
 
 @interface WFNewsTableViewCell ()
 
 @property(nonatomic,strong) WFCustomTextView *bodyTextView;
-@property(nonatomic,strong) WFDayCellLabel *dayLabel;
+@property(nonatomic,strong) WFDayCellLabel *headerLabel;
 
 @end
 
@@ -37,11 +37,11 @@
     return _newsImage;
 }
 
-- (UILabel *)dayLabel {
-    if (!_dayLabel) {
-        _dayLabel = [[WFDayCellLabel alloc]initWithFrame:CGRectZero];
+- (UILabel *)headerLabel {
+    if (!_headerLabel) {
+        _headerLabel = [[WFDayCellLabel alloc]initWithFrame:CGRectZero];
     }
-    return _dayLabel;
+    return _headerLabel;
 }
 
 - (UITextView *)bodyTextView {
@@ -56,8 +56,8 @@
 - (void)setupCellWithModel:(WFFacebookFeedModel *)model {
     self.backgroundColor = [UIColor lightGrayColor];
     self.facebookModel = model;
-    self.dayLabel.text = [WFDatesConverter formatMMddFromDateString:model.created_time];
-    self.bodyTextView.text = model._description;
+    self.headerLabel.text = self.facebookModel.headerCell;
+    self.bodyTextView.text = self.facebookModel.bodyCell;
     [self setupView];
     [self setupConstraints];
 }
@@ -66,7 +66,7 @@
 
 - (void)setupView {
     [self addSubview:self.newsImage];
-    [self addSubview:self.dayLabel];
+    [self addSubview:self.headerLabel];
     [self addSubview:self.bodyTextView];
 }
 
@@ -78,7 +78,7 @@
         make.width.equalTo(@74);
     }];
 
-    [self.dayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.headerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.newsImage.mas_right);
         make.top.equalTo(self.mas_top);
         make.right.equalTo(self.mas_right);
@@ -87,7 +87,7 @@
     
     [self.bodyTextView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.newsImage.mas_right);
-        make.top.equalTo(self.dayLabel.mas_bottom);
+        make.top.equalTo(self.headerLabel.mas_bottom);
         make.right.equalTo(self.mas_right);
         make.bottom.equalTo(self.mas_bottom).offset(-1);
     }];
