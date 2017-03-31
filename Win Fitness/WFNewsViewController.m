@@ -7,10 +7,11 @@
 //
 
 #import "WFCustomTextView.h"
-#import "WFDayCellLabel.h"
+#import "WFHeaderNewsDetailLabel.h"
 #import "WFDownloadImageService.h"
 #import "WFFacebookFeedModel+Additions.h"
 #import "WFFacebookNewsViewModel.h"
+#import "WFFooterButtonNewsDetail.h"
 #import "WFNewsTableViewCell.h"
 #import "WFNewsViewController.h"
 
@@ -21,8 +22,9 @@
 @property(nonatomic,strong) UIScrollView *newsScrollView;
 @property(nonatomic,strong) UIView *contentView;
 @property(nonatomic,strong) WFCustomTextView *bodyTextView;
-@property(nonatomic,strong) WFDayCellLabel *headerLabel;
 @property(nonatomic,strong) WFFacebookNewsViewModel *facebookNewsViewModel;
+@property(nonatomic,strong) WFFooterButtonNewsDetail *footerButton;
+@property(nonatomic,strong) WFHeaderNewsDetailLabel *headerLabel;
 
 @end
 
@@ -60,15 +62,14 @@
     self.navigationItem.title = self.facebookNewsViewModel.currentNews.name;
     self.bodyTextView.text = self.facebookNewsViewModel.currentNews.bodyDetail;
     self.headerLabel.text = self.facebookNewsViewModel.currentNews.headerDetail;
-
+    [self.footerButton setTitle:@"Retrouvez l'article sur Facebook" forState:UIControlStateNormal];
     NSLog(@"#### data url %@",self.facebookNewsViewModel.currentNews.dataUrl);
-    NSLog(@"#### data title %@",self.facebookNewsViewModel.currentNews.dataTitle);
-
     [self.view addSubview:self.newsScrollView];
     [self.newsScrollView addSubview:self.contentView];
     [self.contentView addSubview:self.newsImage];
     [self.contentView addSubview:self.headerLabel];
     [self.contentView addSubview:self.bodyTextView];
+    [self.contentView addSubview:self.footerButton];
 }
 
 - (UIImageView *)newsImage {
@@ -80,9 +81,9 @@
     return _newsImage;
 }
 
-- (WFDayCellLabel *)headerLabel {
+- (WFHeaderNewsDetailLabel *)headerLabel {
     if(!_headerLabel) {
-        _headerLabel = [[WFDayCellLabel alloc]initWithFrame:CGRectZero];
+        _headerLabel = [[WFHeaderNewsDetailLabel alloc]initWithFrame:CGRectZero];
     }
     return _headerLabel;
 }
@@ -92,6 +93,13 @@
         _bodyTextView = [[WFCustomTextView alloc]initWithFrame:CGRectZero];
     }
     return _bodyTextView;
+}
+
+- (WFFooterButtonNewsDetail *)footerButton {
+    if (!_footerButton) {
+        _footerButton = [[WFFooterButtonNewsDetail alloc]initWithFrame:CGRectZero];
+    }
+    return _footerButton;
 }
 
 - (UIScrollView *)newsScrollView {
@@ -118,7 +126,7 @@
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.newsScrollView);
         make.width.equalTo(self.newsScrollView);
-        make.bottom.equalTo(self.bodyTextView.mas_bottom).offset(5);
+        make.bottom.equalTo(self.footerButton.mas_bottom);
     }];
 
     [self.newsImage mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -129,14 +137,22 @@
 
     [self.headerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left);
-        make.top.equalTo(self.newsImage.mas_bottom).offset(5);
+        make.top.equalTo(self.newsImage.mas_bottom);
         make.right.equalTo(self.contentView.mas_right);
+        make.height.equalTo(@25);
     }];
 
     [self.bodyTextView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left);
         make.top.equalTo(self.headerLabel.mas_bottom).offset(5);
         make.right.equalTo(self.contentView.mas_right);
+    }];
+
+    [self.footerButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left);
+        make.top.equalTo(self.bodyTextView.mas_bottom).offset(5);
+        make.right.equalTo(self.contentView.mas_right);
+        make.height.equalTo(@25);
     }];
 }
 

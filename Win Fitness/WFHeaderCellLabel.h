@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WFDayCellLabel : UILabel
-
-- (instancetype)initWithFrame:(CGRect)frame;
+@interface WFHeaderCellLabel : UILabel
 
 @end

@@ -20,6 +20,7 @@
         _type = dictionary[@"type"];
         _actions = dictionary[@"actions"];
         _name = dictionary[@"name"];
+        _status_type = dictionary[@"status_type"];
         _data = dictionary[@"attachments"][@"data"];
     }
     return self;

@@ -13,11 +13,11 @@
 @implementation WFFacebookFeedModel (Additions)
 
 - (NSString *)dataTitle {
-    return [self.data valueForKey:@"title"];
+    return [self.data valueForKey:@"title"][0];
 }
 
 - (NSString *)dataUrl {
-    return [self.data valueForKey:@"url"];
+    return [self.data valueForKey:@"url"][0];
 }
 
 - (NSString *)headerCell {
@@ -32,6 +32,40 @@
 }
 
 - (NSString *)headerDetail {
+    NSString * headerText = NSLocalizedString(@"WIN FITNESS HAS ADDED", nil);
+
+    if ([self.status_type isEqualToString:@"shared_story"]) {
+
+    }
+
+    if ([self.status_type isEqualToString:@"mobile_status_update"]) {
+
+    }
+
+    if ([self.status_type isEqualToString:@"added_photos"]) {
+
+    }
+    //////
+    if ([self.type isEqualToString:@"link"]) {
+
+    }
+
+    if ([self.type isEqualToString:@"event"]) {
+
+    }
+
+    if ([self.type isEqualToString:@"video"]) {
+        
+    }
+
+    if ([self.type isEqualToString:@"photo"]) {
+
+    }
+
+    if ([self.type isEqualToString:@"status"]) {
+
+    }
+
     return [WFDatesConverter formatddMMMMHHmmFromDateString:self.created_time];
 }
 

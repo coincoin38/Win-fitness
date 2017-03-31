@@ -9,14 +9,14 @@
 #import <Masonry/Masonry.h>
 #import "WFCustomTextView.h"
 #import "WFDatesConverter.h"
-#import "WFDayCellLabel.h"
+#import "WFHeaderCellLabel.h"
 #import "WFFacebookFeedModel+Additions.h"
 #import "WFNewsTableViewCell.h"
 
 @interface WFNewsTableViewCell ()
 
 @property(nonatomic,strong) WFCustomTextView *bodyTextView;
-@property(nonatomic,strong) WFDayCellLabel *headerLabel;
+@property(nonatomic,strong) WFHeaderCellLabel *headerLabel;
 
 @end
 
@@ -39,7 +39,7 @@
 
 - (UILabel *)headerLabel {
     if (!_headerLabel) {
-        _headerLabel = [[WFDayCellLabel alloc]initWithFrame:CGRectZero];
+        _headerLabel = [[WFHeaderCellLabel alloc]initWithFrame:CGRectZero];
     }
     return _headerLabel;
 }

@@ -27,7 +27,7 @@ NSString * const kValueLimit = @"20";
 
 NSString * const kKeyFields = @"fields";
 NSString * const kValueFieldsToken = @"access_token";
-NSString * const kValueFieldsNews = @"message,description,name,attachments{title,url},status_type,full_picture,created_time";
+NSString * const kValueFieldsNews = @"message,description,name,attachments{title,url},status_type,full_picture,created_time,type";
 
 @implementation WFFacebookConstants
 

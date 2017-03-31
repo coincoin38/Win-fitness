@@ -18,6 +18,7 @@
 @property(nonatomic,strong) NSString *identifier;
 @property(nonatomic,strong) NSString *type;
 @property(nonatomic,strong) NSString *name;
+@property(nonatomic,strong) NSString *status_type;
 @property(nonatomic,strong) NSArray<NSString *>*actions;
 @property(nonatomic,strong) NSDictionary *data;
 

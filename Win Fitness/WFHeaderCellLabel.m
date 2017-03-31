@@ -6,15 +6,16 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFDayCellLabel.h"
+#import "WFHeaderCellLabel.h"
+#import "UIColor+Additions.h"
 
-@implementation WFDayCellLabel
+@implementation WFHeaderCellLabel
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.font = [UIFont boldSystemFontOfSize:14];
-        self.textColor = [UIColor darkGrayColor];
+        self.textColor = [UIColor darkGrayWF];
         self.backgroundColor = [UIColor whiteColor];
     }
     return self;

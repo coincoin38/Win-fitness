@@ -6,11 +6,13 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "AppDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "AppDelegate.h"
+#import "UIColor+Additions.h"
 #import "WFFacebookServices.h"
 #import "WFFacebookNewsViewModel.h"
 #import "WFNewsTableViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -33,7 +35,7 @@
     self.navigationController = [UINavigationController new];
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barTintColor = [UIColor orangeColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor orangeWF];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
     UIViewController *viewController = [self createInitialViewController];
