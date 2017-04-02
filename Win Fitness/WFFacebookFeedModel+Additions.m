@@ -33,40 +33,14 @@
 
 - (NSString *)headerDetail {
     NSString * headerText = NSLocalizedString(@"WIN FITNESS HAS ADDED", nil);
-
+    
     if ([self.status_type isEqualToString:@"shared_story"]) {
-
+        headerText = [NSString stringWithFormat:@"%@ %@,", NSLocalizedString(@"WIN FITNESS HAS SHARED PUBLICATION OF", nil),self.name];
     }
+    
+    headerText = [headerText stringByAppendingString:[WFDatesConverter formatddMMMMHHmmFromDateString:self.created_time]];
 
-    if ([self.status_type isEqualToString:@"mobile_status_update"]) {
-
-    }
-
-    if ([self.status_type isEqualToString:@"added_photos"]) {
-
-    }
-    //////
-    if ([self.type isEqualToString:@"link"]) {
-
-    }
-
-    if ([self.type isEqualToString:@"event"]) {
-
-    }
-
-    if ([self.type isEqualToString:@"video"]) {
-        
-    }
-
-    if ([self.type isEqualToString:@"photo"]) {
-
-    }
-
-    if ([self.type isEqualToString:@"status"]) {
-
-    }
-
-    return [WFDatesConverter formatddMMMMHHmmFromDateString:self.created_time];
+    return headerText;
 }
 
 - (NSString *)bodyDetail {
