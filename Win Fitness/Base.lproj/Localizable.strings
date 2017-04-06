@@ -6,10 +6,11 @@
   Copyright © 2017 julien gimenez. All rights reserved.
 */
 
+"WINFITNESS" = "WinFitness";
 "PULL TO REFRESH" = "Pull to refresh";
 "NEWS" = "Facebook News";
 "BACK" = "Back";
 "NO DESCRIPTION" = "No description";
-"WIN FITNESS HAS SHARED PUBLICATION OF" = "Win Fitness has shared the publication of";
-"WIN FITNESS HAS SHARED THE EVENT OF" = "Win Fitness has shared the event of";
-"WIN FITNESS HAS ADDED" = "Win Fitness has added";
+"WIN FITNESS HAS SHARED THE PUBLICATION O" = "WinFitness has shared the publication of";
+"WIN FITNESS HAS SHARED THE EVENT OF" = "WinFitness has shared the event of";
+"WIN FITNESS HAS ADDED" = "WinFitness has added";

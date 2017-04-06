@@ -10,4 +10,6 @@
 
 @interface WFHeaderNewsDetailLabel : UILabel
 
+- (instancetype)initWithFrame:(CGRect)frame withName:(NSString *)name;
+
 @end

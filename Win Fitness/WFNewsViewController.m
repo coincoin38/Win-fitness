@@ -83,7 +83,7 @@
 
 - (WFHeaderNewsDetailLabel *)headerLabel {
     if(!_headerLabel) {
-        _headerLabel = [[WFHeaderNewsDetailLabel alloc]initWithFrame:CGRectZero];
+        _headerLabel = [[WFHeaderNewsDetailLabel alloc]initWithFrame:CGRectZero withName:self.facebookNewsViewModel.currentNews.name];
     }
     return _headerLabel;
 }
@@ -139,7 +139,7 @@
         make.left.equalTo(self.contentView.mas_left);
         make.top.equalTo(self.newsImage.mas_bottom);
         make.right.equalTo(self.contentView.mas_right);
-        make.height.equalTo(@25);
+        //make.height.equalTo(@25);
     }];
 
     [self.bodyTextView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -32,15 +32,16 @@
 }
 
 - (NSString *)headerDetail {
-    NSString * headerText = NSLocalizedString(@"WIN FITNESS HAS ADDED", nil);
-    
     if ([self.status_type isEqualToString:@"shared_story"]) {
-        headerText = [NSString stringWithFormat:@"%@ %@,", NSLocalizedString(@"WIN FITNESS HAS SHARED PUBLICATION OF", nil),self.name];
+        return [NSString stringWithFormat:@"%@ %@\n%@",
+                      NSLocalizedString(@"WIN FITNESS HAS SHARED THE PUBLICATION OF", nil),
+                      self.name,
+                      [WFDatesConverter formatddMMMMHHmmFromDateString:self.created_time]];
     }
-    
-    headerText = [headerText stringByAppendingString:[WFDatesConverter formatddMMMMHHmmFromDateString:self.created_time]];
 
-    return headerText;
+    return [NSString stringWithFormat:@"%@\n%@",
+            NSLocalizedString(@"WIN FITNESS HAS ADDED", nil),
+            [WFDatesConverter formatddMMMMHHmmFromDateString:self.created_time]];
 }
 
 - (NSString *)bodyDetail {
