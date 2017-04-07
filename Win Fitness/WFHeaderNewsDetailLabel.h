@@ -10,6 +10,7 @@
 
 @interface WFHeaderNewsDetailLabel : UILabel
 
-- (instancetype)initWithFrame:(CGRect)frame withName:(NSString *)name;
+- (instancetype)initWithFrame:(CGRect)frame withName:(NSString *)name withCreatedTime:(NSString *)createdTime;
+- (instancetype)initWithFrame:(CGRect)frame withCreatedTime:(NSString *)createdTime;
 
 @end

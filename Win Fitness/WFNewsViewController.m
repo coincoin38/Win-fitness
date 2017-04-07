@@ -24,7 +24,8 @@
 @property(nonatomic,strong) WFCustomTextView *bodyTextView;
 @property(nonatomic,strong) WFFacebookNewsViewModel *facebookNewsViewModel;
 @property(nonatomic,strong) WFFooterButtonNewsDetail *footerButton;
-@property(nonatomic,strong) WFHeaderNewsDetailLabel *headerLabel;
+@property(nonatomic,strong) WFHeaderNewsDetailLabel *headerLabelFirstPart;
+@property(nonatomic,strong) WFHeaderNewsDetailLabel *headerLabelSecondPart;
 
 @end
 
@@ -61,13 +62,16 @@
 
     self.navigationItem.title = self.facebookNewsViewModel.currentNews.name;
     self.bodyTextView.text = self.facebookNewsViewModel.currentNews.bodyDetail;
-    self.headerLabel.text = self.facebookNewsViewModel.currentNews.headerDetail;
+    self.headerLabelFirstPart.text = self.facebookNewsViewModel.currentNews.headerDetailFirstPart;
+    self.headerLabelSecondPart.text = self.facebookNewsViewModel.currentNews.headerDetailSecondPart;
+
     [self.footerButton setTitle:@"Retrouvez l'article sur Facebook" forState:UIControlStateNormal];
     NSLog(@"#### data url %@",self.facebookNewsViewModel.currentNews.dataUrl);
     [self.view addSubview:self.newsScrollView];
     [self.newsScrollView addSubview:self.contentView];
+    [self.contentView addSubview:self.headerLabelFirstPart];
+    [self.contentView addSubview:self.headerLabelSecondPart];
     [self.contentView addSubview:self.newsImage];
-    [self.contentView addSubview:self.headerLabel];
     [self.contentView addSubview:self.bodyTextView];
     [self.contentView addSubview:self.footerButton];
 }
@@ -81,11 +85,21 @@
     return _newsImage;
 }
 
-- (WFHeaderNewsDetailLabel *)headerLabel {
-    if(!_headerLabel) {
-        _headerLabel = [[WFHeaderNewsDetailLabel alloc]initWithFrame:CGRectZero withName:self.facebookNewsViewModel.currentNews.name];
+- (WFHeaderNewsDetailLabel *)headerLabelFirstPart {
+    if(!_headerLabelFirstPart) {
+        _headerLabelFirstPart = [[WFHeaderNewsDetailLabel alloc]initWithFrame:CGRectZero
+                                                            withName:self.facebookNewsViewModel.currentNews.name
+                                                     withCreatedTime:self.facebookNewsViewModel.currentNews.created_time];
     }
-    return _headerLabel;
+    return _headerLabelFirstPart;
+}
+
+- (WFHeaderNewsDetailLabel *)headerLabelSecondPart {
+    if(!_headerLabelSecondPart) {
+        _headerLabelSecondPart = [[WFHeaderNewsDetailLabel alloc]initWithFrame:CGRectZero
+                                                               withCreatedTime:self.facebookNewsViewModel.currentNews.created_time];
+    }
+    return _headerLabelSecondPart;
 }
 
 - (WFCustomTextView *)bodyTextView {
@@ -129,22 +143,27 @@
         make.bottom.equalTo(self.footerButton.mas_bottom);
     }];
 
-    [self.newsImage mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.headerLabelFirstPart mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left);
-        make.top.equalTo(self.contentView.mas_top);
+        make.top.equalTo(self.contentView.mas_top).offset(5);
         make.right.equalTo(self.contentView.mas_right);
     }];
 
-    [self.headerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.headerLabelSecondPart mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left);
-        make.top.equalTo(self.newsImage.mas_bottom);
+        make.top.equalTo(self.headerLabelFirstPart.mas_bottom).offset(5);
         make.right.equalTo(self.contentView.mas_right);
-        //make.height.equalTo(@25);
+    }];
+
+    [self.newsImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left);
+        make.top.equalTo(self.headerLabelSecondPart.mas_bottom).offset(5);
+        make.right.equalTo(self.contentView.mas_right);
     }];
 
     [self.bodyTextView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left);
-        make.top.equalTo(self.headerLabel.mas_bottom).offset(5);
+        make.top.equalTo(self.newsImage.mas_bottom).offset(5);
         make.right.equalTo(self.contentView.mas_right);
     }];
 

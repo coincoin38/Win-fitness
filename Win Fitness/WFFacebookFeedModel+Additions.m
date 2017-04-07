@@ -31,17 +31,17 @@
     return [self._description removeNewlines] ? : [self.message removeNewlines];
 }
 
-- (NSString *)headerDetail {
+- (NSString *)headerDetailFirstPart {
     if ([self.status_type isEqualToString:@"shared_story"]) {
-        return [NSString stringWithFormat:@"%@ %@\n%@",
+        return [NSString stringWithFormat:@"%@ %@",
                       NSLocalizedString(@"WIN FITNESS HAS SHARED THE PUBLICATION OF", nil),
-                      self.name,
-                      [WFDatesConverter formatddMMMMHHmmFromDateString:self.created_time]];
+                      self.name];
     }
+    return NSLocalizedString(@"WIN FITNESS HAS ADDED", nil);
+}
 
-    return [NSString stringWithFormat:@"%@\n%@",
-            NSLocalizedString(@"WIN FITNESS HAS ADDED", nil),
-            [WFDatesConverter formatddMMMMHHmmFromDateString:self.created_time]];
+- (NSString *)headerDetailSecondPart {
+    return [WFDatesConverter formatddMMMMHHmmFromDateString:self.created_time];
 }
 
 - (NSString *)bodyDetail {
