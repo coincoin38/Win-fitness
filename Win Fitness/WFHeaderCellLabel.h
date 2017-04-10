@@ -6,8 +6,8 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "WFBaseLabel.h"
 
-@interface WFHeaderCellLabel : UILabel
+@interface WFHeaderCellLabel : WFBaseLabel
 
 @end

@@ -14,11 +14,14 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor blueFacebook];
-        self.titleLabel.textColor = [UIColor redColor];
-        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        self.backgroundColor = [UIColor whiteColor];
+        [self setTitleColor:[UIColor blueFacebook] forState:UIControlStateNormal];
         [self setTitleColor:[UIColor lightGrayWF] forState:UIControlStateHighlighted];
         self.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        self.titleLabel.numberOfLines = 0;
+        self.titleLabel.textAlignment = NSTextAlignmentLeft;
+        self.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
+        self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     }
     return self;
 }

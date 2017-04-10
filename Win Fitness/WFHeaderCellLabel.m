@@ -7,7 +7,6 @@
 //
 
 #import "WFHeaderCellLabel.h"
-#import "UIColor+Additions.h"
 
 @implementation WFHeaderCellLabel
 
@@ -19,11 +18,6 @@
         self.backgroundColor = [UIColor whiteColor];
     }
     return self;
-}
-
-- (void)drawRect:(CGRect)rect {
-    UIEdgeInsets insets = {5, 5, 0, 0};
-    return [super drawTextInRect:UIEdgeInsetsInsetRect(rect, insets)];
 }
 
 @end

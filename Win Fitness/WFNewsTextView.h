@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WFCustomTextView : UITextView
+@interface WFNewsTextView : UITextView
 
 @end

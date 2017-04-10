@@ -10,8 +10,8 @@
 
 @interface WFFacebookFeedModel (Additions)
 
-- (NSString *)headerDetailFirstPart;
-- (NSString *)headerDetailSecondPart;
+- (NSString *)headerDetailTitle;
+- (NSString *)headerDetailDate;
 - (NSString *)bodyDetail;
 - (NSString *)bodyCell;
 - (NSString *)headerCell;

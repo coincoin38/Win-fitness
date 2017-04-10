@@ -7,7 +7,7 @@
 //
 
 #import <Masonry/Masonry.h>
-#import "WFCustomTextView.h"
+#import "WFNewsTextView.h"
 #import "WFDatesConverter.h"
 #import "WFHeaderCellLabel.h"
 #import "WFFacebookFeedModel+Additions.h"
@@ -15,7 +15,7 @@
 
 @interface WFNewsTableViewCell ()
 
-@property(nonatomic,strong) WFCustomTextView *bodyTextView;
+@property(nonatomic,strong) WFNewsTextView *bodyTextView;
 @property(nonatomic,strong) WFHeaderCellLabel *headerLabel;
 
 @end
@@ -44,9 +44,9 @@
     return _headerLabel;
 }
 
-- (UITextView *)bodyTextView {
+- (WFNewsTextView *)bodyTextView {
     if (!_bodyTextView) {
-        _bodyTextView = [[WFCustomTextView alloc]initWithFrame:CGRectZero];
+        _bodyTextView = [[WFNewsTextView alloc]initWithFrame:CGRectZero];
     }
     return _bodyTextView;
 }

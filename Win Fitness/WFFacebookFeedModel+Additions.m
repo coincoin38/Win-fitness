@@ -31,7 +31,7 @@
     return [self._description removeNewlines] ? : [self.message removeNewlines];
 }
 
-- (NSString *)headerDetailFirstPart {
+- (NSString *)headerDetailTitle {
     if ([self.status_type isEqualToString:@"shared_story"]) {
         return [NSString stringWithFormat:@"%@ %@",
                       NSLocalizedString(@"WIN FITNESS HAS SHARED THE PUBLICATION OF", nil),
@@ -40,7 +40,7 @@
     return NSLocalizedString(@"WIN FITNESS HAS ADDED", nil);
 }
 
-- (NSString *)headerDetailSecondPart {
+- (NSString *)headerDetailDate {
     return [WFDatesConverter formatddMMMMHHmmFromDateString:self.created_time];
 }
 

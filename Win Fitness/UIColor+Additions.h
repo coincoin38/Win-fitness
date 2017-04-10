@@ -14,6 +14,7 @@
 + (UIColor *)orangeWF;
 + (UIColor *)darkGrayWF;
 + (UIColor *)lightGrayWF;
++ (UIColor *)veryLightGrayWF;
 + (UIColor *)blueFacebook;
 
 @end

@@ -6,9 +6,9 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFCustomTextView.h"
+#import "WFNewsTextView.h"
 
-@implementation WFCustomTextView
+@implementation WFNewsTextView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

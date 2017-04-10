@@ -6,14 +6,15 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFCustomTextView.h"
-#import "WFHeaderNewsDetailLabel.h"
+#import "WFNewsDetailTextView.h"
+#import "WFHeaderNewsDetailTitleLabel.h"
 #import "WFDownloadImageService.h"
 #import "WFFacebookFeedModel+Additions.h"
 #import "WFFacebookNewsViewModel.h"
 #import "WFFooterButtonNewsDetail.h"
 #import "WFNewsTableViewCell.h"
 #import "WFNewsViewController.h"
+#import "WFHeaderNewsDetailDateLabel.h"
 
 @interface WFNewsViewController ()
 
@@ -21,11 +22,11 @@
 @property(nonatomic,strong) UIImageView *newsImage;
 @property(nonatomic,strong) UIScrollView *newsScrollView;
 @property(nonatomic,strong) UIView *contentView;
-@property(nonatomic,strong) WFCustomTextView *bodyTextView;
+@property(nonatomic,strong) WFNewsDetailTextView *bodyTextView;
 @property(nonatomic,strong) WFFacebookNewsViewModel *facebookNewsViewModel;
 @property(nonatomic,strong) WFFooterButtonNewsDetail *footerButton;
-@property(nonatomic,strong) WFHeaderNewsDetailLabel *headerLabelFirstPart;
-@property(nonatomic,strong) WFHeaderNewsDetailLabel *headerLabelSecondPart;
+@property(nonatomic,strong) WFHeaderNewsDetailTitleLabel *headerTitleLabel;
+@property(nonatomic,strong) WFHeaderNewsDetailDateLabel *headerDateLabel;
 
 @end
 
@@ -62,15 +63,15 @@
 
     self.navigationItem.title = self.facebookNewsViewModel.currentNews.name;
     self.bodyTextView.text = self.facebookNewsViewModel.currentNews.bodyDetail;
-    self.headerLabelFirstPart.text = self.facebookNewsViewModel.currentNews.headerDetailFirstPart;
-    self.headerLabelSecondPart.text = self.facebookNewsViewModel.currentNews.headerDetailSecondPart;
+    self.headerTitleLabel.text = self.facebookNewsViewModel.currentNews.headerDetailTitle;
+    self.headerDateLabel.text = self.facebookNewsViewModel.currentNews.headerDetailDate;
 
-    [self.footerButton setTitle:@"Retrouvez l'article sur Facebook" forState:UIControlStateNormal];
-    NSLog(@"#### data url %@",self.facebookNewsViewModel.currentNews.dataUrl);
+    NSString *titleText = [NSString stringWithFormat:@"Retrouvez l'article sur Facebook :\n%@",self.facebookNewsViewModel.currentNews.dataTitle];
+    [self.footerButton setTitle:titleText forState:UIControlStateNormal];
     [self.view addSubview:self.newsScrollView];
     [self.newsScrollView addSubview:self.contentView];
-    [self.contentView addSubview:self.headerLabelFirstPart];
-    [self.contentView addSubview:self.headerLabelSecondPart];
+    [self.contentView addSubview:self.headerTitleLabel];
+    [self.contentView addSubview:self.headerDateLabel];
     [self.contentView addSubview:self.newsImage];
     [self.contentView addSubview:self.bodyTextView];
     [self.contentView addSubview:self.footerButton];
@@ -85,26 +86,26 @@
     return _newsImage;
 }
 
-- (WFHeaderNewsDetailLabel *)headerLabelFirstPart {
-    if(!_headerLabelFirstPart) {
-        _headerLabelFirstPart = [[WFHeaderNewsDetailLabel alloc]initWithFrame:CGRectZero
-                                                            withName:self.facebookNewsViewModel.currentNews.name
-                                                     withCreatedTime:self.facebookNewsViewModel.currentNews.created_time];
+- (WFHeaderNewsDetailTitleLabel *)headerTitleLabel {
+    if(!_headerTitleLabel) {
+        _headerTitleLabel = [[WFHeaderNewsDetailTitleLabel alloc]initWithFrame:CGRectZero
+                                                            withName:self.facebookNewsViewModel.currentNews.name];
     }
-    return _headerLabelFirstPart;
+    return _headerTitleLabel;
 }
 
-- (WFHeaderNewsDetailLabel *)headerLabelSecondPart {
-    if(!_headerLabelSecondPart) {
-        _headerLabelSecondPart = [[WFHeaderNewsDetailLabel alloc]initWithFrame:CGRectZero
-                                                               withCreatedTime:self.facebookNewsViewModel.currentNews.created_time];
+- (WFHeaderNewsDetailDateLabel *)headerDateLabel {
+    if(!_headerDateLabel) {
+        _headerDateLabel = [[WFHeaderNewsDetailDateLabel alloc]initWithFrame:CGRectZero
+                                                             withCreatedTime:self.facebookNewsViewModel.currentNews.created_time];
     }
-    return _headerLabelSecondPart;
+    return _headerDateLabel;
 }
 
-- (WFCustomTextView *)bodyTextView {
+- (WFNewsDetailTextView *)bodyTextView {
     if (!_bodyTextView) {
-        _bodyTextView = [[WFCustomTextView alloc]initWithFrame:CGRectZero];
+        _bodyTextView = [[WFNewsDetailTextView alloc]initWithFrame:CGRectZero
+                                                          withName:self.facebookNewsViewModel.currentNews.name];
     }
     return _bodyTextView;
 }
@@ -143,35 +144,35 @@
         make.bottom.equalTo(self.footerButton.mas_bottom);
     }];
 
-    [self.headerLabelFirstPart mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.headerTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left);
         make.top.equalTo(self.contentView.mas_top).offset(5);
         make.right.equalTo(self.contentView.mas_right);
     }];
 
-    [self.headerLabelSecondPart mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.headerDateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left);
-        make.top.equalTo(self.headerLabelFirstPart.mas_bottom).offset(5);
-        make.right.equalTo(self.contentView.mas_right);
-    }];
-
-    [self.newsImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView.mas_left);
-        make.top.equalTo(self.headerLabelSecondPart.mas_bottom).offset(5);
-        make.right.equalTo(self.contentView.mas_right);
-    }];
-
-    [self.bodyTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView.mas_left);
-        make.top.equalTo(self.newsImage.mas_bottom).offset(5);
+        make.top.equalTo(self.headerTitleLabel.mas_bottom).offset(5);
         make.right.equalTo(self.contentView.mas_right);
     }];
 
     [self.footerButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left);
-        make.top.equalTo(self.bodyTextView.mas_bottom).offset(5);
+        make.top.equalTo(self.bodyTextView.mas_bottom).offset(25);
         make.right.equalTo(self.contentView.mas_right);
-        make.height.equalTo(@25);
+        //make.height.equalTo(@25);
+    }];
+
+    [self.newsImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left);
+        make.top.equalTo(self.headerDateLabel.mas_bottom).offset(5);
+        make.right.equalTo(self.contentView.mas_right);
+    }];
+
+    [self.bodyTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left);
+        make.top.equalTo(self.newsImage.mas_bottom);
+        make.right.equalTo(self.contentView.mas_right);
     }];
 }
 
