@@ -21,10 +21,13 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 @property (nonatomic, strong) NSString *newsDetails;
 @property (nonatomic, strong) RACCommand *newsCommand;
 @property (nonatomic, strong) WFFacebookFeedModel *currentNews;
+@property (nonatomic, strong) UIViewController *currentViewController;
+
 
 - (instancetype) initWithFacebookServices:(WFFacebookServices *)services;
 
 - (void)startNewsDownload:(WFFacebookHandler)handler;
 - (void)startNewsImageDownloadForCell:(WFNewsTableViewCell *)cell;
+- (void)openFacebookURL;
 
 @end

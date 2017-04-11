@@ -40,12 +40,20 @@
     
     if (self) {
         _facebookNewsViewModel = viewModel;
+        _facebookNewsViewModel.currentViewController = self;
     }
     return self;
 }
 
 - (void)bindViewModel {
     RAC(self.newsImage,image) = RACObserve(self.facebookNewsViewModel, currentNews.downloadedPicture);
+
+    @weakify(self)
+    [[self.footerButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+     subscribeNext:^(__kindof UIControl * _Nullable x) {
+         @strongify(self)
+         [self.facebookNewsViewModel openFacebookURL];
+     }];
 }
 
 #pragma mark - View Life Cycle
@@ -61,11 +69,12 @@
 
 - (void)setupView {
     self.view.backgroundColor = [UIColor whiteColor];
+
     self.navigationItem.title = self.facebookNewsViewModel.currentNews.name;
     self.bodyTextView.text = self.facebookNewsViewModel.currentNews.bodyDetail;
     self.headerTitleLabel.text = self.facebookNewsViewModel.currentNews.headerDetailTitle;
     self.headerDateLabel.text = self.facebookNewsViewModel.currentNews.headerDetailDate;
-    [self.footerButton setTitle:self.facebookNewsViewModel.currentNews.dataTitle forState:UIControlStateNormal];
+
     [self.view addSubview:self.newsScrollView];
     [self.newsScrollView addSubview:self.contentView];
     [self.contentView addSubview:self.headerTitleLabel];
@@ -184,8 +193,9 @@
 
     [self.footerButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).offset(5);
-        make.top.equalTo(self.bodyView.mas_bottom).offset(8);
+        make.top.equalTo(self.bodyView.mas_bottom).offset(5);
         make.right.equalTo(self.contentView.mas_right).offset(-5);
+        make.height.equalTo(@30);
     }];
 }
 

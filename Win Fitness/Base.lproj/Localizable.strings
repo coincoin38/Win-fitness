@@ -15,3 +15,9 @@
 "WIN FITNESS HAS SHARED THE PUBLICATION OF" = "WinFitness has shared the publication of";
 "WIN FITNESS HAS SHARED THE EVENT OF" = "WinFitness has shared the event of";
 "WIN FITNESS HAS ADDED" = "WinFitness has added";
+"OK" = "OK";
+
+//ERRORS
+
+"ERROR" = "Error";
+"COULD NOT OPEN URL" = "Couldn't open URL";

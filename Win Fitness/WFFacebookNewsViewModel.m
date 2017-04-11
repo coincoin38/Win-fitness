@@ -7,7 +7,7 @@
 //
 
 #import "WFDownloadImageService.h"
-#import "WFFacebookFeedModel.h"
+#import "WFFacebookFeedModel+Additions.h"
 #import "WFFacebookNewsViewModel.h"
 #import "WFFacebookServices.h"
 #import "WFNewsTableViewCell.h"
@@ -66,6 +66,25 @@
     }
 }
 
+- (void)openFacebookURL {
+    if ([self canOpenFacebookURL]) {
+        [[UIApplication sharedApplication] openURL:self.currentNews.dataURL
+                                           options:@{}
+                                 completionHandler:^(BOOL success) {
+                                     if ([NSNumber numberWithBool:success] == 0) {
+                                         [self errorOpenFacebookURL];
+                                     }
+                                 }];
+    }
+    else{
+        [self errorOpenFacebookURL];
+    }
+}
+
+- (BOOL)canOpenFacebookURL {
+    return [[UIApplication sharedApplication] canOpenURL:self.currentNews.dataURL];
+}
+
 #pragma mark - Commands
 
 - (RACCommand *)newsCommand {
@@ -78,6 +97,23 @@
 
 - (RACSignal *)newsSignal {
     return [[self.services newsServiceSignal]deliverOnMainThread];
+}
+
+#pragma mark - Errors
+
+- (void)errorOpenFacebookURL {
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ERROR", nil)
+                                                                    message:NSLocalizedString(@"COULD NOT OPEN URL", nil)
+                                                             preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil)
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * action){
+                                                         [alert dismissViewControllerAnimated:YES completion:nil];
+                                                     }];
+
+    [alert addAction:okAction];
+    [self.currentViewController presentViewController:alert animated:YES completion:nil];
 }
 
 @end

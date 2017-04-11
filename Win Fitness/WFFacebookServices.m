@@ -79,7 +79,7 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 
 - (void)downloadNews:(WFFacebookHandler)handler {
     [[self graphRequestNewsWithToken:self.token] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-        NSLog(@"result %@", result);
+        //NSLog(@"result %@", result);
         handler(result,error);
     }];
 }

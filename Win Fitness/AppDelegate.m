@@ -34,9 +34,9 @@
     
     self.navigationController = [UINavigationController new];
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barTintColor = [UIColor orangeWF];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.navigationController.navigationBar.tintColor = [UIColor orangeWF];
+    self.navigationController.navigationBar.barTintColor = [UIColor darkGrayWF];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor lightGrayWF]}];
     
     UIViewController *viewController = [self createInitialViewController];
     [self.navigationController pushViewController:viewController animated:NO];

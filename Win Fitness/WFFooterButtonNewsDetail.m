@@ -14,12 +14,10 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
-        [self setTitleColor:[UIColor blueFacebook] forState:UIControlStateNormal];
-        [self setTitleColor:[UIColor darkGrayWF] forState:UIControlStateHighlighted];
-        self.titleLabel.font = [UIFont boldSystemFontOfSize:16];
-        self.titleLabel.numberOfLines = 0;
-        self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        self.backgroundColor = [UIColor blueFacebook];
+        [self setImage:[UIImage imageNamed:@"fb-art"] forState:UIControlStateNormal];
+        [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
+        self.imageEdgeInsets = UIEdgeInsetsMake(0, 4, 4, 0);
     }
     return self;
 }

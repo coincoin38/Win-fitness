@@ -12,12 +12,8 @@
 
 @implementation WFFacebookFeedModel (Additions)
 
-- (NSString *)dataTitle {
-    return [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"MORE INFORMATIONS", nil),[self.data valueForKey:@"title"][0]];
-}
-
-- (NSString *)dataUrl {
-    return [self.data valueForKey:@"url"][0];
+- (NSURL *)dataURL {
+    return [NSURL URLWithString:[self.data valueForKey:@"url"][0]] ? : nil;
 }
 
 - (NSString *)headerCell {

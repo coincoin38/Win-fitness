@@ -15,7 +15,6 @@
 - (NSString *)bodyDetail;
 - (NSString *)bodyCell;
 - (NSString *)headerCell;
-- (NSString *)dataTitle;
-- (NSString *)dataUrl;
+- (NSURL *)dataURL;
 
 @end

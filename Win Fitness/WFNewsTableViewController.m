@@ -31,6 +31,7 @@ static NSString * const cellIdentifier = @"newsIdentifier";
     
     if (self) {
         _facebookNewsViewModel = viewModel;
+        _facebookNewsViewModel.currentViewController = self;
     }
     return self;
 }
