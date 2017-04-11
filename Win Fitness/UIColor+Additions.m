@@ -23,7 +23,7 @@
 }
 
 + (UIColor *)veryLightGrayWF {
-    return [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1];
+    return [UIColor colorWithRed:250.0/255.0 green:250.0/255.0 blue:250.0/255.0 alpha:1];
 }
 
 + (UIColor *)blueFacebook {

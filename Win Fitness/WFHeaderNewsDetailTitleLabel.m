@@ -29,7 +29,7 @@
 
 - (void)setText:(NSString *)text {
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:text];
-    [str addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, text.length)];
+    [str addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayWF] range:NSMakeRange(0, text.length)];
     [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:16] range:NSMakeRange(0, text.length)];
 
     // Name of the shared entity

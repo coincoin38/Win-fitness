@@ -16,12 +16,10 @@
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         [self setTitleColor:[UIColor blueFacebook] forState:UIControlStateNormal];
-        [self setTitleColor:[UIColor lightGrayWF] forState:UIControlStateHighlighted];
+        [self setTitleColor:[UIColor darkGrayWF] forState:UIControlStateHighlighted];
         self.titleLabel.font = [UIFont boldSystemFontOfSize:16];
         self.titleLabel.numberOfLines = 0;
-        self.titleLabel.textAlignment = NSTextAlignmentLeft;
-        self.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
-        self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return self;
 }

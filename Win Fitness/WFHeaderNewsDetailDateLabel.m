@@ -22,7 +22,7 @@
     if (self) {
         _createdTime = createdTime;
         self.font = [UIFont systemFontOfSize:14];
-        self.textColor = [UIColor blackColor];
+        self.textColor = [UIColor grayColor];
         self.textAlignment = NSTextAlignmentLeft;
         self.numberOfLines = 0;
     }

@@ -13,7 +13,7 @@
 @implementation WFFacebookFeedModel (Additions)
 
 - (NSString *)dataTitle {
-    return [self.data valueForKey:@"title"][0];
+    return [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"MORE INFORMATIONS", nil),[self.data valueForKey:@"title"][0]];
 }
 
 - (NSString *)dataUrl {
