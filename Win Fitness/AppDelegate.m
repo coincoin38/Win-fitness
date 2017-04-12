@@ -17,6 +17,7 @@
 @interface AppDelegate ()
 
 @property (nonatomic, retain) UINavigationController *navigationController;
+@property (strong, nonatomic) UITabBarController *tabBarController;
 @property (strong, nonatomic) WFFacebookServices *facebookServices;
 @property (strong, nonatomic) WFFacebookNewsViewModel *facebookNewsViewModel;
 
@@ -33,17 +34,23 @@
                              didFinishLaunchingWithOptions:launchOptions];
     
     self.navigationController = [UINavigationController new];
-    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.tintColor = [UIColor orangeWF];
     self.navigationController.navigationBar.barTintColor = [UIColor darkGrayWF];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor lightGrayWF]}];
-    
-    UIViewController *viewController = [self createInitialViewController];
-    [self.navigationController pushViewController:viewController animated:NO];
-    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor orangeWF]}];
+    self.navigationController.viewControllers = [NSArray arrayWithObjects:[self createInitialViewController], nil];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.navigationController;
     self.window.backgroundColor = [UIColor whiteColor];
+
+    self.tabBarController = [[UITabBarController alloc]init];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, nil];
+    self.tabBarController.tabBar.translucent = YES;
+    self.tabBarController.tabBar.barTintColor = [UIColor lightGrayWF];
+    self.tabBarController.tabBar.tintColor = [UIColor darkGrayWF];
+
+
+    self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
     return YES;

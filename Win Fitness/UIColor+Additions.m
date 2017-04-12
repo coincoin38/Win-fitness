@@ -15,7 +15,7 @@
 }
 
 + (UIColor *)darkGrayWF {
-    return [UIColor colorWithRed:36.0/255.0 green:32.0/255.0 blue:33.0/255.0 alpha:1];
+    return [UIColor colorWithRed:36.0/255.0 green:32.0/255.0 blue:33.0/255.0 alpha:0.95];
 }
 
 + (UIColor *)lightGrayWF {

@@ -40,11 +40,18 @@ static NSString * const cellIdentifier = @"newsIdentifier";
     [super viewDidLoad];
     [self setupViews];
     [self bindViewModel];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 - (void)setupViews {
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
     self.tableView.backgroundView = self.loadindActivityIndicator;
+    self.tableView.backgroundColor = [UIColor darkGrayColor];
     [self.tableView addSubview:self.dataRefreshControl];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:cellIdentifier];
