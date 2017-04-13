@@ -1,5 +1,5 @@
 //
-//  WFHeaderNewsDetailDateLabel.h
+//  WFHeaderNewsDetailsDateLabel.h
 //  Win Fitness
 //
 //  Created by julien gimenez on 10/04/2017.
@@ -8,7 +8,7 @@
 
 #import "WFBaseLabel.h"
 
-@interface WFHeaderNewsDetailDateLabel : WFBaseLabel
+@interface WFHeaderNewsDetailsDateLabel : WFBaseLabel
 
 - (instancetype)initWithFrame:(CGRect)frame withCreatedTime:(NSString *)createdTime;
 

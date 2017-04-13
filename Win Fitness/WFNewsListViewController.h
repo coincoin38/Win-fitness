@@ -1,16 +1,15 @@
 //
-//  WFNewsViewController.h
+//  WFNewsTableViewController.h
 //  Win Fitness
 //
-//  Created by julien gimenez on 24/03/2017.
+//  Created by julien gimenez on 02/03/2017.
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
-
-#import "WFBaseViewController.h"
+#import "WFBaseListViewController.h"
 
 @class WFFacebookNewsViewModel;
 
-@interface WFNewsViewController : WFBaseViewController
+@interface WFNewsListViewController : WFBaseListViewController
 
 - (instancetype)initWithFacebookNewsViewModel:(WFFacebookNewsViewModel *)viewModel;
 

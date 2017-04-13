@@ -9,20 +9,17 @@
 #import "WFDownloadImageService.h"
 #import "WFFacebookFeedModel.h"
 #import "WFFacebookNewsViewModel.h"
-#import "WFNewsTableViewCell.h"
-#import "WFNewsTableViewController.h"
-#import "WFNewsViewController.h"
+#import "WFNewsListViewController.h"
+#import "WFNewsDetailsViewController.h"
 
-static NSString * const cellIdentifier = @"newsIdentifier";
-
-@interface WFNewsTableViewController ()
+@interface WFNewsListViewController ()
 
 @property(nonatomic,strong) WFFacebookFeedModel *selectedNews;
 @property(nonatomic,strong) WFFacebookNewsViewModel *facebookNewsViewModel;
 
 @end
 
-@implementation WFNewsTableViewController
+@implementation WFNewsListViewController
 
 #pragma mark - Init
 
@@ -49,17 +46,23 @@ static NSString * const cellIdentifier = @"newsIdentifier";
 }
 
 - (void)setupViews {
-
-    self.tableView.backgroundView = self.loadindActivityIndicator;
-    self.tableView.backgroundColor = [UIColor darkGrayColor];
-    [self.tableView addSubview:self.dataRefreshControl];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:cellIdentifier];
     self.title = NSLocalizedString(@"NEWS", nil);
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:nil
                                                                             action:nil];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.tableView];
+    [self addCustomStatusBar:[UIColor darkGrayColor]];
+
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.bottom.equalTo(self.view.mas_bottom);
+    }];
 }
 
 #pragma mark - Binding
@@ -102,7 +105,7 @@ static NSString * const cellIdentifier = @"newsIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedNews = (WFFacebookFeedModel *)self.datasArray[indexPath.row];
-    WFNewsViewController * newsViewController = [[WFNewsViewController alloc]initWithFacebookNewsViewModel:self.facebookNewsViewModel];
+    WFNewsDetailsViewController * newsViewController = [[WFNewsDetailsViewController alloc]initWithFacebookNewsViewModel:self.facebookNewsViewModel];
     [self.navigationController pushViewController:newsViewController animated:YES];
 }
 

@@ -8,7 +8,7 @@
 
 #import "WFBaseLabel.h"
 
-@interface WFHeaderNewsDetailTitleLabel : WFBaseLabel
+@interface WFHeaderNewsDetailsTitleLabel : WFBaseLabel
 
 - (instancetype)initWithFrame:(CGRect)frame withName:(NSString *)name;
 

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		130C4F041E9BA8970020172C /* WFHeaderNewsDetailDateLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 130C4F031E9BA8970020172C /* WFHeaderNewsDetailDateLabel.m */; };
+		130C4F041E9BA8970020172C /* WFHeaderNewsDetailsDateLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 130C4F031E9BA8970020172C /* WFHeaderNewsDetailsDateLabel.m */; };
 		130C4F071E9BA8F50020172C /* WFBaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 130C4F061E9BA8F50020172C /* WFBaseLabel.m */; };
 		130C4F0B1E9BAFFA0020172C /* WFNewsDetailTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 130C4F0A1E9BAFFA0020172C /* WFNewsDetailTextView.m */; };
 		130E4B631E812202001C33DE /* WFDatesConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E4B621E812202001C33DE /* WFDatesConverter.m */; };
@@ -16,14 +16,14 @@
 		136342CC1E85308900BBBCC6 /* WFHeaderCellLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 136342CB1E85308900BBBCC6 /* WFHeaderCellLabel.m */; };
 		138A1CF71E856CC10010D83D /* WFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138A1CF61E856CC10010D83D /* WFBaseViewController.m */; };
 		138A1CFB1E856D7E0010D83D /* WFNewsTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 138A1CFA1E856D7E0010D83D /* WFNewsTextView.m */; };
-		13A3D4241E68A39E00B38EEF /* WFNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3D4231E68A39E00B38EEF /* WFNewsTableViewController.m */; };
-		13A3D4271E697F5000B38EEF /* WFBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3D4261E697F5000B38EEF /* WFBaseTableViewController.m */; };
+		13A3D4241E68A39E00B38EEF /* WFNewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3D4231E68A39E00B38EEF /* WFNewsListViewController.m */; };
+		13A3D4271E697F5000B38EEF /* WFBaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3D4261E697F5000B38EEF /* WFBaseListViewController.m */; };
 		13B005AE1E855A2900C1D90B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 13B005B01E855A2900C1D90B /* Localizable.strings */; };
-		13B005B51E855F0400C1D90B /* WFNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B005B41E855F0400C1D90B /* WFNewsViewController.m */; };
+		13B005B51E855F0400C1D90B /* WFNewsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B005B41E855F0400C1D90B /* WFNewsDetailsViewController.m */; };
 		13B926071E64C430003E7DD0 /* WFFacebookServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B926061E64C430003E7DD0 /* WFFacebookServices.m */; };
-		13BC85321E8E45DA00CF254C /* WFHeaderNewsDetailTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BC85311E8E45DA00CF254C /* WFHeaderNewsDetailTitleLabel.m */; };
+		13BC85321E8E45DA00CF254C /* WFHeaderNewsDetailsTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BC85311E8E45DA00CF254C /* WFHeaderNewsDetailsTitleLabel.m */; };
 		13BC85381E8E4E3F00CF254C /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BC85371E8E4E3F00CF254C /* UIColor+Additions.m */; };
-		13BC85401E8E596600CF254C /* WFFooterButtonNewsDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BC853F1E8E596600CF254C /* WFFooterButtonNewsDetail.m */; };
+		13BC85401E8E596600CF254C /* WFFooterButtonNewsDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BC853F1E8E596600CF254C /* WFFooterButtonNewsDetails.m */; };
 		13DAA9C11E65AA3900C8F343 /* WFFacebookConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DAA9C01E65AA3900C8F343 /* WFFacebookConstants.m */; };
 		13DAA9C41E672D3400C8F343 /* WFFacebookNewsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DAA9C31E672D3400C8F343 /* WFFacebookNewsViewModel.m */; };
 		13DDB0421E8D3DD800BDE55B /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DDB0411E8D3DD800BDE55B /* NSString+Additions.m */; };
@@ -38,8 +38,8 @@
 
 /* Begin PBXFileReference section */
 		0EF74C24827EAF855223A2C0 /* libPods-Win Fitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Win Fitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		130C4F021E9BA8970020172C /* WFHeaderNewsDetailDateLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFHeaderNewsDetailDateLabel.h; sourceTree = "<group>"; };
-		130C4F031E9BA8970020172C /* WFHeaderNewsDetailDateLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFHeaderNewsDetailDateLabel.m; sourceTree = "<group>"; };
+		130C4F021E9BA8970020172C /* WFHeaderNewsDetailsDateLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFHeaderNewsDetailsDateLabel.h; sourceTree = "<group>"; };
+		130C4F031E9BA8970020172C /* WFHeaderNewsDetailsDateLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFHeaderNewsDetailsDateLabel.m; sourceTree = "<group>"; };
 		130C4F051E9BA8F50020172C /* WFBaseLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBaseLabel.h; sourceTree = "<group>"; };
 		130C4F061E9BA8F50020172C /* WFBaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBaseLabel.m; sourceTree = "<group>"; };
 		130C4F091E9BAFFA0020172C /* WFNewsDetailTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNewsDetailTextView.h; sourceTree = "<group>"; };
@@ -56,24 +56,24 @@
 		138A1CF61E856CC10010D83D /* WFBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBaseViewController.m; sourceTree = "<group>"; };
 		138A1CF91E856D7E0010D83D /* WFNewsTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNewsTextView.h; sourceTree = "<group>"; };
 		138A1CFA1E856D7E0010D83D /* WFNewsTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsTextView.m; sourceTree = "<group>"; };
-		13A3D4221E68A39D00B38EEF /* WFNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNewsTableViewController.h; sourceTree = "<group>"; };
-		13A3D4231E68A39E00B38EEF /* WFNewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsTableViewController.m; sourceTree = "<group>"; };
-		13A3D4251E697F5000B38EEF /* WFBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBaseTableViewController.h; sourceTree = "<group>"; };
-		13A3D4261E697F5000B38EEF /* WFBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBaseTableViewController.m; sourceTree = "<group>"; };
+		13A3D4221E68A39D00B38EEF /* WFNewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNewsListViewController.h; sourceTree = "<group>"; };
+		13A3D4231E68A39E00B38EEF /* WFNewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsListViewController.m; sourceTree = "<group>"; };
+		13A3D4251E697F5000B38EEF /* WFBaseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBaseListViewController.h; sourceTree = "<group>"; };
+		13A3D4261E697F5000B38EEF /* WFBaseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBaseListViewController.m; sourceTree = "<group>"; };
 		13B005AD1E855A0A00C1D90B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		13B005AF1E855A2900C1D90B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		13B005B11E855A2B00C1D90B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		13B005B21E855A2D00C1D90B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		13B005B31E855F0400C1D90B /* WFNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNewsViewController.h; sourceTree = "<group>"; };
-		13B005B41E855F0400C1D90B /* WFNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsViewController.m; sourceTree = "<group>"; };
+		13B005B31E855F0400C1D90B /* WFNewsDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNewsDetailsViewController.h; sourceTree = "<group>"; };
+		13B005B41E855F0400C1D90B /* WFNewsDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsDetailsViewController.m; sourceTree = "<group>"; };
 		13B926051E64C430003E7DD0 /* WFFacebookServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookServices.h; sourceTree = "<group>"; };
 		13B926061E64C430003E7DD0 /* WFFacebookServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookServices.m; sourceTree = "<group>"; };
-		13BC85301E8E45DA00CF254C /* WFHeaderNewsDetailTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFHeaderNewsDetailTitleLabel.h; sourceTree = "<group>"; };
-		13BC85311E8E45DA00CF254C /* WFHeaderNewsDetailTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFHeaderNewsDetailTitleLabel.m; sourceTree = "<group>"; };
+		13BC85301E8E45DA00CF254C /* WFHeaderNewsDetailsTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFHeaderNewsDetailsTitleLabel.h; sourceTree = "<group>"; };
+		13BC85311E8E45DA00CF254C /* WFHeaderNewsDetailsTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFHeaderNewsDetailsTitleLabel.m; sourceTree = "<group>"; };
 		13BC85361E8E4E3F00CF254C /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
 		13BC85371E8E4E3F00CF254C /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
-		13BC853E1E8E596600CF254C /* WFFooterButtonNewsDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFooterButtonNewsDetail.h; sourceTree = "<group>"; };
-		13BC853F1E8E596600CF254C /* WFFooterButtonNewsDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFooterButtonNewsDetail.m; sourceTree = "<group>"; };
+		13BC853E1E8E596600CF254C /* WFFooterButtonNewsDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFooterButtonNewsDetails.h; sourceTree = "<group>"; };
+		13BC853F1E8E596600CF254C /* WFFooterButtonNewsDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFooterButtonNewsDetails.m; sourceTree = "<group>"; };
 		13DAA9BF1E65AA3900C8F343 /* WFFacebookConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookConstants.h; sourceTree = "<group>"; };
 		13DAA9C01E65AA3900C8F343 /* WFFacebookConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookConstants.m; sourceTree = "<group>"; };
 		13DAA9C21E672D3400C8F343 /* WFFacebookNewsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookNewsViewModel.h; sourceTree = "<group>"; };
@@ -185,8 +185,8 @@
 		13A3D4291E697F6400B38EEF /* Bases */ = {
 			isa = PBXGroup;
 			children = (
-				13A3D4251E697F5000B38EEF /* WFBaseTableViewController.h */,
-				13A3D4261E697F5000B38EEF /* WFBaseTableViewController.m */,
+				13A3D4251E697F5000B38EEF /* WFBaseListViewController.h */,
+				13A3D4261E697F5000B38EEF /* WFBaseListViewController.m */,
 				138A1CF51E856CC10010D83D /* WFBaseViewController.h */,
 				138A1CF61E856CC10010D83D /* WFBaseViewController.m */,
 			);
@@ -199,10 +199,10 @@
 				130C4F081E9BA8FA0020172C /* Bases */,
 				136342CA1E85308900BBBCC6 /* WFHeaderCellLabel.h */,
 				136342CB1E85308900BBBCC6 /* WFHeaderCellLabel.m */,
-				13BC85301E8E45DA00CF254C /* WFHeaderNewsDetailTitleLabel.h */,
-				13BC85311E8E45DA00CF254C /* WFHeaderNewsDetailTitleLabel.m */,
-				130C4F021E9BA8970020172C /* WFHeaderNewsDetailDateLabel.h */,
-				130C4F031E9BA8970020172C /* WFHeaderNewsDetailDateLabel.m */,
+				13BC85301E8E45DA00CF254C /* WFHeaderNewsDetailsTitleLabel.h */,
+				13BC85311E8E45DA00CF254C /* WFHeaderNewsDetailsTitleLabel.m */,
+				130C4F021E9BA8970020172C /* WFHeaderNewsDetailsDateLabel.h */,
+				130C4F031E9BA8970020172C /* WFHeaderNewsDetailsDateLabel.m */,
 			);
 			name = UILabels;
 			sourceTree = "<group>";
@@ -237,8 +237,8 @@
 		13BC85391E8E58E300CF254C /* UIButtons */ = {
 			isa = PBXGroup;
 			children = (
-				13BC853E1E8E596600CF254C /* WFFooterButtonNewsDetail.h */,
-				13BC853F1E8E596600CF254C /* WFFooterButtonNewsDetail.m */,
+				13BC853E1E8E596600CF254C /* WFFooterButtonNewsDetails.h */,
+				13BC853F1E8E596600CF254C /* WFFooterButtonNewsDetails.m */,
 			);
 			name = UIButtons;
 			sourceTree = "<group>";
@@ -266,10 +266,10 @@
 		13E02C3D1E9E5141003CEB0A /* News */ = {
 			isa = PBXGroup;
 			children = (
-				13A3D4221E68A39D00B38EEF /* WFNewsTableViewController.h */,
-				13A3D4231E68A39E00B38EEF /* WFNewsTableViewController.m */,
-				13B005B31E855F0400C1D90B /* WFNewsViewController.h */,
-				13B005B41E855F0400C1D90B /* WFNewsViewController.m */,
+				13A3D4221E68A39D00B38EEF /* WFNewsListViewController.h */,
+				13A3D4231E68A39E00B38EEF /* WFNewsListViewController.m */,
+				13B005B31E855F0400C1D90B /* WFNewsDetailsViewController.h */,
+				13B005B41E855F0400C1D90B /* WFNewsDetailsViewController.m */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -494,17 +494,17 @@
 				130C4F071E9BA8F50020172C /* WFBaseLabel.m in Sources */,
 				1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */,
 				136342CC1E85308900BBBCC6 /* WFHeaderCellLabel.m in Sources */,
-				13A3D4271E697F5000B38EEF /* WFBaseTableViewController.m in Sources */,
-				13B005B51E855F0400C1D90B /* WFNewsViewController.m in Sources */,
+				13A3D4271E697F5000B38EEF /* WFBaseListViewController.m in Sources */,
+				13B005B51E855F0400C1D90B /* WFNewsDetailsViewController.m in Sources */,
 				13DAA9C11E65AA3900C8F343 /* WFFacebookConstants.m in Sources */,
 				138A1CF71E856CC10010D83D /* WFBaseViewController.m in Sources */,
 				13F3F2E61E6EEF9F007ABCD2 /* WFDownloadImageService.m in Sources */,
-				13BC85321E8E45DA00CF254C /* WFHeaderNewsDetailTitleLabel.m in Sources */,
+				13BC85321E8E45DA00CF254C /* WFHeaderNewsDetailsTitleLabel.m in Sources */,
 				138A1CFB1E856D7E0010D83D /* WFNewsTextView.m in Sources */,
-				13BC85401E8E596600CF254C /* WFFooterButtonNewsDetail.m in Sources */,
-				13A3D4241E68A39E00B38EEF /* WFNewsTableViewController.m in Sources */,
+				13BC85401E8E596600CF254C /* WFFooterButtonNewsDetails.m in Sources */,
+				13A3D4241E68A39E00B38EEF /* WFNewsListViewController.m in Sources */,
 				130C4F0B1E9BAFFA0020172C /* WFNewsDetailTextView.m in Sources */,
-				130C4F041E9BA8970020172C /* WFHeaderNewsDetailDateLabel.m in Sources */,
+				130C4F041E9BA8970020172C /* WFHeaderNewsDetailsDateLabel.m in Sources */,
 				130E4B631E812202001C33DE /* WFDatesConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,7 @@
 #import <Masonry/Masonry.h>
 #import <ReactiveObjC.h>
 #import <UIKit/UIKit.h>
+#import "UIColor+Additions.h"
 
 @interface WFBaseViewController : UIViewController
 

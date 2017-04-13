@@ -7,16 +7,16 @@
 //
 
 #import "WFNewsDetailTextView.h"
-#import "WFHeaderNewsDetailTitleLabel.h"
+#import "WFHeaderNewsDetailsTitleLabel.h"
 #import "WFDownloadImageService.h"
 #import "WFFacebookFeedModel+Additions.h"
 #import "WFFacebookNewsViewModel.h"
-#import "WFFooterButtonNewsDetail.h"
+#import "WFFooterButtonNewsDetails.h"
 #import "WFNewsTableViewCell.h"
-#import "WFNewsViewController.h"
-#import "WFHeaderNewsDetailDateLabel.h"
+#import "WFNewsDetailsViewController.h"
+#import "WFHeaderNewsDetailsDateLabel.h"
 
-@interface WFNewsViewController ()
+@interface WFNewsDetailsViewController ()
 
 @property(nonatomic,strong) UIBarButtonItem *facebookButton;
 @property(nonatomic,strong) UIImageView *newsImage;
@@ -25,13 +25,13 @@
 @property(nonatomic,strong) UIView *bodyView;
 @property(nonatomic,strong) WFNewsDetailTextView *bodyTextView;
 @property(nonatomic,strong) WFFacebookNewsViewModel *facebookNewsViewModel;
-@property(nonatomic,strong) WFFooterButtonNewsDetail *footerButton;
-@property(nonatomic,strong) WFHeaderNewsDetailTitleLabel *headerTitleLabel;
-@property(nonatomic,strong) WFHeaderNewsDetailDateLabel *headerDateLabel;
+@property(nonatomic,strong) WFFooterButtonNewsDetails *footerButton;
+@property(nonatomic,strong) WFHeaderNewsDetailsTitleLabel *headerTitleLabel;
+@property(nonatomic,strong) WFHeaderNewsDetailsDateLabel *headerDateLabel;
 
 @end
 
-@implementation WFNewsViewController
+@implementation WFNewsDetailsViewController
 
 #pragma mark - Init
 
@@ -76,9 +76,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
 
     self.navigationItem.title = self.facebookNewsViewModel.currentNews.name;
-    self.bodyTextView.text = self.facebookNewsViewModel.currentNews.bodyDetail;
-    self.headerTitleLabel.text = self.facebookNewsViewModel.currentNews.headerDetailTitle;
-    self.headerDateLabel.text = self.facebookNewsViewModel.currentNews.headerDetailDate;
+    self.bodyTextView.text = self.facebookNewsViewModel.currentNews.bodyDetails;
+    self.headerTitleLabel.text = self.facebookNewsViewModel.currentNews.headerDetailsTitle;
+    self.headerDateLabel.text = self.facebookNewsViewModel.currentNews.headerDetailsDate;
 
     [self.view addSubview:self.newsScrollView];
     [self.newsScrollView addSubview:self.contentView];
@@ -99,17 +99,17 @@
     return _newsImage;
 }
 
-- (WFHeaderNewsDetailTitleLabel *)headerTitleLabel {
+- (WFHeaderNewsDetailsTitleLabel *)headerTitleLabel {
     if(!_headerTitleLabel) {
-        _headerTitleLabel = [[WFHeaderNewsDetailTitleLabel alloc]initWithFrame:CGRectZero
+        _headerTitleLabel = [[WFHeaderNewsDetailsTitleLabel alloc]initWithFrame:CGRectZero
                                                             withName:self.facebookNewsViewModel.currentNews.name];
     }
     return _headerTitleLabel;
 }
 
-- (WFHeaderNewsDetailDateLabel *)headerDateLabel {
+- (WFHeaderNewsDetailsDateLabel *)headerDateLabel {
     if(!_headerDateLabel) {
-        _headerDateLabel = [[WFHeaderNewsDetailDateLabel alloc]initWithFrame:CGRectZero
+        _headerDateLabel = [[WFHeaderNewsDetailsDateLabel alloc]initWithFrame:CGRectZero
                                                              withCreatedTime:self.facebookNewsViewModel.currentNews.created_time];
     }
     return _headerDateLabel;
@@ -123,9 +123,9 @@
     return _bodyTextView;
 }
 
-- (WFFooterButtonNewsDetail *)footerButton {
+- (WFFooterButtonNewsDetails *)footerButton {
     if (!_footerButton) {
-        _footerButton = [[WFFooterButtonNewsDetail alloc]initWithFrame:CGRectZero];
+        _footerButton = [[WFFooterButtonNewsDetails alloc]initWithFrame:CGRectZero];
     }
     return _footerButton;
 }

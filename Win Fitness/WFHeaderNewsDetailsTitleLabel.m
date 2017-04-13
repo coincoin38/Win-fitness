@@ -6,16 +6,16 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFHeaderNewsDetailTitleLabel.h"
+#import "WFHeaderNewsDetailsTitleLabel.h"
 #import "WFDatesConverter.h"
 
-@interface WFHeaderNewsDetailTitleLabel ()
+@interface WFHeaderNewsDetailsTitleLabel ()
 
 @property(nonatomic,strong) NSString *name;
 
 @end
 
-@implementation WFHeaderNewsDetailTitleLabel
+@implementation WFHeaderNewsDetailsTitleLabel
 
 - (instancetype)initWithFrame:(CGRect)frame withName:(NSString *)name {
     self = [super initWithFrame:frame];

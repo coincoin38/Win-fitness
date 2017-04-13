@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WFFooterButtonNewsDetail : UIButton
+@interface WFFooterButtonNewsDetails : UIButton
 
 @end

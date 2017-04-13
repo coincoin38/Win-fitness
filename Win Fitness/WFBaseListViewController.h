@@ -9,13 +9,19 @@
 #import <Masonry/Masonry.h>
 #import <ReactiveObjC.h>
 #import <UIKit/UIKit.h>
+#import "WFNewsTableViewCell.h"
+#import "UIColor+Additions.h"
 
-@interface WFBaseTableViewController : UITableViewController
+static NSString * const cellIdentifier = @"newsIdentifier";
+
+@interface WFBaseListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property(nonatomic,strong) NSArray *datasArray;
 @property(nonatomic,strong) UIActivityIndicatorView *loadindActivityIndicator;
 @property(nonatomic,strong) UIRefreshControl *dataRefreshControl;
+@property(nonatomic,strong) UITableView *tableView;
 
 - (void)reloadTableView;
+- (void)addCustomStatusBar:(UIColor *)color;
 
 @end

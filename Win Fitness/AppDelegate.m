@@ -11,8 +11,7 @@
 #import "UIColor+Additions.h"
 #import "WFFacebookServices.h"
 #import "WFFacebookNewsViewModel.h"
-#import "WFNewsTableViewController.h"
-
+#import "WFNewsListViewController.h"
 
 @interface AppDelegate ()
 
@@ -60,7 +59,7 @@
     self.facebookServices = [[WFFacebookServices alloc] initService];
     self.facebookNewsViewModel = [[WFFacebookNewsViewModel alloc] initWithFacebookServices:self.facebookServices];
     
-    return [[WFNewsTableViewController alloc] initWithFacebookNewsViewModel:self.facebookNewsViewModel];
+    return [[WFNewsListViewController alloc] initWithFacebookNewsViewModel:self.facebookNewsViewModel];
 }
 
 - (BOOL)application:(UIApplication *)application

@@ -6,16 +6,16 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFHeaderNewsDetailDateLabel.h"
+#import "WFHeaderNewsDetailsDateLabel.h"
 #import "WFDatesConverter.h"
 
-@interface WFHeaderNewsDetailDateLabel ()
+@interface WFHeaderNewsDetailsDateLabel ()
 
 @property(nonatomic,strong) NSString *createdTime;
 
 @end
 
-@implementation WFHeaderNewsDetailDateLabel
+@implementation WFHeaderNewsDetailsDateLabel
 
 - (instancetype)initWithFrame:(CGRect)frame withCreatedTime:(NSString *)createdTime {
     self = [super initWithFrame:frame];
