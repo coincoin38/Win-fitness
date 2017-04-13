@@ -37,7 +37,6 @@
     [super viewDidLoad];
     [self setupViews];
     [self bindViewModel];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -54,14 +53,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
     [self addCustomStatusBar:[UIColor darkGrayColor]];
-
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top);
-        make.left.equalTo(self.view.mas_left);
-        make.right.equalTo(self.view.mas_right);
-        make.bottom.equalTo(self.view.mas_bottom);
+        make.edges.equalTo(self.view);
     }];
 }
 

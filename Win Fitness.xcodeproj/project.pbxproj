@@ -20,6 +20,7 @@
 		13A3D4271E697F5000B38EEF /* WFBaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3D4261E697F5000B38EEF /* WFBaseListViewController.m */; };
 		13B005AE1E855A2900C1D90B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 13B005B01E855A2900C1D90B /* Localizable.strings */; };
 		13B005B51E855F0400C1D90B /* WFNewsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B005B41E855F0400C1D90B /* WFNewsDetailsViewController.m */; };
+		13B416ED1E9FAC9E006D5F09 /* WFErrorsServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B416EC1E9FAC9E006D5F09 /* WFErrorsServices.m */; };
 		13B926071E64C430003E7DD0 /* WFFacebookServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B926061E64C430003E7DD0 /* WFFacebookServices.m */; };
 		13BC85321E8E45DA00CF254C /* WFHeaderNewsDetailsTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BC85311E8E45DA00CF254C /* WFHeaderNewsDetailsTitleLabel.m */; };
 		13BC85381E8E4E3F00CF254C /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BC85371E8E4E3F00CF254C /* UIColor+Additions.m */; };
@@ -66,6 +67,8 @@
 		13B005B21E855A2D00C1D90B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		13B005B31E855F0400C1D90B /* WFNewsDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNewsDetailsViewController.h; sourceTree = "<group>"; };
 		13B005B41E855F0400C1D90B /* WFNewsDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsDetailsViewController.m; sourceTree = "<group>"; };
+		13B416EB1E9FAC9E006D5F09 /* WFErrorsServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFErrorsServices.h; sourceTree = "<group>"; };
+		13B416EC1E9FAC9E006D5F09 /* WFErrorsServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFErrorsServices.m; sourceTree = "<group>"; };
 		13B926051E64C430003E7DD0 /* WFFacebookServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookServices.h; sourceTree = "<group>"; };
 		13B926061E64C430003E7DD0 /* WFFacebookServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookServices.m; sourceTree = "<group>"; };
 		13BC85301E8E45DA00CF254C /* WFHeaderNewsDetailsTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFHeaderNewsDetailsTitleLabel.h; sourceTree = "<group>"; };
@@ -225,6 +228,15 @@
 			name = Application;
 			sourceTree = "<group>";
 		};
+		13B416EA1E9FAC6A006D5F09 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				13B416EB1E9FAC9E006D5F09 /* WFErrorsServices.h */,
+				13B416EC1E9FAC9E006D5F09 /* WFErrorsServices.m */,
+			);
+			name = Errors;
+			sourceTree = "<group>";
+		};
 		13B926041E64C3DE003E7DD0 /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +347,7 @@
 		13F3F2E31E6EEF67007ABCD2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				13B416EA1E9FAC6A006D5F09 /* Errors */,
 				132BAB7E1E89155800471DBB /* Download */,
 				13B926041E64C3DE003E7DD0 /* Facebook */,
 			);
@@ -486,6 +499,7 @@
 				132BAB821E89554300471DBB /* WFFacebookFeedModel+Additions.m in Sources */,
 				13DDB0421E8D3DD800BDE55B /* NSString+Additions.m in Sources */,
 				13BC85381E8E4E3F00CF254C /* UIColor+Additions.m in Sources */,
+				13B416ED1E9FAC9E006D5F09 /* WFErrorsServices.m in Sources */,
 				13E328251E64AB9D00F1A4EC /* AppDelegate.m in Sources */,
 				13B926071E64C430003E7DD0 /* WFFacebookServices.m in Sources */,
 				13EC255B1E6ABB9A003FC5D4 /* WFNewsTableViewCell.m in Sources */,

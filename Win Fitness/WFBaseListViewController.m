@@ -28,6 +28,8 @@
         [_tableView addSubview:self.dataRefreshControl];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [_tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:cellIdentifier];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
     }
     return _tableView;
 }
