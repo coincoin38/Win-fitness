@@ -58,6 +58,7 @@
                           duration:0.25f
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^(void) {
+                            [self.loadindActivityIndicator stopAnimating];
                             [self.tableView reloadData];
                         } completion:NULL];
     });

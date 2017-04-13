@@ -21,3 +21,5 @@
 
 "ERROR" = "Error";
 "COULD NOT OPEN URL" = "Couldn't open URL";
+"COULD NOT DOWNLOAD FACEBOOK NEWS" = "Couldn't download Facebook news";
+

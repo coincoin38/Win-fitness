@@ -65,15 +65,12 @@
 
     RAC(self,datasArray) = RACObserve(self.facebookNewsViewModel, facebookNews);
     RAC(self.facebookNewsViewModel,currentNews) = RACObserve(self, selectedNews);
+    RAC(self.loadindActivityIndicator,animating) = RACObserve(self.facebookNewsViewModel,isLoading);
     
     [RACObserve(self, datasArray)
      subscribeNext:^(id news) {
          @strongify(self)
-
          if (news) {
-             if ([self.loadindActivityIndicator isAnimating]) {
-                 [self.loadindActivityIndicator stopAnimating];
-             }
              [self reloadTableView];
          }
      }];

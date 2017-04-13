@@ -7,10 +7,13 @@
 //
 
 #import "WFDownloadImageService.h"
+#import "WFErrorsServices.h"
 #import "WFFacebookFeedModel+Additions.h"
 #import "WFFacebookNewsViewModel.h"
 #import "WFFacebookServices.h"
 #import "WFNewsTableViewCell.h"
+
+@class WFBaseListViewController;
 
 @interface WFFacebookNewsViewModel ()
 
@@ -26,6 +29,7 @@
     self = [super init];
     if (self) {
         _services = services;
+        _isLoading = YES;
         [self startNewsDownload];
     }
     return self;
@@ -35,19 +39,28 @@
 
 - (void)startNewsDownload {
     @weakify(self)
-    [[self.newsCommand execute:self]subscribeNext:^(id  _Nullable news) {
+    [[self.newsCommand execute:self]subscribeNext:^(id news) {
         @strongify(self)
-        self.facebookNews = news;
+        [self checkResultDownload:news];
     }];
 }
 
 - (void)startNewsDownload:(WFFacebookHandler)handler {
     @weakify(self)
-    [[self.newsCommand execute:self]subscribeNext:^(id  _Nullable news) {
+    [[self.newsCommand execute:self]subscribeNext:^(id news) {
         @strongify(self)
-        self.facebookNews = news;
+        [self checkResultDownload:news];
         handler(news,nil);
     }];
+}
+
+- (void)checkResultDownload:(id)news {
+    if ([news isKindOfClass:[NSError class]]) {
+        [self errorDownloadFacebookNews];
+    }
+    else {
+        self.facebookNews = news;
+    }
 }
 
 - (void)startNewsImageDownloadForCell:(WFNewsTableViewCell *)cell {
@@ -102,18 +115,13 @@
 #pragma mark - Errors
 
 - (void)errorOpenFacebookURL {
-    UIAlertController * alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ERROR", nil)
-                                                                    message:NSLocalizedString(@"COULD NOT OPEN URL", nil)
-                                                             preferredStyle:UIAlertControllerStyleAlert];
+    [self.currentViewController presentViewController:[WFErrorsServices errorOpenFacebookURL] animated:YES completion:nil];
+    self.isLoading = NO;
+}
 
-    UIAlertAction* okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil)
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * action){
-                                                         [alert dismissViewControllerAnimated:YES completion:nil];
-                                                     }];
-
-    [alert addAction:okAction];
-    [self.currentViewController presentViewController:alert animated:YES completion:nil];
+- (void)errorDownloadFacebookNews {
+    [self.currentViewController presentViewController:[WFErrorsServices errorDownloadFacebookNews] animated:YES completion:nil];
+    self.isLoading = NO;
 }
 
 @end

@@ -36,15 +36,20 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 - (RACSignal *)newsServiceSignal {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         [self grabNews:^(id result, NSError *error) {
-            NSDictionary *dictionary = (NSDictionary *)result;
-            NSMutableArray<WFFacebookFeedModel *> *newsArray = [NSMutableArray new];
-
-            for (NSDictionary * newDictionary in dictionary[@"data"]) {
-                WFFacebookFeedModel * newModel = [[WFFacebookFeedModel alloc]initWithDictionary:newDictionary];
-                [newsArray addObject:newModel];
+            if (error) {
+                [subscriber sendNext:error];
             }
-            
-            [subscriber sendNext:newsArray];
+            else {
+                NSDictionary *dictionary = (NSDictionary *)result;
+                NSMutableArray<WFFacebookFeedModel *> *newsArray = [NSMutableArray new];
+
+                for (NSDictionary * newDictionary in dictionary[@"data"]) {
+                    WFFacebookFeedModel * newModel = [[WFFacebookFeedModel alloc]initWithDictionary:newDictionary];
+                    [newsArray addObject:newModel];
+                }
+                [subscriber sendNext:newsArray];
+            }
+
             [subscriber sendCompleted];
         }];
         return [RACDisposable disposableWithBlock:^{}];

@@ -22,6 +22,7 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 @property (nonatomic, strong) RACCommand *newsCommand;
 @property (nonatomic, strong) UIViewController *currentViewController;
 @property (nonatomic, strong) WFFacebookFeedModel *currentNews;
+@property (nonatomic) BOOL isLoading;
 
 - (instancetype)initWithFacebookServices:(WFFacebookServices *)services;
 

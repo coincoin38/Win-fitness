@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface WFErrorsServices : NSObject
+
++ (UIAlertController *)errorOpenFacebookURL;
++ (UIAlertController *)errorDownloadFacebookNews;
 
 @end
