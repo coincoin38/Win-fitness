@@ -7,7 +7,17 @@
 //
 
 #import "WFSessionsServices.h"
+#import "WFDaySessionModel.h"
 #import "WFJSONReader.h"
+
+typedef NS_ENUM(NSInteger, WFDays) {
+    Monday    = 0,
+    Tuesday   = 1,
+    Wednesday = 2,
+    Thursday = 3,
+    Friday = 4,
+    Saturday = 5
+};
 
 typedef void (^WFSessionHandler)(id result,NSError *error);
 
@@ -15,10 +25,8 @@ typedef void (^WFSessionHandler)(id result,NSError *error);
 
 - (RACSignal *)sessionsServiceSignal {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [self parseSessions:^(id result, NSError *error) {
-
-
-            [subscriber sendNext:nil];
+        [self parseSessions:^(NSArray *result, NSError *error) {
+            [subscriber sendNext:result];
             [subscriber sendCompleted];
         }];
         return [RACDisposable disposableWithBlock:^{}];
@@ -27,19 +35,22 @@ typedef void (^WFSessionHandler)(id result,NSError *error);
 
 - (void)parseSessions:(WFSessionHandler)handler {
 
-    NSArray <NSDictionary*> *week = [NSArray arrayWithObjects:[WFJSONReader JSONFromFile:@"Lundi"],
-                      [WFJSONReader JSONFromFile:@"Mardi"],
-                      [WFJSONReader JSONFromFile:@"Mercredi"],
-                      [WFJSONReader JSONFromFile:@"Jeudi"],
-                      [WFJSONReader JSONFromFile:@"Vendredi"],
-                      [WFJSONReader JSONFromFile:@"Samedi"], nil];
+    WFDaySessionModel * monday = [[WFDaySessionModel alloc]initWithArrayOfHours:[WFJSONReader JSONFromFile:@"Lundi"].allValues
+                                                                        withDay:Monday];
+    WFDaySessionModel * tuesday = [[WFDaySessionModel alloc]initWithArrayOfHours:[WFJSONReader JSONFromFile:@"Mardi"].allValues
+                                                                         withDay:Tuesday];
+    WFDaySessionModel * wednesday = [[WFDaySessionModel alloc]initWithArrayOfHours:[WFJSONReader JSONFromFile:@"Mercredi"].allValues
+                                                                           withDay:Wednesday];
+    WFDaySessionModel * thursday = [[WFDaySessionModel alloc]initWithArrayOfHours:[WFJSONReader JSONFromFile:@"Jeudi"].allValues
+                                                                          withDay:Thursday];
+    WFDaySessionModel * friday = [[WFDaySessionModel alloc]initWithArrayOfHours:[WFJSONReader JSONFromFile:@"Vendredi"].allValues
+                                                                        withDay:Friday];
+    WFDaySessionModel * saturday = [[WFDaySessionModel alloc]initWithArrayOfHours:[WFJSONReader JSONFromFile:@"Samedi"].allValues
+                                                                          withDay:Saturday];
 
-    for (NSDictionary *sessions in week) {
-        NSLog(@"sessions %@",sessions);
-        for (id hour in sessions) {
-            NSLog(@"hour %@",hour);
-        }
-    }
+    NSArray *arrayOfSessions = [NSArray arrayWithObjects:monday, tuesday, wednesday, thursday, friday, saturday, nil];
+    handler(arrayOfSessions, nil);
+
 }
 
 @end

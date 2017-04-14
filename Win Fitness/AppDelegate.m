@@ -40,19 +40,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
-    
-    self.newsNavigationController = [UINavigationController new];
-    self.newsNavigationController.navigationBar.translucent = YES;
-    self.newsNavigationController.navigationBar.tintColor = [UIColor orangeWF];
-    self.newsNavigationController.navigationBar.barTintColor = [UIColor darkGrayWF];
-    [self.newsNavigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor orangeWF]}];
+    [self createUI];
+    return YES;
+}
+
+- (void)createUI {
+    self.newsNavigationController = [self customNavigationController];
     self.newsNavigationController.viewControllers = [NSArray arrayWithObjects:[self createInitialViewController], nil];
 
-    self.sessionsNavigationController = [UINavigationController new];
-    self.sessionsNavigationController.navigationBar.translucent = YES;
-    self.sessionsNavigationController.navigationBar.tintColor = [UIColor orangeWF];
-    self.sessionsNavigationController.navigationBar.barTintColor = [UIColor darkGrayWF];
-    [self.sessionsNavigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor orangeWF]}];
+    self.sessionsNavigationController = [self customNavigationController];
     self.sessionsNavigationController.viewControllers = [NSArray arrayWithObjects:[self createSessionViewController], nil];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -69,10 +65,16 @@
 
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
-    
-    return YES;
 }
 
+- (UINavigationController *)customNavigationController {
+    UINavigationController *customNC = [UINavigationController new];
+    customNC.navigationBar.translucent = YES;
+    customNC.navigationBar.tintColor = [UIColor orangeWF];
+    customNC.navigationBar.barTintColor = [UIColor darkGrayWF];
+    [customNC.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor orangeWF]}];
+    return customNC;
+}
 - (UIViewController *)createInitialViewController {
     self.facebookServices = [[WFFacebookServices alloc] initService];
     self.facebookNewsViewModel = [[WFFacebookNewsViewModel alloc] initWithFacebookServices:self.facebookServices];
