@@ -37,7 +37,7 @@
 - (UIRefreshControl *)dataRefreshControl {
     if (!_dataRefreshControl) {
         _dataRefreshControl = [[UIRefreshControl alloc]initWithFrame:CGRectZero];
-        _dataRefreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"PULL TO REFRESH", nil)];
+        _dataRefreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:WFLocalisedString(@"PULL TO REFRESH")];
     }
     return _dataRefreshControl;
 }

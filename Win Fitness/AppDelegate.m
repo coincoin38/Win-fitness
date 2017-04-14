@@ -48,7 +48,6 @@
     self.tabBarController.tabBar.barTintColor = [UIColor lightGrayWF];
     self.tabBarController.tabBar.tintColor = [UIColor darkGrayWF];
 
-
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     

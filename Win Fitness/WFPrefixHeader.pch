@@ -1,0 +1,14 @@
+//
+//  WFPrefixHeader.pch
+//  Win Fitness
+//
+//  Created by julien gimenez on 14/04/2017.
+//  Copyright © 2017 julien gimenez. All rights reserved.
+//
+
+#ifndef WFPrefixHeader_pch
+#define WFPrefixHeader_pch
+
+#import "WFLocalizedString.h"
+
+#endif /* WFPrefixHeader_pch */

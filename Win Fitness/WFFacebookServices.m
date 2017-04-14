@@ -43,6 +43,10 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
                 NSDictionary *dictionary = (NSDictionary *)result;
                 NSMutableArray<WFFacebookFeedModel *> *newsArray = [NSMutableArray new];
 
+                #ifdef DEBUG
+                NSLog(@"Result : %@",dictionary);
+                #endif
+
                 for (NSDictionary * newDictionary in dictionary[@"data"]) {
                     WFFacebookFeedModel * newModel = [[WFFacebookFeedModel alloc]initWithDictionary:newDictionary];
                     [newsArray addObject:newModel];

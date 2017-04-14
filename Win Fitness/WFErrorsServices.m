@@ -27,15 +27,15 @@
 }
 
 + (UIAlertController *)errorOpenFacebookURL {
-    return [self errorWithTitle:NSLocalizedString(@"ERROR", nil)
-                    withMessage:NSLocalizedString(@"COULD NOT OPEN URL", nil)
-                withButtonTitle:NSLocalizedString(@"OK", nil)];
+    return [self errorWithTitle:WFLocalisedString(@"ERROR")
+                    withMessage:WFLocalisedString(@"COULD NOT OPEN URL")
+                withButtonTitle:WFLocalisedString(@"OK")];
 }
 
 + (UIAlertController *)errorDownloadFacebookNews {
-    return [self errorWithTitle:NSLocalizedString(@"ERROR", nil)
-                    withMessage:NSLocalizedString(@"COULD NOT DOWNLOAD FACEBOOK NEWS", nil)
-                withButtonTitle:NSLocalizedString(@"OK", nil)];
+    return [self errorWithTitle:WFLocalisedString(@"ERROR")
+                    withMessage:WFLocalisedString(@"COULD NOT DOWNLOAD FACEBOOK NEWS")
+                withButtonTitle:WFLocalisedString(@"OK")];
 }
 
 @end

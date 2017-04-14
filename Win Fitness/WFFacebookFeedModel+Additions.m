@@ -30,10 +30,10 @@
 - (NSString *)headerDetailsTitle {
     if ([self.status_type isEqualToString:@"shared_story"]) {
         return [NSString stringWithFormat:@"%@ %@",
-                      NSLocalizedString(@"WIN FITNESS HAS SHARED THE PUBLICATION OF", nil),
+                      WFLocalisedString(@"WIN FITNESS HAS SHARED THE PUBLICATION OF"),
                       self.name];
     }
-    return NSLocalizedString(@"WIN FITNESS HAS ADDED", nil);
+    return WFLocalisedString(@"WIN FITNESS HAS ADDED");
 }
 
 - (NSString *)headerDetailsDate {
@@ -51,7 +51,7 @@
        return self._description;
     }
     else{
-        return NSLocalizedString(@"NO DESCRIPTION", nil);
+        return WFLocalisedString(@"NO DESCRIPTION");
     }
 }
 

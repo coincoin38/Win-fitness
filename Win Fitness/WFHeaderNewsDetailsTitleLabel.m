@@ -42,7 +42,7 @@
     }
 
     // Name of the product
-    NSRange rangeProduct = [text rangeOfString:NSLocalizedString(@"WINFITNESS", nil)];
+    NSRange rangeProduct = [text rangeOfString:WFLocalisedString(@"WINFITNESS")];
     if (rangeProduct.length) {
         [str addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:rangeProduct];
         [str addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16] range:rangeProduct];

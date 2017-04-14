@@ -6,7 +6,6 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <ReactiveObjC.h>
 
 @class WFFacebookFeedModel;
