@@ -10,4 +10,16 @@
 
 @implementation WFSessionModel
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    if ((self = [super init])) {
+        _idSession  = dictionary[@"id"];
+        _idSport = dictionary[@"sport_id"];
+        _from  = dictionary[@"from"];
+        _duration = dictionary[@"duration"];
+        _attendance = dictionary[@"attendance"];
+        _day = dictionary[@"day"];
+    }
+    return self;
+}
+
 @end

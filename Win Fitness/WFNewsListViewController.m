@@ -45,7 +45,6 @@
 }
 
 - (void)setupViews {
-    self.title = WFLocalisedString(@"NEWS");
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:nil

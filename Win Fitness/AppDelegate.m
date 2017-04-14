@@ -11,14 +11,23 @@
 #import "UIColor+Additions.h"
 #import "WFFacebookServices.h"
 #import "WFFacebookNewsViewModel.h"
+#import "WFSessionsViewModel.h"
 #import "WFNewsListViewController.h"
+#import "WFSessionsListViewController.h"
+#import "WFSessionsServices.h"
 
 @interface AppDelegate ()
 
-@property (nonatomic, retain) UINavigationController *navigationController;
+@property (nonatomic, retain) UINavigationController *newsNavigationController;
+@property (nonatomic, retain) UINavigationController *sessionsNavigationController;
+
 @property (strong, nonatomic) UITabBarController *tabBarController;
+
 @property (strong, nonatomic) WFFacebookServices *facebookServices;
+@property (strong, nonatomic) WFSessionsServices *sessionsServices;
+
 @property (strong, nonatomic) WFFacebookNewsViewModel *facebookNewsViewModel;
+@property (strong, nonatomic) WFSessionsViewModel *sessionsViewModel;
 
 @end
 
@@ -32,21 +41,31 @@
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
     
-    self.navigationController = [UINavigationController new];
-    self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBar.tintColor = [UIColor orangeWF];
-    self.navigationController.navigationBar.barTintColor = [UIColor darkGrayWF];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor orangeWF]}];
-    self.navigationController.viewControllers = [NSArray arrayWithObjects:[self createInitialViewController], nil];
+    self.newsNavigationController = [UINavigationController new];
+    self.newsNavigationController.navigationBar.translucent = YES;
+    self.newsNavigationController.navigationBar.tintColor = [UIColor orangeWF];
+    self.newsNavigationController.navigationBar.barTintColor = [UIColor darkGrayWF];
+    [self.newsNavigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor orangeWF]}];
+    self.newsNavigationController.viewControllers = [NSArray arrayWithObjects:[self createInitialViewController], nil];
+
+    self.sessionsNavigationController = [UINavigationController new];
+    self.sessionsNavigationController.navigationBar.translucent = YES;
+    self.sessionsNavigationController.navigationBar.tintColor = [UIColor orangeWF];
+    self.sessionsNavigationController.navigationBar.barTintColor = [UIColor darkGrayWF];
+    [self.sessionsNavigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor orangeWF]}];
+    self.sessionsNavigationController.viewControllers = [NSArray arrayWithObjects:[self createSessionViewController], nil];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
 
     self.tabBarController = [[UITabBarController alloc]init];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:self.newsNavigationController,self.sessionsNavigationController,nil];
     self.tabBarController.tabBar.translucent = YES;
-    self.tabBarController.tabBar.barTintColor = [UIColor lightGrayWF];
-    self.tabBarController.tabBar.tintColor = [UIColor darkGrayWF];
+    self.tabBarController.tabBar.barTintColor = [UIColor darkGrayWF];
+    self.tabBarController.tabBar.tintColor = [UIColor orangeWF];
+
+    [[self.tabBarController.tabBar.items objectAtIndex:0] setTitle:WFLocalisedString(@"NEWS")];
+    [[self.tabBarController.tabBar.items objectAtIndex:1] setTitle:WFLocalisedString(@"SESSIONS")];
 
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
@@ -57,8 +76,13 @@
 - (UIViewController *)createInitialViewController {
     self.facebookServices = [[WFFacebookServices alloc] initService];
     self.facebookNewsViewModel = [[WFFacebookNewsViewModel alloc] initWithFacebookServices:self.facebookServices];
-    
     return [[WFNewsListViewController alloc] initWithFacebookNewsViewModel:self.facebookNewsViewModel];
+}
+
+- (UIViewController *)createSessionViewController {
+    self.sessionsServices = [[WFSessionsServices alloc] init];
+    self.sessionsViewModel = [[WFSessionsViewModel alloc] initWithSessionsServices:self.sessionsServices];
+    return [[WFSessionsListViewController alloc] initWithSessionsViewModel:self.sessionsViewModel];
 }
 
 - (BOOL)application:(UIApplication *)application
