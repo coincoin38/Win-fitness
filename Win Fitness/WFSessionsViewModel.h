@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <ReactiveObjC.h>
 
-@class WFSessionModel;
+@class WFDaySessionModel;
 @class WFSessionsServices;
 
 typedef void (^WFSessionHandler)(id result,NSError *error);
@@ -17,7 +17,9 @@ typedef void (^WFSessionHandler)(id result,NSError *error);
 @interface WFSessionsViewModel : NSObject
 
 @property (nonatomic, strong) RACCommand *sessionsCommand;
-@property (nonatomic, strong) NSArray<WFSessionModel *> *sessions;
+@property (nonatomic, strong) NSArray<WFDaySessionModel *> *sessionsDays;
+@property (nonatomic, strong) WFDaySessionModel *currentSessionsDay;
+@property (nonatomic) BOOL isLoading;
 
 - (instancetype)initWithSessionsServices:(WFSessionsServices *)services;
 

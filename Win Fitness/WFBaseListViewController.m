@@ -25,9 +25,7 @@
         _tableView = [[UITableView alloc]initWithFrame:CGRectZero];
         _tableView.backgroundView = self.loadindActivityIndicator;
         _tableView.backgroundColor = [UIColor whiteColor];
-        [_tableView addSubview:self.dataRefreshControl];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [_tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:cellIdentifier];
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }

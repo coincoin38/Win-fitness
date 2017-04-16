@@ -14,5 +14,4 @@
 
 - (instancetype)initWithSessionsViewModel:(WFSessionsViewModel *)viewModel;
 
-
 @end

@@ -31,6 +31,7 @@
 		137EC9531EA112E400C79A68 /* WFDaySessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 137EC9521EA112E400C79A68 /* WFDaySessionModel.m */; };
 		138A1CF71E856CC10010D83D /* WFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138A1CF61E856CC10010D83D /* WFBaseViewController.m */; };
 		138A1CFB1E856D7E0010D83D /* WFNewsTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 138A1CFA1E856D7E0010D83D /* WFNewsTextView.m */; };
+		13943EDF1EA3A27800C671E8 /* WFSessionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13943EDE1EA3A27800C671E8 /* WFSessionsTableViewCell.m */; };
 		13A3D4241E68A39E00B38EEF /* WFNewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3D4231E68A39E00B38EEF /* WFNewsListViewController.m */; };
 		13A3D4271E697F5000B38EEF /* WFBaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3D4261E697F5000B38EEF /* WFBaseListViewController.m */; };
 		13B005AE1E855A2900C1D90B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 13B005B01E855A2900C1D90B /* Localizable.strings */; };
@@ -98,6 +99,8 @@
 		138A1CF61E856CC10010D83D /* WFBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBaseViewController.m; sourceTree = "<group>"; };
 		138A1CF91E856D7E0010D83D /* WFNewsTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNewsTextView.h; sourceTree = "<group>"; };
 		138A1CFA1E856D7E0010D83D /* WFNewsTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsTextView.m; sourceTree = "<group>"; };
+		13943EDD1EA3A27800C671E8 /* WFSessionsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSessionsTableViewCell.h; sourceTree = "<group>"; };
+		13943EDE1EA3A27800C671E8 /* WFSessionsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFSessionsTableViewCell.m; sourceTree = "<group>"; };
 		13A3D4221E68A39D00B38EEF /* WFNewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNewsListViewController.h; sourceTree = "<group>"; };
 		13A3D4231E68A39E00B38EEF /* WFNewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsListViewController.m; sourceTree = "<group>"; };
 		13A3D4251E697F5000B38EEF /* WFBaseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBaseListViewController.h; sourceTree = "<group>"; };
@@ -289,6 +292,8 @@
 		137EC94A1EA0FDD800C79A68 /* Sessions */ = {
 			isa = PBXGroup;
 			children = (
+				137EC94B1EA0FE0900C79A68 /* WFSessionsServices.h */,
+				137EC94C1EA0FE0900C79A68 /* WFSessionsServices.m */,
 			);
 			name = Sessions;
 			sourceTree = "<group>";
@@ -302,6 +307,24 @@
 				130C4F0A1E9BAFFA0020172C /* WFNewsDetailTextView.m */,
 			);
 			name = UITextViews;
+			sourceTree = "<group>";
+		};
+		13943EDB1EA3A24300C671E8 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				13EC25581E6ABB9A003FC5D4 /* WFNewsTableViewCell.h */,
+				13EC25591E6ABB9A003FC5D4 /* WFNewsTableViewCell.m */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		13943EDC1EA3A24F00C671E8 /* Sessions */ = {
+			isa = PBXGroup;
+			children = (
+				13943EDD1EA3A27800C671E8 /* WFSessionsTableViewCell.h */,
+				13943EDE1EA3A27800C671E8 /* WFSessionsTableViewCell.m */,
+			);
+			name = Sessions;
 			sourceTree = "<group>";
 		};
 		13A3D4291E697F6400B38EEF /* Bases */ = {
@@ -332,8 +355,8 @@
 		13B005A91E85548400C1D90B /* UITableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				13EC25581E6ABB9A003FC5D4 /* WFNewsTableViewCell.h */,
-				13EC25591E6ABB9A003FC5D4 /* WFNewsTableViewCell.m */,
+				13943EDB1EA3A24300C671E8 /* News */,
+				13943EDC1EA3A24F00C671E8 /* Sessions */,
 			);
 			name = UITableViewCells;
 			sourceTree = "<group>";
@@ -361,8 +384,6 @@
 			children = (
 				13B926051E64C430003E7DD0 /* WFFacebookServices.h */,
 				13B926061E64C430003E7DD0 /* WFFacebookServices.m */,
-				137EC94B1EA0FE0900C79A68 /* WFSessionsServices.h */,
-				137EC94C1EA0FE0900C79A68 /* WFSessionsServices.m */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -640,6 +661,7 @@
 				137EC9351EA0FA1000C79A68 /* WFObjectiveModel.m in Sources */,
 				130C4F071E9BA8F50020172C /* WFBaseLabel.m in Sources */,
 				1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */,
+				13943EDF1EA3A27800C671E8 /* WFSessionsTableViewCell.m in Sources */,
 				136342CC1E85308900BBBCC6 /* WFHeaderCellLabel.m in Sources */,
 				13A3D4271E697F5000B38EEF /* WFBaseListViewController.m in Sources */,
 				13B005B51E855F0400C1D90B /* WFNewsDetailsViewController.m in Sources */,

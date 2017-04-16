@@ -47,14 +47,20 @@
 
 - (void)startNewsDownload:(WFFacebookHandler)handler {
     @weakify(self)
-    [[self.newsCommand execute:self]subscribeNext:^(id news) {
-        @strongify(self)
-        [self checkResultDownload:news];
-        handler(news,nil);
-    }];
+    if(!self.isLoading) {
+        [[self.newsCommand execute:self]subscribeNext:^(id news) {
+            @strongify(self)
+            [self checkResultDownload:news];
+            handler(news,nil);
+        }];
+    }
+    else {
+        handler(nil,nil);
+    }
 }
 
 - (void)checkResultDownload:(id)news {
+    self.isLoading = NO;
     if ([news isKindOfClass:[NSError class]]) {
         [self errorDownloadFacebookNews];
     }

@@ -12,7 +12,8 @@
 #import "WFNewsTableViewCell.h"
 #import "UIColor+Additions.h"
 
-static NSString * const cellIdentifier = @"newsIdentifier";
+static NSString * const cellNewsIdentifier = @"newsIdentifier";
+static NSString * const cellSessionsDaysIdentifier = @"sessionsDaysIdentifier";
 
 @interface WFBaseListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 

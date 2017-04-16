@@ -45,6 +45,9 @@
 }
 
 - (void)setupViews {
+    [self.tableView registerClass:[WFNewsTableViewCell class] forCellReuseIdentifier:cellNewsIdentifier];
+    [self.tableView addSubview:self.dataRefreshControl];
+
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:nil
@@ -86,7 +89,7 @@
 #pragma mark - Table view data source
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    WFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellNewsIdentifier forIndexPath:indexPath];
     [cell setupCellWithModel:(WFFacebookFeedModel *)self.datasArray[indexPath.row]];
     [self.facebookNewsViewModel startNewsImageDownloadForCell:cell];
     return cell;

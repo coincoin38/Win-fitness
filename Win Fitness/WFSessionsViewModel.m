@@ -40,7 +40,7 @@
         [self errorParsingSessions];
     }
     else {
-        self.sessions = sessions;
+        self.sessionsDays = sessions;
     }
 }
 
