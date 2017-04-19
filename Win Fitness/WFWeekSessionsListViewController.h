@@ -8,10 +8,10 @@
 
 #import "WFBaseListViewController.h"
 
-@class WFSessionsViewModel;
+@class WFSessionsWeekViewModel;
 
-@interface WFSessionsListViewController : WFBaseListViewController
+@interface WFWeekSessionsListViewController : WFBaseListViewController
 
-- (instancetype)initWithSessionsViewModel:(WFSessionsViewModel *)viewModel;
+- (instancetype)initWithSessionsViewModel:(WFSessionsWeekViewModel *)viewModel;
 
 @end

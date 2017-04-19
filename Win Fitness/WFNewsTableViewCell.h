@@ -6,11 +6,11 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "WFTableViewCell.h"
 
 @class WFFacebookFeedModel;
 
-@interface WFNewsTableViewCell : UITableViewCell
+@interface WFNewsTableViewCell : WFTableViewCell
 
 @property(nonatomic,strong) UIImageView *newsImage;
 @property(nonatomic,strong) WFFacebookFeedModel *facebookModel;

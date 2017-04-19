@@ -6,7 +6,6 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Masonry/Masonry.h>
 #import "WFNewsTextView.h"
 #import "WFDatesConverter.h"
 #import "WFHeaderCellLabel.h"
@@ -23,10 +22,6 @@
 @implementation WFNewsTableViewCell
 
 #pragma mark - init
-
-- (void)awakeFromNib{
-    [super awakeFromNib];
-}
 
 - (UIImageView *)newsImage {
     if (!_newsImage) {

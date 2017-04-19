@@ -14,3 +14,5 @@ extern NSString * const kWednesday;
 extern NSString * const kThursday;
 extern NSString * const kFriday;
 extern NSString * const kSaturday;
+
+extern NSString * const kSportsFeed;

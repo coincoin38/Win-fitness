@@ -6,23 +6,16 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Masonry/Masonry.h>
-#import "WFSessionsTableViewCell.h"
+#import "WFWeekSessionsTableViewCell.h"
 #import "WFDaySessionModel+Additions.h"
 
-@interface WFSessionsTableViewCell ()
+@interface WFWeekSessionsTableViewCell ()
 
 @property(nonatomic,strong) UILabel *dayLabel;
 
 @end
 
-@implementation WFSessionsTableViewCell
-
-#pragma mark - init
-
-- (void)awakeFromNib{
-    [super awakeFromNib];
-}
+@implementation WFWeekSessionsTableViewCell
 
 - (UILabel *)dayLabel {
     if (!_dayLabel) {

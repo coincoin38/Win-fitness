@@ -13,7 +13,8 @@
 #import "UIColor+Additions.h"
 
 static NSString * const cellNewsIdentifier = @"newsIdentifier";
-static NSString * const cellSessionsDaysIdentifier = @"sessionsDaysIdentifier";
+static NSString * const cellWeekSessionsIdentifier = @"weekSessionsIdentifier";
+static NSString * const cellDaysSessionsIdentifier = @"daysSessionsIdentifier";
 
 @interface WFBaseListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 

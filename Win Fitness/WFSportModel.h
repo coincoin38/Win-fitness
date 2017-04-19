@@ -10,4 +10,12 @@
 
 @interface WFSportModel : NSObject
 
+@property(nonatomic,strong) NSString *idSport;
+@property(nonatomic,strong) NSString *name;
+@property(nonatomic,strong) NSString *description_id;
+@property(nonatomic,strong) NSString *color;
+@property(nonatomic,strong) NSString *image;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 @end

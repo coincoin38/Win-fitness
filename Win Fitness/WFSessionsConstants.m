@@ -14,3 +14,5 @@ NSString * const kWednesday = @"Mercredi";
 NSString * const kThursday = @"Jeudi";
 NSString * const kFriday = @"Vendredi";
 NSString * const kSaturday = @"Samedi";
+
+NSString * const kSportsFeed = @"sportsFeed";

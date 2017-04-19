@@ -6,8 +6,7 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <ReactiveObjC.h>
+#import "WFBaseViewModel.h"
 
 @class WFFacebookFeedModel;
 @class WFFacebookServices;
@@ -15,7 +14,7 @@
 
 typedef void (^WFFacebookHandler)(id result,NSError *error);
 
-@interface WFFacebookNewsViewModel : NSObject
+@interface WFFacebookNewsViewModel : WFBaseViewModel
 
 @property (nonatomic, strong) NSArray<WFFacebookFeedModel *> *facebookNews;
 @property (nonatomic, strong) NSString *newsDetails;

@@ -6,19 +6,19 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <ReactiveObjC.h>
+#import "WFBaseViewModel.h"
+#import "WFDaySessionModel.h"
 
-@class WFDaySessionModel;
+@class WFSportModel;
 @class WFSessionsServices;
+@class WFSessionModel;
 
 typedef void (^WFSessionHandler)(id result,NSError *error);
 
-@interface WFSessionsViewModel : NSObject
+@interface WFSessionsWeekViewModel : WFBaseViewModel
 
-@property (nonatomic, strong) RACCommand *sessionsCommand;
-@property (nonatomic, strong) NSArray<WFDaySessionModel *> *sessionsDays;
-@property (nonatomic, strong) WFDaySessionModel *currentSessionsDay;
+@property (nonatomic, strong) RACCommand *sessionsWeekCommand;
+@property (nonatomic, strong) NSArray<WFDaySessionModel *> *sessionsWeek;
 @property (nonatomic) BOOL isLoading;
 
 - (instancetype)initWithSessionsServices:(WFSessionsServices *)services;

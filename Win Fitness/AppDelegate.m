@@ -11,9 +11,9 @@
 #import "UIColor+Additions.h"
 #import "WFFacebookServices.h"
 #import "WFFacebookNewsViewModel.h"
-#import "WFSessionsViewModel.h"
+#import "WFSessionsWeekViewModel.h"
 #import "WFNewsListViewController.h"
-#import "WFSessionsListViewController.h"
+#import "WFWeekSessionsListViewController.h"
 #import "WFSessionsServices.h"
 
 @interface AppDelegate ()
@@ -27,7 +27,7 @@
 @property (strong, nonatomic) WFSessionsServices *sessionsServices;
 
 @property (strong, nonatomic) WFFacebookNewsViewModel *facebookNewsViewModel;
-@property (strong, nonatomic) WFSessionsViewModel *sessionsViewModel;
+@property (strong, nonatomic) WFSessionsWeekViewModel *sessionsViewModel;
 
 @end
 
@@ -83,8 +83,8 @@
 
 - (UIViewController *)createSessionViewController {
     self.sessionsServices = [[WFSessionsServices alloc] init];
-    self.sessionsViewModel = [[WFSessionsViewModel alloc] initWithSessionsServices:self.sessionsServices];
-    return [[WFSessionsListViewController alloc] initWithSessionsViewModel:self.sessionsViewModel];
+    self.sessionsViewModel = [[WFSessionsWeekViewModel alloc] initWithSessionsServices:self.sessionsServices];
+    return [[WFWeekSessionsListViewController alloc] initWithSessionsViewModel:self.sessionsViewModel];
 }
 
 - (BOOL)application:(UIApplication *)application
@@ -95,7 +95,6 @@
                                                           openURL:url
                                                 sourceApplication:sourceApplication
                                                        annotation:annotation];
-    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {}

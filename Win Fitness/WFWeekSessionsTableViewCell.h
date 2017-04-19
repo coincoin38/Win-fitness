@@ -6,11 +6,11 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "WFTableViewCell.h"
 
 @class WFDaySessionModel;
 
-@interface WFSessionsTableViewCell : UITableViewCell
+@interface WFWeekSessionsTableViewCell : WFTableViewCell
 
 @property(nonatomic,strong) WFDaySessionModel *daySessionModel;
 

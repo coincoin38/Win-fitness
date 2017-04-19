@@ -6,30 +6,30 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFSessionsViewModel.h"
 #import "WFSessionModel.h"
 #import "WFSessionsServices.h"
+#import "WFSessionsWeekViewModel.h"
 
-@interface WFSessionsViewModel ()
+@interface WFSessionsWeekViewModel ()
 
 @property (nonatomic, strong) WFSessionsServices *services;
 
 @end
 
-@implementation WFSessionsViewModel
+@implementation WFSessionsWeekViewModel
 
 - (instancetype)initWithSessionsServices:(WFSessionsServices *)services {
     self = [super init];
     if (self) {
         _services = services;
-        [self startSessionsParsing];
+        [self startSessionsWeekParsing];
     }
     return self;
 }
 
-- (void)startSessionsParsing {
+- (void)startSessionsWeekParsing {
     @weakify(self)
-    [[self.sessionsCommand execute:self]subscribeNext:^(id sessions) {
+    [[self.sessionsWeekCommand execute:self]subscribeNext:^(id sessions) {
         @strongify(self)
         [self checkResultParsing:sessions];
     }];
@@ -40,21 +40,21 @@
         [self errorParsingSessions];
     }
     else {
-        self.sessionsDays = sessions;
+        self.sessionsWeek = sessions;
     }
 }
 
 #pragma mark - Commands
 
-- (RACCommand *)sessionsCommand {
+- (RACCommand *)sessionsWeekCommand {
     return [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-        return [self sessionsSignal];
+        return [self sessionsWeekSignal];
     }];
 }
 
 #pragma mark - Signals
 
-- (RACSignal *)sessionsSignal {
+- (RACSignal *)sessionsWeekSignal {
     return [[self.services sessionsServiceSignal]deliverOnMainThread];
 }
 

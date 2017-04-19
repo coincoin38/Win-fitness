@@ -6,28 +6,32 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFSessionsListViewController.h"
-#import "WFSessionsViewModel.h"
-#import "WFSessionsTableViewCell.h"
+#import "WFWeekSessionsListViewController.h"
+#import "WFSessionsWeekViewModel.h"
+#import "WFWeekSessionsTableViewCell.h"
 #import "WFDaySessionModel.h"
+#import "WFDaySessionsViewController.h"
+#import "WFSessionsDayViewModel.h"
+#import "WFSportsServices.h"
 
-@interface WFSessionsListViewController ()
+@interface WFWeekSessionsListViewController ()
 
-@property(nonatomic,strong) WFSessionsViewModel *sessionsViewModel;
-@property(nonatomic,strong) WFDaySessionModel *selectedDay;
+@property(nonatomic,strong) WFSessionsWeekViewModel *viewModel;
+@property(nonatomic,strong) WFSessionsDayViewModel *sessionsDayViewModel;
+
 @property(nonatomic) float cellSize;
 
 @end
 
-@implementation WFSessionsListViewController
+@implementation WFWeekSessionsListViewController
 
 #pragma mark - Init
 
-- (instancetype)initWithSessionsViewModel:(WFSessionsViewModel *)viewModel {
+- (instancetype)initWithSessionsViewModel:(WFSessionsWeekViewModel *)viewModel {
     self = [super init];
 
     if (self) {
-        _sessionsViewModel = viewModel;
+        _viewModel = viewModel;
     }
     return self;
 }
@@ -44,7 +48,7 @@
 }
 
 - (void)setupViews {
-    [self.tableView registerClass:[WFSessionsTableViewCell class] forCellReuseIdentifier:cellSessionsDaysIdentifier];
+    [self.tableView registerClass:[WFWeekSessionsTableViewCell class] forCellReuseIdentifier:cellWeekSessionsIdentifier];
     self.tableView.scrollEnabled = NO;
     self.tableView.alwaysBounceVertical = NO;
     self.cellSize = (self.view.frame.size.height - 20 - (self.tabBarController.tabBar.frame.size.height))/6;
@@ -66,14 +70,13 @@
 - (void)bindViewModel {
     @weakify(self)
     
-    RAC(self,datasArray) = RACObserve(self.sessionsViewModel, sessionsDays);
-    RAC(self.sessionsViewModel,currentSessionsDay) = RACObserve(self, selectedDay);
-    RAC(self.loadindActivityIndicator,animating) = RACObserve(self.sessionsViewModel,isLoading);
+    RAC(self,datasArray) = RACObserve(self.viewModel, sessionsWeek);
+    RAC(self.loadindActivityIndicator,animating) = RACObserve(self.viewModel,isLoading);
     
     [RACObserve(self, datasArray)
-     subscribeNext:^(id news) {
+     subscribeNext:^(id sessions) {
          @strongify(self)
-         if (news) {
+         if (sessions) {
              [self reloadTableView];
          }
      }];
@@ -82,13 +85,16 @@
 #pragma mark - Table view data source
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WFSessionsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellSessionsDaysIdentifier forIndexPath:indexPath];
+    WFWeekSessionsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellWeekSessionsIdentifier forIndexPath:indexPath];
     [cell setupCellWithModel:(WFDaySessionModel *)self.datasArray[indexPath.row]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectedDay = (WFDaySessionModel *)self.datasArray[indexPath.row];
+    self.sessionsDayViewModel = [[WFSessionsDayViewModel alloc]initWithSportsServices:[WFSportsServices new]
+                                                                         withSessions:(WFDaySessionModel *)self.datasArray[indexPath.row]];
+    WFDaySessionsViewController * dayViewController = [[WFDaySessionsViewController alloc]initWithSessionsDayViewModel:self.sessionsDayViewModel];
+    [self.navigationController pushViewController:dayViewController animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
