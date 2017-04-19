@@ -17,9 +17,15 @@
 "WIN FITNESS HAS SHARED THE EVENT OF" = "WinFitness has shared the event of";
 "WIN FITNESS HAS ADDED" = "WinFitness has added";
 "OK" = "OK";
-
+"MONDAY" = "Monday";
+"TUESDAY" = "Tuesday";
+"WEDNESDAY" = "Wednesday";
+"THURSDAY" = "Thursday";
+"FRIDAY" = "Friday";
+"SATURDAY" = "Saturday";
 //ERRORS
 
+"EMPTY" = "Empty";
 "ERROR" = "Error";
 "COULD NOT OPEN URL" = "Couldn't open URL";
 "COULD NOT DOWNLOAD FACEBOOK NEWS" = "Couldn't download Facebook news";

@@ -8,7 +8,7 @@
 
 #import <Masonry/Masonry.h>
 #import "WFSessionsTableViewCell.h"
-#import "WFDaySessionModel.h"
+#import "WFDaySessionModel+Additions.h"
 
 @interface WFSessionsTableViewCell ()
 
@@ -37,28 +37,7 @@
 - (void)setupCellWithModel:(WFDaySessionModel *)model {
     self.backgroundColor = [UIColor whiteColor];
     self.daySessionModel = model;
-    
-    switch (self.daySessionModel.day) {
-        case 0:
-            self.dayLabel.text = @"Lundi";
-            break;
-        case 1:
-            self.dayLabel.text = @"Mardi";
-            break;
-        case 2:
-            self.dayLabel.text = @"Mercredi";
-            break;
-        case 3:
-            self.dayLabel.text = @"Jeudi";
-            break;
-        case 4:
-            self.dayLabel.text = @"Vendredi";
-            break;
-        case 5:
-            self.dayLabel.text = @"Samedi";
-            break;
-    }
-    
+    self.dayLabel.text = [model dayString];
     [self setupView];
     [self setupConstraints];
 }

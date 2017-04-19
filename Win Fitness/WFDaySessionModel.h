@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, WFDays) {
+    Monday    = 0,
+    Tuesday   = 1,
+    Wednesday = 2,
+    Thursday = 3,
+    Friday = 4,
+    Saturday = 5
+};
+
 @interface WFDaySessionModel : NSObject
 
 @property(nonatomic,strong) NSMutableArray *sessions;

@@ -11,6 +11,7 @@
 		130C4F071E9BA8F50020172C /* WFBaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 130C4F061E9BA8F50020172C /* WFBaseLabel.m */; };
 		130C4F0B1E9BAFFA0020172C /* WFNewsDetailTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 130C4F0A1E9BAFFA0020172C /* WFNewsDetailTextView.m */; };
 		130E4B631E812202001C33DE /* WFDatesConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E4B621E812202001C33DE /* WFDatesConverter.m */; };
+		13168F931EA765D90070219A /* WFDaySessionModel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 13168F921EA765D90070219A /* WFDaySessionModel+Additions.m */; };
 		132BAB821E89554300471DBB /* WFFacebookFeedModel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 132BAB811E89554300471DBB /* WFFacebookFeedModel+Additions.m */; };
 		1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */; };
 		136342CC1E85308900BBBCC6 /* WFHeaderCellLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 136342CB1E85308900BBBCC6 /* WFHeaderCellLabel.m */; };
@@ -50,6 +51,7 @@
 		13E328301E64AB9D00F1A4EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E3282E1E64AB9D00F1A4EC /* LaunchScreen.storyboard */; };
 		13EC255B1E6ABB9A003FC5D4 /* WFNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC25591E6ABB9A003FC5D4 /* WFNewsTableViewCell.m */; };
 		13F3F2E61E6EEF9F007ABCD2 /* WFDownloadImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3F2E51E6EEF9F007ABCD2 /* WFDownloadImageService.m */; };
+		13FDABAB1EA78DCC001CF0E5 /* WFSessionsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FDABAA1EA78DCC001CF0E5 /* WFSessionsConstants.m */; };
 		D0D54CFB9229702CA6FF98FF /* libPods-Win Fitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF74C24827EAF855223A2C0 /* libPods-Win Fitness.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		130C4F0A1E9BAFFA0020172C /* WFNewsDetailTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsDetailTextView.m; sourceTree = "<group>"; };
 		130E4B611E812202001C33DE /* WFDatesConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFDatesConverter.h; sourceTree = "<group>"; };
 		130E4B621E812202001C33DE /* WFDatesConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFDatesConverter.m; sourceTree = "<group>"; };
+		13168F911EA765D90070219A /* WFDaySessionModel+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WFDaySessionModel+Additions.h"; sourceTree = "<group>"; };
+		13168F921EA765D90070219A /* WFDaySessionModel+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WFDaySessionModel+Additions.m"; sourceTree = "<group>"; };
 		132BAB801E89554300471DBB /* WFFacebookFeedModel+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WFFacebookFeedModel+Additions.h"; sourceTree = "<group>"; };
 		132BAB811E89554300471DBB /* WFFacebookFeedModel+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WFFacebookFeedModel+Additions.m"; sourceTree = "<group>"; };
 		1348EC571E66150100FA3843 /* WFFacebookFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookFeedModel.h; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 		13EC25591E6ABB9A003FC5D4 /* WFNewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsTableViewCell.m; sourceTree = "<group>"; };
 		13F3F2E41E6EEF9F007ABCD2 /* WFDownloadImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFDownloadImageService.h; sourceTree = "<group>"; };
 		13F3F2E51E6EEF9F007ABCD2 /* WFDownloadImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFDownloadImageService.m; sourceTree = "<group>"; };
+		13FDABA91EA78DCC001CF0E5 /* WFSessionsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSessionsConstants.h; sourceTree = "<group>"; };
+		13FDABAA1EA78DCC001CF0E5 /* WFSessionsConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFSessionsConstants.m; sourceTree = "<group>"; };
 		DFA6135EA312EC0F07715376 /* Pods-Win Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Win Fitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-Win Fitness/Pods-Win Fitness.release.xcconfig"; sourceTree = "<group>"; };
 		F7DB2C4EE4DDD48508778454 /* Pods-Win Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Win Fitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Win Fitness/Pods-Win Fitness.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +179,15 @@
 				137EC94F1EA100B500C79A68 /* WFJSONReader.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		13168F901EA7659C0070219A /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				13168F911EA765D90070219A /* WFDaySessionModel+Additions.h */,
+				13168F921EA765D90070219A /* WFDaySessionModel+Additions.m */,
+			);
+			name = Additions;
 			sourceTree = "<group>";
 		};
 		132BAB7E1E89155800471DBB /* Download */ = {
@@ -245,6 +260,7 @@
 		137EC9281EA0F92800C79A68 /* Sessions */ = {
 			isa = PBXGroup;
 			children = (
+				13168F901EA7659C0070219A /* Additions */,
 				137EC9361EA0FB6B00C79A68 /* Stubs */,
 				137EC9291EA0F96F00C79A68 /* WFSessionModel.h */,
 				137EC92A1EA0F96F00C79A68 /* WFSessionModel.m */,
@@ -402,6 +418,8 @@
 			children = (
 				13DAA9BF1E65AA3900C8F343 /* WFFacebookConstants.h */,
 				13DAA9C01E65AA3900C8F343 /* WFFacebookConstants.m */,
+				13FDABA91EA78DCC001CF0E5 /* WFSessionsConstants.h */,
+				13FDABAA1EA78DCC001CF0E5 /* WFSessionsConstants.m */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -653,6 +671,7 @@
 				13B416ED1E9FAC9E006D5F09 /* WFErrorsServices.m in Sources */,
 				137EC9451EA0FC7100C79A68 /* WFSessionsViewModel.m in Sources */,
 				13E328251E64AB9D00F1A4EC /* AppDelegate.m in Sources */,
+				13168F931EA765D90070219A /* WFDaySessionModel+Additions.m in Sources */,
 				13B926071E64C430003E7DD0 /* WFFacebookServices.m in Sources */,
 				13EC255B1E6ABB9A003FC5D4 /* WFNewsTableViewCell.m in Sources */,
 				13E328221E64AB9D00F1A4EC /* main.m in Sources */,
@@ -678,6 +697,7 @@
 				13A3D4241E68A39E00B38EEF /* WFNewsListViewController.m in Sources */,
 				130C4F0B1E9BAFFA0020172C /* WFNewsDetailTextView.m in Sources */,
 				130C4F041E9BA8970020172C /* WFHeaderNewsDetailsDateLabel.m in Sources */,
+				13FDABAB1EA78DCC001CF0E5 /* WFSessionsConstants.m in Sources */,
 				137EC9321EA0F9EE00C79A68 /* WFSportDescriptionModel.m in Sources */,
 				130E4B631E812202001C33DE /* WFDatesConverter.m in Sources */,
 			);
