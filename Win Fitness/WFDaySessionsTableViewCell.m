@@ -7,7 +7,7 @@
 //
 
 #import "WFDaySessionsTableViewCell.h"
-#import "WFSessionModel.h"
+#import "WFSessionModel+Additions.h"
 
 @interface WFDaySessionsTableViewCell ()
 
@@ -28,7 +28,7 @@
 - (void)setupCellWithModel:(WFSessionModel *)model {
     self.backgroundColor = [UIColor whiteColor];
     self.sessionModel = model;
-    self.sportLabel.text = model.idSport;
+    self.sportLabel.text = model.titleSport;
     [self setupView];
     [self setupConstraints];
 }

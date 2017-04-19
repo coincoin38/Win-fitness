@@ -9,6 +9,7 @@
 #import "WFSessionsDayViewModel.h"
 #import "WFSportsServices.h"
 #import "WFSessionModel+Additions.h"
+#import "WFSportModel.h"
 
 @interface WFSessionsDayViewModel ()
 
@@ -44,11 +45,11 @@
         self.allSports = sports;
 
         for (WFSessionModel *session in self.daySessions.sessions) {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"allSports.idSport CONTAINS[c] %@", session.idSport];
-            NSLog(@"predicate %@",predicate);
-            NSArray *searchResults = [self.allSports filteredArrayUsingPredicate:predicate];
-            NSLog(@"searchResults %@",searchResults);
-            NSLog(@"youpi");
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.idSport LIKE[c] %@", session.idSport];
+            NSArray<WFSportModel *> *searchResults = [self.allSports filteredArrayUsingPredicate:predicate];
+            if (searchResults.count == 1) {
+                session.titleSport = searchResults[0].name;
+            }
         }
     }
 }

@@ -17,6 +17,8 @@
 @property(nonatomic,strong) NSString *attendance;
 @property(nonatomic,strong) NSString *day;
 
+@property(nonatomic,strong) NSString *titleSport;
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

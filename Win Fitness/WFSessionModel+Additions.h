@@ -10,6 +10,4 @@
 
 @interface WFSessionModel (Additions)
 
-- (NSString *)titleSport;
-
 @end
