@@ -23,6 +23,8 @@
 "THURSDAY" = "Thursday";
 "FRIDAY" = "Friday";
 "SATURDAY" = "Saturday";
+"PLANING MAY CHANGE" = "Planing may change";
+
 //ERRORS
 
 "EMPTY" = "Empty";

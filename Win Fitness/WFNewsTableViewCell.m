@@ -32,7 +32,7 @@
     return _newsImage;
 }
 
-- (UILabel *)headerLabel {
+- (WFHeaderCellLabel *)headerLabel {
     if (!_headerLabel) {
         _headerLabel = [[WFHeaderCellLabel alloc]initWithFrame:CGRectZero];
     }
