@@ -6,11 +6,11 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <ReactiveObjC.h>
+#import "WFService.h"
 
 @class WFSessionModel;
 
-@interface WFSessionsServices : NSObject
+@interface WFSessionsServices : WFService
 
 - (RACSignal *)sessionsServiceSignal;
 

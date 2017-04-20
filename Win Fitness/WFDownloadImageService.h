@@ -6,12 +6,12 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "WFService.h"
 
 @class WFFacebookFeedModel;
 @class WFNewsTableViewCell;
 
-@interface WFDownloadImageService : NSObject
+@interface WFDownloadImageService : WFService
 
 + (void)downloadImage:(NSString *)urlString forCell:(WFNewsTableViewCell *)cell forNews:(WFFacebookFeedModel *)newsws;
 

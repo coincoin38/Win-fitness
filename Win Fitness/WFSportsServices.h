@@ -6,12 +6,12 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <ReactiveObjC.h>
+#import "WFService.h"
 
-@class WFSportModel;
+@class WFSessionModel;
 
-@interface WFSportsServices : NSObject
+@interface WFSportsServices : WFService
 
-- (RACSignal *)sportTitleServiceSignal;
+- (RACSignal *)sportTitleForSessionsServiceSignal:(NSArray<WFSessionModel *> *)session;
 
 @end

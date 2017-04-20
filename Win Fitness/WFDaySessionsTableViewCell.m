@@ -28,7 +28,7 @@
 - (void)setupCellWithModel:(WFSessionModel *)model {
     self.backgroundColor = [UIColor whiteColor];
     self.sessionModel = model;
-    self.sportLabel.text = model.titleSport;
+    self.sportLabel.text = model.titleSport ? : WFLocalisedString(@"EMPTY");
     [self setupView];
     [self setupConstraints];
 }

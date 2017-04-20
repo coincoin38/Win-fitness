@@ -12,8 +12,6 @@
 @class WFFacebookServices;
 @class WFNewsTableViewCell;
 
-typedef void (^WFFacebookHandler)(id result,NSError *error);
-
 @interface WFFacebookNewsViewModel : WFBaseViewModel
 
 @property (nonatomic, strong) NSArray<WFFacebookFeedModel *> *facebookNews;
@@ -25,7 +23,7 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 
 - (instancetype)initWithFacebookServices:(WFFacebookServices *)services;
 
-- (void)startNewsDownload:(WFFacebookHandler)handler;
+- (void)startNewsDownload:(WFResultHandler)handler;
 - (void)startNewsImageDownloadForCell:(WFNewsTableViewCell *)cell;
 - (void)openFacebookURL;
 

@@ -11,8 +11,6 @@
 #import "WFFacebookServices.h"
 #import "WFFacebookFeedModel.h"
 
-typedef void (^WFFacebookHandler)(id result,NSError *error);
-
 @interface WFFacebookServices ()
 
 @property (strong, nonatomic) NSString *token;
@@ -62,7 +60,7 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
 
 #pragma mark - Logic
 
-- (void)grabNews:(WFFacebookHandler)handler {
+- (void)grabNews:(WFServiceHandler)handler {
     if (self.token == nil) {
         [self generateToken:^(id result, NSError *error) {
             if (result) {
@@ -86,14 +84,14 @@ typedef void (^WFFacebookHandler)(id result,NSError *error);
     }
 }
 
-- (void)downloadNews:(WFFacebookHandler)handler {
+- (void)downloadNews:(WFServiceHandler)handler {
     [[self graphRequestNewsWithToken:self.token] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         //NSLog(@"result %@", result);
         handler(result,error);
     }];
 }
 
-- (void)generateToken:(WFFacebookHandler)handler {
+- (void)generateToken:(WFServiceHandler)handler {
     [[self graphRequestToken] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         if (result) {
             self.token = result[kValueFieldsToken];

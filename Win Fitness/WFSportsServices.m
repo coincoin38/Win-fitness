@@ -8,22 +8,31 @@
 
 #import "WFSportsServices.h"
 #import "WFSportModel+Additions.h"
-
-typedef void (^WFSportHandler)(id result,NSError *error);
+#import "WFSessionModel.h"
 
 @implementation WFSportsServices
 
-- (RACSignal *)sportTitleServiceSignal {
+- (RACSignal *)sportTitleForSessionsServiceSignal:(NSArray<WFSessionModel *> *)sessions {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [self parseSessions:^(NSArray *result, NSError *error) {
-            [subscriber sendNext:result];
+        [self parseSessions:^(NSArray *allSports, NSError *error) {
+
+            for (WFSessionModel *session in sessions) {
+                if (!session.titleSport) {
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.idSport LIKE[c] %@", session.idSport];
+                    NSArray<WFSportModel *> *searchResults = [allSports filteredArrayUsingPredicate:predicate];
+                    if (searchResults.count == 1) {
+                        session.titleSport = searchResults[0].name;
+                    }
+                }
+            }
+            [subscriber sendNext:sessions];
             [subscriber sendCompleted];
         }];
         return [RACDisposable disposableWithBlock:^{}];
     }];
 }
 
-- (void)parseSessions:(WFSportHandler)handler {
+- (void)parseSessions:(WFServiceHandler)handler {
     handler([[WFSportModel new]allSports], nil);
 }
 

@@ -16,8 +16,6 @@
 
 @property (nonatomic, strong) WFDaySessionModel *daySessions;
 @property (nonatomic, strong) RACCommand *sportsCommand;
-@property (nonatomic, strong) NSArray<WFSportModel *> *allSports;
-@property (nonatomic) BOOL isLoading;
 
 - (instancetype)initWithSportsServices:(WFSportsServices *)services withSessions:(WFDaySessionModel *)sessions;
 

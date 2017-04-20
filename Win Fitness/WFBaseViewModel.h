@@ -11,4 +11,6 @@
 
 @interface WFBaseViewModel : NSObject
 
+typedef void (^WFResultHandler)(id result,NSError *error);
+
 @end

@@ -10,8 +10,6 @@
 #import "WFDaySessionModel.h"
 #import "WFDaySessionModel+Additions.h"
 
-typedef void (^WFSessionHandler)(id result,NSError *error);
-
 @implementation WFSessionsServices
 
 - (RACSignal *)sessionsServiceSignal {
@@ -24,7 +22,7 @@ typedef void (^WFSessionHandler)(id result,NSError *error);
     }];
 }
 
-- (void)parseSessions:(WFSessionHandler)handler {
+- (void)parseSessions:(WFServiceHandler)handler {
     handler([[WFDaySessionModel new]weekSessions], nil);
 }
 

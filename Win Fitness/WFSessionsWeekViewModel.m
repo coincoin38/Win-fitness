@@ -6,7 +6,6 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFSessionModel.h"
 #import "WFSessionsServices.h"
 #import "WFSessionsWeekViewModel.h"
 
@@ -18,6 +17,8 @@
 
 @implementation WFSessionsWeekViewModel
 
+#pragma mark - Init
+
 - (instancetype)initWithSessionsServices:(WFSessionsServices *)services {
     self = [super init];
     if (self) {
@@ -27,6 +28,8 @@
     return self;
 }
 
+#pragma mark - Actions
+
 - (void)startSessionsWeekParsing {
     @weakify(self)
     [[self.sessionsWeekCommand execute:self]subscribeNext:^(id sessions) {
@@ -34,6 +37,8 @@
         [self checkResultParsing:sessions];
     }];
 }
+
+#pragma mark - Checks
 
 - (void)checkResultParsing:(id)sessions {
     if ([sessions isKindOfClass:[NSError class]]) {

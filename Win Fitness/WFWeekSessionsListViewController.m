@@ -71,7 +71,6 @@
     @weakify(self)
     
     RAC(self,datasArray) = RACObserve(self.viewModel, sessionsWeek);
-    RAC(self.loadindActivityIndicator,animating) = RACObserve(self.viewModel,isLoading);
     
     [RACObserve(self, datasArray)
      subscribeNext:^(id sessions) {

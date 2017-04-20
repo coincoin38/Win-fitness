@@ -6,11 +6,11 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <ReactiveObjC.h>
+#import "WFService.h"
 
 @class WFFacebookFeedModel;
 
-@interface WFFacebookServices : NSObject
+@interface WFFacebookServices : WFService
 
 - (instancetype)initService;
 

@@ -6,10 +6,9 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#import "WFService.h"
 
-@interface WFErrorsServices : NSObject
+@interface WFErrorsServices : WFService
 
 + (UIAlertController *)errorOpenFacebookURL;
 + (UIAlertController *)errorDownloadFacebookNews;

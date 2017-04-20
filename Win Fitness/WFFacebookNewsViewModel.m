@@ -35,7 +35,7 @@
     return self;
 }
 
-#pragma mark - Start processes
+#pragma mark - Actions
 
 - (void)startNewsDownload {
     @weakify(self)
@@ -45,7 +45,7 @@
     }];
 }
 
-- (void)startNewsDownload:(WFFacebookHandler)handler {
+- (void)startNewsDownload:(WFResultHandler)handler {
     @weakify(self)
     if(!self.isLoading) {
         [[self.newsCommand execute:self]subscribeNext:^(id news) {
@@ -56,16 +56,6 @@
     }
     else {
         handler(nil,nil);
-    }
-}
-
-- (void)checkResultDownload:(id)news {
-    self.isLoading = NO;
-    if ([news isKindOfClass:[NSError class]]) {
-        [self errorDownloadFacebookNews];
-    }
-    else {
-        self.facebookNews = news;
     }
 }
 
@@ -97,6 +87,18 @@
     }
     else{
         [self errorOpenFacebookURL];
+    }
+}
+
+#pragma mark - Checks
+
+- (void)checkResultDownload:(id)news {
+    self.isLoading = NO;
+    if ([news isKindOfClass:[NSError class]]) {
+        [self errorDownloadFacebookNews];
+    }
+    else {
+        self.facebookNews = news;
     }
 }
 

@@ -7,8 +7,8 @@
 //
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import "AppDelegate.h"
 #import "UIColor+Additions.h"
+#import "WFAppDelegate.h"
 #import "WFFacebookServices.h"
 #import "WFFacebookNewsViewModel.h"
 #import "WFSessionsWeekViewModel.h"
@@ -16,7 +16,7 @@
 #import "WFWeekSessionsListViewController.h"
 #import "WFSessionsServices.h"
 
-@interface AppDelegate ()
+@interface WFAppDelegate ()
 
 @property (nonatomic, retain) UINavigationController *newsNavigationController;
 @property (nonatomic, retain) UINavigationController *sessionsNavigationController;
@@ -31,7 +31,7 @@
 
 @end
 
-@implementation AppDelegate
+@implementation WFAppDelegate
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     [FBSDKAppEvents activateApp];
