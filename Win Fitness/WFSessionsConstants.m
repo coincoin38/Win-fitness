@@ -15,4 +15,11 @@ NSString * const kThursday = @"Jeudi";
 NSString * const kFriday = @"Vendredi";
 NSString * const kSaturday = @"Samedi";
 
+NSString * const kMondayRPM = @"LundiRPM";
+NSString * const kThuesdayRPM = @"MardiRPM";
+NSString * const kWednesdayRPM = @"MercrediRPM";
+NSString * const kThursdayRPM = @"JeudiRPM";
+NSString * const kFridayRPM = @"VendrediRPM";
+NSString * const kSaturdayRPM = @"SamediRPM";
+
 NSString * const kSportsFeed = @"sportsFeed";

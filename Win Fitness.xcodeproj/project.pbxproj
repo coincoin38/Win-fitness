@@ -11,6 +11,12 @@
 		130C4F071E9BA8F50020172C /* WFBaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 130C4F061E9BA8F50020172C /* WFBaseLabel.m */; };
 		130C4F0B1E9BAFFA0020172C /* WFNewsDetailTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 130C4F0A1E9BAFFA0020172C /* WFNewsDetailTextView.m */; };
 		130E4B631E812202001C33DE /* WFDatesConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 130E4B621E812202001C33DE /* WFDatesConverter.m */; };
+		1316453B1EA93B0B00C1EDF0 /* JeudiRPM.json in Resources */ = {isa = PBXBuildFile; fileRef = 131645351EA93B0B00C1EDF0 /* JeudiRPM.json */; };
+		1316453C1EA93B0B00C1EDF0 /* LundiRPM.json in Resources */ = {isa = PBXBuildFile; fileRef = 131645361EA93B0B00C1EDF0 /* LundiRPM.json */; };
+		1316453D1EA93B0B00C1EDF0 /* MardiRPM.json in Resources */ = {isa = PBXBuildFile; fileRef = 131645371EA93B0B00C1EDF0 /* MardiRPM.json */; };
+		1316453E1EA93B0B00C1EDF0 /* MercrediRPM.json in Resources */ = {isa = PBXBuildFile; fileRef = 131645381EA93B0B00C1EDF0 /* MercrediRPM.json */; };
+		1316453F1EA93B0B00C1EDF0 /* SamediRPM.json in Resources */ = {isa = PBXBuildFile; fileRef = 131645391EA93B0B00C1EDF0 /* SamediRPM.json */; };
+		131645401EA93B0B00C1EDF0 /* VendrediRPM.json in Resources */ = {isa = PBXBuildFile; fileRef = 1316453A1EA93B0B00C1EDF0 /* VendrediRPM.json */; };
 		13168F931EA765D90070219A /* WFDaySessionModel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 13168F921EA765D90070219A /* WFDaySessionModel+Additions.m */; };
 		132BAB821E89554300471DBB /* WFFacebookFeedModel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 132BAB811E89554300471DBB /* WFFacebookFeedModel+Additions.m */; };
 		1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */; };
@@ -77,6 +83,12 @@
 		130C4F0A1E9BAFFA0020172C /* WFNewsDetailTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsDetailTextView.m; sourceTree = "<group>"; };
 		130E4B611E812202001C33DE /* WFDatesConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFDatesConverter.h; sourceTree = "<group>"; };
 		130E4B621E812202001C33DE /* WFDatesConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFDatesConverter.m; sourceTree = "<group>"; };
+		131645351EA93B0B00C1EDF0 /* JeudiRPM.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JeudiRPM.json; sourceTree = "<group>"; };
+		131645361EA93B0B00C1EDF0 /* LundiRPM.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LundiRPM.json; sourceTree = "<group>"; };
+		131645371EA93B0B00C1EDF0 /* MardiRPM.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MardiRPM.json; sourceTree = "<group>"; };
+		131645381EA93B0B00C1EDF0 /* MercrediRPM.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MercrediRPM.json; sourceTree = "<group>"; };
+		131645391EA93B0B00C1EDF0 /* SamediRPM.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SamediRPM.json; sourceTree = "<group>"; };
+		1316453A1EA93B0B00C1EDF0 /* VendrediRPM.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VendrediRPM.json; sourceTree = "<group>"; };
 		13168F911EA765D90070219A /* WFDaySessionModel+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WFDaySessionModel+Additions.h"; sourceTree = "<group>"; };
 		13168F921EA765D90070219A /* WFDaySessionModel+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WFDaySessionModel+Additions.m"; sourceTree = "<group>"; };
 		132BAB801E89554300471DBB /* WFFacebookFeedModel+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WFFacebookFeedModel+Additions.h"; sourceTree = "<group>"; };
@@ -352,11 +364,17 @@
 			isa = PBXGroup;
 			children = (
 				137EC9411EA0FBF400C79A68 /* Lundi.json */,
+				131645361EA93B0B00C1EDF0 /* LundiRPM.json */,
 				137EC93D1EA0FBE800C79A68 /* Mardi.json */,
+				131645371EA93B0B00C1EDF0 /* MardiRPM.json */,
 				137EC93E1EA0FBE800C79A68 /* Mercredi.json */,
+				131645381EA93B0B00C1EDF0 /* MercrediRPM.json */,
 				137EC93B1EA0FBDB00C79A68 /* Jeudi.json */,
+				131645351EA93B0B00C1EDF0 /* JeudiRPM.json */,
 				137EC9391EA0FBCF00C79A68 /* Vendredi.json */,
+				1316453A1EA93B0B00C1EDF0 /* VendrediRPM.json */,
 				137EC9371EA0FBC700C79A68 /* Samedi.json */,
+				131645391EA93B0B00C1EDF0 /* SamediRPM.json */,
 			);
 			name = Stubs;
 			sourceTree = "<group>";
@@ -715,17 +733,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1316453C1EA93B0B00C1EDF0 /* LundiRPM.json in Resources */,
 				137EC9401EA0FBE800C79A68 /* Mercredi.json in Resources */,
+				1316453E1EA93B0B00C1EDF0 /* MercrediRPM.json in Resources */,
 				138BFF3F1EA7B55E00970B1D /* objectivesFeed.json in Resources */,
 				138BFF3D1EA7B55500970B1D /* sportsFeed.json in Resources */,
+				1316453F1EA93B0B00C1EDF0 /* SamediRPM.json in Resources */,
 				13E328301E64AB9D00F1A4EC /* LaunchScreen.storyboard in Resources */,
 				137EC93A1EA0FBCF00C79A68 /* Vendredi.json in Resources */,
 				138BFF3C1EA7B55500970B1D /* sportsDescriptionsFeed.json in Resources */,
+				1316453B1EA93B0B00C1EDF0 /* JeudiRPM.json in Resources */,
 				13B005AE1E855A2900C1D90B /* Localizable.strings in Resources */,
 				137EC9421EA0FBF400C79A68 /* Lundi.json in Resources */,
+				1316453D1EA93B0B00C1EDF0 /* MardiRPM.json in Resources */,
 				137EC93C1EA0FBDB00C79A68 /* Jeudi.json in Resources */,
 				137EC93F1EA0FBE800C79A68 /* Mardi.json in Resources */,
 				137EC9381EA0FBC700C79A68 /* Samedi.json in Resources */,
+				131645401EA93B0B00C1EDF0 /* VendrediRPM.json in Resources */,
 				13E3282D1E64AB9D00F1A4EC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

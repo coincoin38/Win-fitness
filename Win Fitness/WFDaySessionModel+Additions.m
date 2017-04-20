@@ -21,6 +21,15 @@
              [[WFDaySessionModel alloc]initWithArrayOfHours:self.saturdaySessions withDay:Saturday]];
 }
 
+- (NSArray *)weekRPMSessions {
+    return @[[[WFDaySessionModel alloc]initWithArrayOfHours:self.mondayRPMSessions withDay:Monday],
+             [[WFDaySessionModel alloc]initWithArrayOfHours:self.tuesdayRPMSessions withDay:Tuesday],
+             [[WFDaySessionModel alloc]initWithArrayOfHours:self.wednesdayRPMSessions withDay:Wednesday],
+             [[WFDaySessionModel alloc]initWithArrayOfHours:self.thursdayRPMSessions withDay:Thursday],
+             [[WFDaySessionModel alloc]initWithArrayOfHours:self.firdayRPMSessions withDay:Friday],
+             [[WFDaySessionModel alloc]initWithArrayOfHours:self.saturdayRPMSessions withDay:Saturday]];
+}
+
 - (NSArray *)mondaySessions {
     return [WFJSONReader JSONFromFile:kMonday].allValues;
 }
@@ -43,6 +52,30 @@
 
 - (NSArray *)saturdaySessions {
     return [WFJSONReader JSONFromFile:kSaturday].allValues;
+}
+
+- (NSArray *)mondayRPMSessions {
+    return [WFJSONReader JSONFromFile:kMondayRPM].allValues;
+}
+
+- (NSArray *)tuesdayRPMSessions {
+    return [WFJSONReader JSONFromFile:kThuesdayRPM].allValues;
+}
+
+- (NSArray *)wednesdayRPMSessions {
+    return [WFJSONReader JSONFromFile:kWednesdayRPM].allValues;
+}
+
+- (NSArray *)thursdayRPMSessions {
+    return [WFJSONReader JSONFromFile:kThursdayRPM].allValues;
+}
+
+- (NSArray *)firdayRPMSessions {
+    return [WFJSONReader JSONFromFile:kFridayRPM].allValues;
+}
+
+- (NSArray *)saturdayRPMSessions {
+    return [WFJSONReader JSONFromFile:kSaturdayRPM].allValues;
 }
 
 - (NSString *)dayString {

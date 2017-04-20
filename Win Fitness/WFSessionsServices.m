@@ -22,8 +22,22 @@
     }];
 }
 
+- (RACSignal *)sessionsRPMServiceSignal {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [self parseRPMSessions:^(NSArray *result, NSError *error) {
+            [subscriber sendNext:result];
+            [subscriber sendCompleted];
+        }];
+        return [RACDisposable disposableWithBlock:^{}];
+    }];
+}
+
 - (void)parseSessions:(WFServiceHandler)handler {
     handler([[WFDaySessionModel new]weekSessions], nil);
+}
+
+- (void)parseRPMSessions:(WFServiceHandler)handler {
+    handler([[WFDaySessionModel new]weekRPMSessions], nil);
 }
 
 @end
