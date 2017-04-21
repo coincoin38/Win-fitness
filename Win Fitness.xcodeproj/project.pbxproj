@@ -19,6 +19,7 @@
 		131645401EA93B0B00C1EDF0 /* VendrediRPM.json in Resources */ = {isa = PBXBuildFile; fileRef = 1316453A1EA93B0B00C1EDF0 /* VendrediRPM.json */; };
 		13168F931EA765D90070219A /* WFDaySessionModel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 13168F921EA765D90070219A /* WFDaySessionModel+Additions.m */; };
 		132BAB821E89554300471DBB /* WFFacebookFeedModel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 132BAB811E89554300471DBB /* WFFacebookFeedModel+Additions.m */; };
+		134025851EAA2F2C0068670B /* WFFullSessionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 134025841EAA2F2C0068670B /* WFFullSessionsModel.m */; };
 		1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */; };
 		136342CC1E85308900BBBCC6 /* WFHeaderCellLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 136342CB1E85308900BBBCC6 /* WFHeaderCellLabel.m */; };
 		136B81FE1EA8DA6B00804ACE /* WFService.m in Sources */ = {isa = PBXBuildFile; fileRef = 136B81FD1EA8DA6B00804ACE /* WFService.m */; };
@@ -93,6 +94,8 @@
 		13168F921EA765D90070219A /* WFDaySessionModel+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WFDaySessionModel+Additions.m"; sourceTree = "<group>"; };
 		132BAB801E89554300471DBB /* WFFacebookFeedModel+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WFFacebookFeedModel+Additions.h"; sourceTree = "<group>"; };
 		132BAB811E89554300471DBB /* WFFacebookFeedModel+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WFFacebookFeedModel+Additions.m"; sourceTree = "<group>"; };
+		134025831EAA2F2C0068670B /* WFFullSessionsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFullSessionsModel.h; sourceTree = "<group>"; };
+		134025841EAA2F2C0068670B /* WFFullSessionsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFullSessionsModel.m; sourceTree = "<group>"; };
 		1348EC571E66150100FA3843 /* WFFacebookFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookFeedModel.h; sourceTree = "<group>"; };
 		1348EC581E66150100FA3843 /* WFFacebookFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookFeedModel.m; sourceTree = "<group>"; };
 		135E07411EA0E18200F58C18 /* WFLocalizedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFLocalizedString.h; sourceTree = "<group>"; };
@@ -337,6 +340,8 @@
 			children = (
 				13168F901EA7659C0070219A /* Additions */,
 				137EC9361EA0FB6B00C79A68 /* Stubs */,
+				134025831EAA2F2C0068670B /* WFFullSessionsModel.h */,
+				134025841EAA2F2C0068670B /* WFFullSessionsModel.m */,
 				137EC9291EA0F96F00C79A68 /* WFSessionModel.h */,
 				137EC92A1EA0F96F00C79A68 /* WFSessionModel.m */,
 				137EC9511EA112E400C79A68 /* WFDaySessionModel.h */,
@@ -831,6 +836,7 @@
 				1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */,
 				13943EDF1EA3A27800C671E8 /* WFWeekSessionsTableViewCell.m in Sources */,
 				136342CC1E85308900BBBCC6 /* WFHeaderCellLabel.m in Sources */,
+				134025851EAA2F2C0068670B /* WFFullSessionsModel.m in Sources */,
 				13A3D4271E697F5000B38EEF /* WFBaseListViewController.m in Sources */,
 				13B005B51E855F0400C1D90B /* WFNewsDetailsViewController.m in Sources */,
 				13DAA9C11E65AA3900C8F343 /* WFFacebookConstants.m in Sources */,

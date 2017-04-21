@@ -8,6 +8,9 @@
 
 #import "WFSessionsServices.h"
 #import "WFSessionsWeekViewModel.h"
+#import "WFSessionsDayViewModel.h"
+#import "WFSportsServices.h"
+#import "WFDaySessionsViewController.h"
 
 @interface WFSessionsWeekViewModel ()
 
@@ -36,6 +39,27 @@
         @strongify(self)
         [self checkResultParsing:sessions];
     }];
+}
+
+- (WFDaySessionsViewController *)clickSessionsWithSessionsType:(WFSessionsType)type forDay:(NSInteger)day {
+    if (self.sessionsWeek.rpmSessions[day] && type == RPM) {
+        return [[WFDaySessionsViewController alloc]initWithSessionsDayViewModel:[self rpmViewModel:day]];
+    }
+    if (self.sessionsWeek.millsSessions[day] && type == MILLS) {
+        return [[WFDaySessionsViewController alloc]initWithSessionsDayViewModel:[self millsViewModel:day]];
+    }
+
+    return nil;
+}
+
+- (WFSessionsDayViewModel *)millsViewModel:(NSInteger)day {
+    return [[WFSessionsDayViewModel alloc]initWithSportsServices:[WFSportsServices new]
+                                                    withSessions:(WFDaySessionModel *)self.sessionsWeek.millsSessions[day]];
+}
+
+- (WFSessionsDayViewModel *)rpmViewModel:(NSInteger)day {
+    return [[WFSessionsDayViewModel alloc]initWithSportsServices:[WFSportsServices new]
+                                                    withSessions:(WFDaySessionModel *)self.sessionsWeek.rpmSessions[day]];
 }
 
 #pragma mark - Checks

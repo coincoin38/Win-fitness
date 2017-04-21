@@ -8,15 +8,18 @@
 
 #import "WFBaseViewModel.h"
 #import "WFDaySessionModel.h"
+#import "WFFullSessionsModel.h"
 
 @class WFSessionsServices;
 @class WFSessionModel;
+@class WFDaySessionsViewController;
 
 @interface WFSessionsWeekViewModel : WFBaseViewModel
 
 @property (nonatomic, strong) RACCommand *sessionsWeekCommand;
-@property (nonatomic, strong) NSArray<WFDaySessionModel *> *sessionsWeek;
+@property (nonatomic, strong) WFFullSessionsModel *sessionsWeek;
 
 - (instancetype)initWithSessionsServices:(WFSessionsServices *)services;
+- (WFDaySessionsViewController *)clickSessionsWithSessionsType:(WFSessionsType)type forDay:(NSInteger)day;
 
 @end

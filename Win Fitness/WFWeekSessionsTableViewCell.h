@@ -13,6 +13,8 @@
 @interface WFWeekSessionsTableViewCell : WFTableViewCell
 
 @property(nonatomic,strong) WFDaySessionModel *daySessionModel;
+@property(nonatomic,strong) UIButton *millsButton;
+@property(nonatomic,strong) UIButton *rpmButton;
 
 - (void)setupCellWithModel:(WFDaySessionModel *)model;
 

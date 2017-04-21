@@ -8,14 +8,16 @@
 
 #import "WFDaySessionModel.h"
 
+@class WFFullSessionsModel;
+
 @interface WFDaySessionModel (Additions)
 
-- (NSArray *)mondaySessions;
-- (NSArray *)tuesdaySessions;
-- (NSArray *)wednesdaySessions;
-- (NSArray *)thursdaySessions;
-- (NSArray *)firdaySessions;
-- (NSArray *)saturdaySessions;
+- (NSArray *)mondayMillsSessions;
+- (NSArray *)tuesdayMillsSessions;
+- (NSArray *)wednesdayMillsSessions;
+- (NSArray *)thursdayMillsSessions;
+- (NSArray *)firdayMillsSessions;
+- (NSArray *)saturdayMillsSessions;
 
 - (NSArray *)mondayRPMSessions;
 - (NSArray *)tuesdayRPMSessions;
@@ -24,9 +26,12 @@
 - (NSArray *)firdayRPMSessions;
 - (NSArray *)saturdayRPMSessions;
 
-- (NSArray *)weekSessions;
-- (NSArray *)weekRPMSessions;
+- (NSArray *)millsSessions;
+- (NSArray *)rpmSessions;
+- (WFFullSessionsModel *)weekFullSessions;
 
 - (NSString *)dayString;
+
+
 
 @end

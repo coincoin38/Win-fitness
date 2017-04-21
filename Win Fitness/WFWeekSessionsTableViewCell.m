@@ -13,8 +13,8 @@
 @interface WFWeekSessionsTableViewCell ()
 
 @property(nonatomic,strong) UILabel *dayLabel;
-@property(nonatomic,strong) UIImageView *lesMilsImageView;
-@property(nonatomic,strong) UIImageView *RPMImageView;
+@property(nonatomic,strong) UIImageView *millsImageView;
+@property(nonatomic,strong) UIImageView *rpmImageView;
 
 @end
 
@@ -36,30 +36,40 @@
 - (void)setupView {
     self.backgroundColor = [UIColor lightGrayColor];
     [self addSubview:self.dayLabel];
-    [self addSubview:self.RPMImageView];
-    [self addSubview:self.lesMilsImageView];
+    [self addSubview:self.rpmImageView];
+    [self addSubview:self.millsImageView];
+    [self addSubview:self.rpmButton];
+    [self addSubview:self.millsButton];
 }
 
 - (void)setupConstraints {
     [self.dayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left);
         make.top.equalTo(self.mas_top);
-        make.right.equalTo(self.RPMImageView.mas_left);
+        make.right.equalTo(self.rpmImageView.mas_left);
         make.bottom.equalTo(self.mas_bottom).offset(-1);
-        make.width.equalTo(self.RPMImageView.mas_width);
+        make.width.equalTo(self.rpmImageView.mas_width);
     }];
 
-    [self.RPMImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.rpmImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top);
         make.bottom.equalTo(self.mas_bottom).offset(-1);
         make.width.equalTo(self.mas_width).dividedBy(3);
     }];
 
-    [self.lesMilsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.RPMImageView.mas_right);
+    [self.millsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.rpmImageView.mas_right);
         make.top.equalTo(self.mas_top);
         make.right.equalTo(self.mas_right);
         make.bottom.equalTo(self.mas_bottom).offset(-1);
+    }];
+
+    [self.rpmButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.rpmImageView);
+    }];
+
+    [self.millsButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.millsImageView);
     }];
 }
 
@@ -74,26 +84,42 @@
     return _dayLabel;
 }
 
-- (UIImageView *)RPMImageView {
-    if (!_RPMImageView) {
-        _RPMImageView = [[UIImageView alloc]initWithFrame:CGRectZero];
-        _RPMImageView.image = [UIImage imageNamed:@"RPM"];
-        _RPMImageView.contentMode = UIViewContentModeScaleAspectFit;
-        _RPMImageView.clipsToBounds = YES;
-        _RPMImageView.backgroundColor = [UIColor whiteColor];
+- (UIImageView *)rpmImageView {
+    if (!_rpmImageView) {
+        _rpmImageView = [[UIImageView alloc]initWithFrame:CGRectZero];
+        _rpmImageView.image = [UIImage imageNamed:@"RPM"];
+        _rpmImageView.contentMode = UIViewContentModeScaleAspectFit;
+        _rpmImageView.clipsToBounds = YES;
+        _rpmImageView.backgroundColor = [UIColor whiteColor];
     }
-    return _RPMImageView;
+    return _rpmImageView;
 }
 
-- (UIImageView *)lesMilsImageView {
-    if (!_lesMilsImageView) {
-        _lesMilsImageView = [[UIImageView alloc]initWithFrame:CGRectZero];
-        _lesMilsImageView.image = [UIImage imageNamed:@"MILLS"];
-        _lesMilsImageView.contentMode = UIViewContentModeScaleAspectFit;
-        _lesMilsImageView.clipsToBounds = YES;
-        _lesMilsImageView.backgroundColor = [UIColor whiteColor];
+- (UIImageView *)millsImageView {
+    if (!_millsImageView) {
+        _millsImageView = [[UIImageView alloc]initWithFrame:CGRectZero];
+        _millsImageView.image = [UIImage imageNamed:@"MILLS"];
+        _millsImageView.contentMode = UIViewContentModeScaleAspectFit;
+        _millsImageView.clipsToBounds = YES;
+        _millsImageView.backgroundColor = [UIColor whiteColor];
     }
-    return _lesMilsImageView;
+    return _millsImageView;
+}
+
+- (UIButton *)rpmButton {
+    if (!_rpmButton) {
+        _rpmButton = [[UIButton alloc]initWithFrame:CGRectZero];
+        _rpmButton.backgroundColor = [UIColor clearColor];
+    }
+    return _rpmButton;
+}
+
+- (UIButton *)millsButton {
+    if (!_millsButton) {
+        _millsButton = [[UIButton alloc]initWithFrame:CGRectZero];
+        _millsButton.backgroundColor = [UIColor clearColor];
+    }
+    return _millsButton;
 }
 
 #pragma mark - User Actions

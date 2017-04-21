@@ -13,6 +13,5 @@
 @interface WFSessionsServices : WFService
 
 - (RACSignal *)sessionsServiceSignal;
-- (RACSignal *)sessionsRPMServiceSignal;
 
 @end

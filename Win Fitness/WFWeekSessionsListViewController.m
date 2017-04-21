@@ -17,7 +17,6 @@
 @interface WFWeekSessionsListViewController ()
 
 @property(nonatomic,strong) WFSessionsWeekViewModel *viewModel;
-@property(nonatomic,strong) WFSessionsDayViewModel *sessionsDayViewModel;
 
 @property(nonatomic,strong) UIView *footerView;
 @property(nonatomic,strong) UIImageView *footerImageView;
@@ -56,6 +55,7 @@
     [self.tableView registerClass:[WFWeekSessionsTableViewCell class] forCellReuseIdentifier:cellWeekSessionsIdentifier];
     self.tableView.scrollEnabled = NO;
     self.tableView.alwaysBounceVertical = NO;
+    self.tableView.allowsSelection = NO;
 
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
                                                                              style:UIBarButtonItemStylePlain
@@ -141,7 +141,7 @@
 - (void)bindViewModel {
     @weakify(self)
     
-    RAC(self,datasArray) = RACObserve(self.viewModel, sessionsWeek);
+    RAC(self,datasArray) = RACObserve(self.viewModel, sessionsWeek.millsSessions);
     
     [RACObserve(self, datasArray)
      subscribeNext:^(id sessions) {
@@ -157,14 +157,33 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WFWeekSessionsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellWeekSessionsIdentifier forIndexPath:indexPath];
     [cell setupCellWithModel:(WFDaySessionModel *)self.datasArray[indexPath.row]];
-    return cell;
-}
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.sessionsDayViewModel = [[WFSessionsDayViewModel alloc]initWithSportsServices:[WFSportsServices new]
-                                                                         withSessions:(WFDaySessionModel *)self.datasArray[indexPath.row]];
-    WFDaySessionsViewController * dayViewController = [[WFDaySessionsViewController alloc]initWithSessionsDayViewModel:self.sessionsDayViewModel];
-    [self.navigationController pushViewController:dayViewController animated:YES];
+    @weakify(self)
+    [[[cell.rpmButton
+       rac_signalForControlEvents:UIControlEventTouchUpInside]
+      takeUntil:cell.rac_prepareForReuseSignal]
+     subscribeNext:^(id __unused x) {
+         @strongify(self)
+         WFDaySessionsViewController * dayViewController = [self.viewModel clickSessionsWithSessionsType:RPM
+                                                                                                  forDay:indexPath.row];
+         if(dayViewController) {
+             [self.navigationController pushViewController:dayViewController animated:YES];
+         }
+     }];
+
+    [[[cell.millsButton
+       rac_signalForControlEvents:UIControlEventTouchUpInside]
+      takeUntil:cell.rac_prepareForReuseSignal]
+     subscribeNext:^(id __unused x) {
+         @strongify(self)
+         WFDaySessionsViewController * dayViewController = [self.viewModel clickSessionsWithSessionsType:MILLS
+                                                                                                  forDay:indexPath.row];
+         if(dayViewController) {
+             [self.navigationController pushViewController:dayViewController animated:YES];
+         }
+     }];
+
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

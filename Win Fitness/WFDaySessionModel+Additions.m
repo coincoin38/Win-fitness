@@ -9,19 +9,24 @@
 #import "WFDaySessionModel+Additions.h"
 #import "WFJSONReader.h"
 #import "WFSessionsConstants.h"
+#import "WFFullSessionsModel.h"
 
 @implementation WFDaySessionModel (Additions)
 
-- (NSArray *)weekSessions {
-    return @[[[WFDaySessionModel alloc]initWithArrayOfHours:self.mondaySessions withDay:Monday],
-             [[WFDaySessionModel alloc]initWithArrayOfHours:self.tuesdaySessions withDay:Tuesday],
-             [[WFDaySessionModel alloc]initWithArrayOfHours:self.wednesdaySessions withDay:Wednesday],
-             [[WFDaySessionModel alloc]initWithArrayOfHours:self.thursdaySessions withDay:Thursday],
-             [[WFDaySessionModel alloc]initWithArrayOfHours:self.firdaySessions withDay:Friday],
-             [[WFDaySessionModel alloc]initWithArrayOfHours:self.saturdaySessions withDay:Saturday]];
+- (WFFullSessionsModel *)weekFullSessions {
+    return [[WFFullSessionsModel alloc]initWithMillsSessions:[self millsSessions] withRpmSessions:[self rpmSessions]];
 }
 
-- (NSArray *)weekRPMSessions {
+- (NSArray *)millsSessions {
+    return @[[[WFDaySessionModel alloc]initWithArrayOfHours:self.mondayMillsSessions withDay:Monday],
+             [[WFDaySessionModel alloc]initWithArrayOfHours:self.tuesdayMillsSessions withDay:Tuesday],
+             [[WFDaySessionModel alloc]initWithArrayOfHours:self.wednesdayMillsSessions withDay:Wednesday],
+             [[WFDaySessionModel alloc]initWithArrayOfHours:self.thursdayMillsSessions withDay:Thursday],
+             [[WFDaySessionModel alloc]initWithArrayOfHours:self.firdayMillsSessions withDay:Friday],
+             [[WFDaySessionModel alloc]initWithArrayOfHours:self.saturdayMillsSessions withDay:Saturday]];
+}
+
+- (NSArray *)rpmSessions {
     return @[[[WFDaySessionModel alloc]initWithArrayOfHours:self.mondayRPMSessions withDay:Monday],
              [[WFDaySessionModel alloc]initWithArrayOfHours:self.tuesdayRPMSessions withDay:Tuesday],
              [[WFDaySessionModel alloc]initWithArrayOfHours:self.wednesdayRPMSessions withDay:Wednesday],
@@ -30,27 +35,27 @@
              [[WFDaySessionModel alloc]initWithArrayOfHours:self.saturdayRPMSessions withDay:Saturday]];
 }
 
-- (NSArray *)mondaySessions {
+- (NSArray *)mondayMillsSessions {
     return [WFJSONReader JSONFromFile:kMonday].allValues;
 }
 
-- (NSArray *)tuesdaySessions {
+- (NSArray *)tuesdayMillsSessions {
     return [WFJSONReader JSONFromFile:kThuesday].allValues;
 }
 
-- (NSArray *)wednesdaySessions {
+- (NSArray *)wednesdayMillsSessions {
     return [WFJSONReader JSONFromFile:kWednesday].allValues;
 }
 
-- (NSArray *)thursdaySessions {
+- (NSArray *)thursdayMillsSessions {
     return [WFJSONReader JSONFromFile:kThursday].allValues;
 }
 
-- (NSArray *)firdaySessions {
+- (NSArray *)firdayMillsSessions {
     return [WFJSONReader JSONFromFile:kFriday].allValues;
 }
 
-- (NSArray *)saturdaySessions {
+- (NSArray *)saturdayMillsSessions {
     return [WFJSONReader JSONFromFile:kSaturday].allValues;
 }
 
