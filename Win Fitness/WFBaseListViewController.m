@@ -65,6 +65,7 @@
 - (void)addCustomStatusBar:(UIColor *)color {
     UIView *statusBar = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
     statusBar.backgroundColor = color;
+    statusBar.alpha = 0.9;
     [self.view addSubview:statusBar];
 }
 

@@ -54,7 +54,7 @@
                                                                             action:nil];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
-    [self addCustomStatusBar:[UIColor darkGrayColor]];
+    [self addCustomStatusBar:[UIColor darkGrayWF]];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];

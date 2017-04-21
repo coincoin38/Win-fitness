@@ -66,7 +66,7 @@
 
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
-    [self addCustomStatusBar:[UIColor darkGrayColor]];
+    [self addCustomStatusBar:[UIColor darkGrayWF]];
     [self.view addSubview:self.footerView];
     [self.footerView addSubview:self.footerImageView];
     [self.footerView addSubview:self.footerLabel];
