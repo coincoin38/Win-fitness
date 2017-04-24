@@ -8,6 +8,7 @@
 
 #import "WFSessionsDayViewModel.h"
 #import "WFSportsServices.h"
+#import "WFSessionModel.h"
 
 @interface WFSessionsDayViewModel ()
 
@@ -24,7 +25,9 @@
     if (self) {
         _services = services;
         _daySessions = sessions;
-        [self startSportParsing];
+        if (!_daySessions.sessions[0].sport) {
+            [self startSportParsing];
+        }
     }
     return self;
 }

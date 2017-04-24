@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class WFSportModel;
 
 @interface WFSessionModel : NSObject
 
@@ -17,7 +18,7 @@
 @property(nonatomic,strong) NSString *duration;
 @property(nonatomic,strong) NSString *day;
 
-@property(nonatomic,strong) NSString *titleSport;
+@property(nonatomic,strong) WFSportModel *sport;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

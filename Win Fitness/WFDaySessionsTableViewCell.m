@@ -6,8 +6,10 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
+#import "UIColor+Additions.h"
 #import "WFDaySessionsTableViewCell.h"
 #import "WFSessionModel+Additions.h"
+#import "WFSportModel.h"
 
 @interface WFDaySessionsTableViewCell ()
 
@@ -25,19 +27,18 @@
 
 - (void)setupCellWithModel:(WFSessionModel *)model {
     self.sessionModel = model;
-    self.sportLabel.text = model.titleSport ? : WFLocalisedString(@"EMPTY");
+    self.sportLabel.text = model.sport.name ? : WFLocalisedString(@"EMPTY");
+    self.sportLabel.textColor = model.sport.colorFromHexa ? : [UIColor blackColor];
     self.startHourLabel.text = model.from;
-    self.durationLabel.text = model.duration;
-    self.explorerLabel.text = @"";
+    self.durationLabel.text = [NSString stringWithFormat:@"%@ min.",model.duration];
 
     if (!model.attendance) {
-        self.startHourLabel.backgroundColor = [UIColor greenColor];
-        self.durationLabel.backgroundColor = [UIColor greenColor];
-        self.explorerLabel.text = @"EXPLORER";
+        self.timeContentView.backgroundColor = [UIColor greenWF];
+        self.explorerLabel.text = WFLocalisedString(@"EXPLORER");
     }
     else {
-        self.startHourLabel.backgroundColor = [UIColor purpleColor];
-        self.durationLabel.backgroundColor = [UIColor purpleColor];
+        self.timeContentView.backgroundColor = [UIColor veryLightGrayWF];
+        self.explorerLabel.text = @"";
     }
 
     [self setupView];
@@ -65,16 +66,16 @@
 
     [self.startHourLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.timeContentView.mas_left);
-        make.top.equalTo(self.timeContentView.mas_top);
+        make.top.equalTo(self.timeContentView.mas_top).offset(10);
         make.right.equalTo(self.timeContentView.mas_right);
-        make.height.equalTo(@37);
+        make.height.equalTo(@30);
     }];
 
     [self.durationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.timeContentView.mas_left);
-        make.top.equalTo(self.startHourLabel.mas_bottom);
+        make.top.equalTo(self.startHourLabel.mas_bottom).offset(5);
         make.right.equalTo(self.timeContentView.mas_right);
-        make.height.equalTo(@37);
+        make.height.equalTo(@20);
     }];
 
     [self.sportLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -85,9 +86,8 @@
     }];
 
     [self.explorerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top);
-        make.right.equalTo(self.mas_right);
-        make.width.equalTo(@50);
+        make.top.equalTo(self.mas_top).offset(5);
+        make.right.equalTo(self.mas_right).offset(-5);
     }];
 }
 
@@ -95,6 +95,7 @@
     if (!_sportLabel) {
         _sportLabel = [[UILabel alloc]initWithFrame:CGRectZero];
         _sportLabel.textAlignment = NSTextAlignmentCenter;
+        _sportLabel.font = [UIFont boldSystemFontOfSize:20];
         _sportLabel.backgroundColor = [UIColor whiteColor];
     }
     return _sportLabel;
@@ -103,6 +104,7 @@
 - (UILabel *)startHourLabel {
     if (!_startHourLabel) {
         _startHourLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+        _startHourLabel.font = [UIFont boldSystemFontOfSize:18];
         _startHourLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _startHourLabel;
@@ -111,6 +113,7 @@
 - (UILabel *)durationLabel {
     if (!_durationLabel) {
         _durationLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+        _durationLabel.font = [UIFont italicSystemFontOfSize:14];
         _durationLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _durationLabel;
@@ -119,6 +122,7 @@
 - (UILabel *)explorerLabel {
     if (!_explorerLabel) {
         _explorerLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+        _explorerLabel.font = [UIFont italicSystemFontOfSize:10];
         _explorerLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _explorerLabel;

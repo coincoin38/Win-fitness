@@ -1,84 +1,85 @@
 {
     "sessions":[{
                 "sport_id": 3,
-                "from": "09.00",
+                "from": "09:00",
                 "duration": "15",
                 "day": "Lundi",
                 "attendance": false
                 }, {
                 "sport_id": 3,
-                "from": "09.15",
+                "from": "09:15",
                 "duration": "45",
                 "day": "Lundi",
                 "attendance": true
                 }, {
                 "sport_id": 5,
-                "from": "10.00",
+                "from": "10:00",
                 "duration": "30",
                 "day": "Lundi",
                 "attendance": true
                 }, {
                 "sport_id": 6,
-                "from": "12.15",
+                "from": "12:15",
                 "duration": "15",
                 "day": "Lundi",
                 "attendance": false
                 }, {
                 "sport_id": 6,
-                "from": "12.30",
+                "from": "12:30",
                 "duration": "45",
                 "day": "Lundi",
                 "attendance": true
                 }, {
                 "sport_id": 1,
-                "from": "13.15",
+                "from": "13:15",
                 "duration": "30",
                 "day": "Lundi",
                 "attendance": true
                 }, {
                 "sport_id": 8,
-                "from": "14.30",
+                "from": "14:30",
                 "duration": "45",
                 "day": "Lundi",
                 "attendance": true
                 }, {
                 "sport_id": 7,
-                "from": "17.00",
+                "from": "17:00",
                 "duration": "30",
                 "day": "Lundi",
                 "attendance": true
                 }, {
                 "sport_id": 5,
-                "from": "17.30",
+                "from": "17:30",
                 "duration": "30",
                 "day": "Lundi",
                 "attendance": true
                 }, {
                 "sport_id": 1,
-                "from": "18.00",
+                "from": "18:00",
                 "duration": "30",
                 "day": "Lundi",
                 "attendance": true
                 }, {
                 "sport_id": 7,
-                "from": "18.30",
+                "from": "18:30",
                 "duration": "45",
                 "day": "Lundi",
                 "attendance": true
                 }, {
                 "sport_id": 9,
-                "from": "19.30",
+                "from": "19:30",
                 "duration": "45",
                 "day": "Lundi",
                 "attendance": true
                 }, {
-                "from": "19.30",
+                "sport_id": 2,
+                "from": "19:30",
                 "duration": "45",
                 "day": "Lundi",
                 "attendance": true
                 }, {
                 "sport_id": 1,
-                "from": "20.15",
+                "from": "20:15",
                 "duration": "30",
                 "day": "Lundi",
                 "attendance": true

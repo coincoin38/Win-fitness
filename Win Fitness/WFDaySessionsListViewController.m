@@ -78,7 +78,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WFDaySessionsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellDaysSessionsIdentifier
                                                                        forIndexPath:indexPath];
-    [cell setupCellWithModel:(WFSessionModel *)self.datasArray[indexPath.row]];
+    [cell setupCellWithModel:self.datasArray[indexPath.row]];
     return cell;
 }
 

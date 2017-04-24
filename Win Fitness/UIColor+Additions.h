@@ -15,6 +15,8 @@
 + (UIColor *)darkGrayWF;
 + (UIColor *)lightGrayWF;
 + (UIColor *)veryLightGrayWF;
++ (UIColor *)greenWF;
 + (UIColor *)blueFacebook;
++ (UIColor *)colorFromHexString:(NSString *)hexString;
 
 @end

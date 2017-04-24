@@ -16,10 +16,11 @@ typedef NS_ENUM(NSInteger, WFDays) {
     Friday = 4,
     Saturday = 5
 };
+@class WFSessionModel;
 
 @interface WFDaySessionModel : NSObject
 
-@property(nonatomic,strong) NSMutableArray *sessions;
+@property(nonatomic,strong) NSMutableArray<WFSessionModel *> *sessions;
 @property(nonatomic) NSInteger day;
 
 - (instancetype)initWithArrayOfHours:(NSArray *)hours withDay:(NSInteger)day;

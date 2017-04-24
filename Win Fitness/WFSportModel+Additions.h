@@ -7,6 +7,7 @@
 //
 
 #import "WFSportModel.h"
+#import <UIKit/UIKit.h>
 
 @interface WFSportModel (Additions)
 

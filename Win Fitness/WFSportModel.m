@@ -7,6 +7,7 @@
 //
 
 #import "WFSportModel.h"
+#import "UIColor+Additions.h"
 
 @implementation WFSportModel
 
@@ -15,8 +16,9 @@
         _idSport  = [dictionary[@"id"] integerValue];
         _name = dictionary[@"name"];
         _description_id = dictionary[@"description_id"];
-        _color  = dictionary[@"color"];
+        _colorString  = dictionary[@"color"];
         _image = dictionary[@"image"];
+        _colorFromHexa = [UIColor colorFromHexString:self.colorString];
     }
     return self;
 }
