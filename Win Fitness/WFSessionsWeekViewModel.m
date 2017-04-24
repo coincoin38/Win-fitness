@@ -10,7 +10,7 @@
 #import "WFSessionsWeekViewModel.h"
 #import "WFSessionsDayViewModel.h"
 #import "WFSportsServices.h"
-#import "WFDaySessionsViewController.h"
+#import "WFDaySessionsListViewController.h"
 
 @interface WFSessionsWeekViewModel ()
 
@@ -41,12 +41,12 @@
     }];
 }
 
-- (WFDaySessionsViewController *)clickSessionsWithSessionsType:(WFSessionsType)type forDay:(NSInteger)day {
+- (WFDaySessionsListViewController *)clickSessionsWithSessionsType:(WFSessionsType)type forDay:(NSInteger)day {
     if (self.sessionsWeek.rpmSessions[day] && type == RPM) {
-        return [[WFDaySessionsViewController alloc]initWithSessionsDayViewModel:[self rpmViewModel:day]];
+        return [[WFDaySessionsListViewController alloc]initWithSessionsDayViewModel:[self rpmViewModel:day]];
     }
     if (self.sessionsWeek.millsSessions[day] && type == MILLS) {
-        return [[WFDaySessionsViewController alloc]initWithSessionsDayViewModel:[self millsViewModel:day]];
+        return [[WFDaySessionsListViewController alloc]initWithSessionsDayViewModel:[self millsViewModel:day]];
     }
 
     return nil;

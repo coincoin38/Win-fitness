@@ -10,7 +10,7 @@
 
 @interface WFSportModel : NSObject
 
-@property(nonatomic,strong) NSString *idSport;
+@property(nonatomic) NSInteger idSport;
 @property(nonatomic,strong) NSString *name;
 @property(nonatomic,strong) NSString *description_id;
 @property(nonatomic,strong) NSString *color;

@@ -10,7 +10,7 @@
 
 @class WFSessionsDayViewModel;
 
-@interface WFDaySessionsViewController : WFBaseListViewController
+@interface WFDaySessionsListViewController : WFBaseListViewController
 
 - (instancetype)initWithSessionsDayViewModel:(WFSessionsDayViewModel *)viewModel;
 

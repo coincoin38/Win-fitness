@@ -40,7 +40,7 @@
 		137EC9531EA112E400C79A68 /* WFDaySessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 137EC9521EA112E400C79A68 /* WFDaySessionModel.m */; };
 		138A1CF71E856CC10010D83D /* WFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138A1CF61E856CC10010D83D /* WFBaseViewController.m */; };
 		138A1CFB1E856D7E0010D83D /* WFNewsTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 138A1CFA1E856D7E0010D83D /* WFNewsTextView.m */; };
-		138BFF291EA7996D00970B1D /* WFDaySessionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138BFF281EA7996D00970B1D /* WFDaySessionsViewController.m */; };
+		138BFF291EA7996D00970B1D /* WFDaySessionsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138BFF281EA7996D00970B1D /* WFDaySessionsListViewController.m */; };
 		138BFF2D1EA7A42700970B1D /* WFBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 138BFF2C1EA7A42700970B1D /* WFBaseViewModel.m */; };
 		138BFF301EA7AB9200970B1D /* WFSessionsDayViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 138BFF2F1EA7AB9200970B1D /* WFSessionsDayViewModel.m */; };
 		138BFF341EA7AC0900970B1D /* WFSportsServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 138BFF331EA7AC0900970B1D /* WFSportsServices.m */; };
@@ -132,8 +132,8 @@
 		138A1CF61E856CC10010D83D /* WFBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBaseViewController.m; sourceTree = "<group>"; };
 		138A1CF91E856D7E0010D83D /* WFNewsTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNewsTextView.h; sourceTree = "<group>"; };
 		138A1CFA1E856D7E0010D83D /* WFNewsTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsTextView.m; sourceTree = "<group>"; };
-		138BFF271EA7996D00970B1D /* WFDaySessionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFDaySessionsViewController.h; sourceTree = "<group>"; };
-		138BFF281EA7996D00970B1D /* WFDaySessionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFDaySessionsViewController.m; sourceTree = "<group>"; };
+		138BFF271EA7996D00970B1D /* WFDaySessionsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFDaySessionsListViewController.h; sourceTree = "<group>"; };
+		138BFF281EA7996D00970B1D /* WFDaySessionsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFDaySessionsListViewController.m; sourceTree = "<group>"; };
 		138BFF2B1EA7A42700970B1D /* WFBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFBaseViewModel.h; sourceTree = "<group>"; };
 		138BFF2C1EA7A42700970B1D /* WFBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFBaseViewModel.m; sourceTree = "<group>"; };
 		138BFF2E1EA7AB9200970B1D /* WFSessionsDayViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSessionsDayViewModel.h; sourceTree = "<group>"; };
@@ -387,8 +387,8 @@
 		137EC9461EA0FCA000C79A68 /* Sessions */ = {
 			isa = PBXGroup;
 			children = (
-				138BFF271EA7996D00970B1D /* WFDaySessionsViewController.h */,
-				138BFF281EA7996D00970B1D /* WFDaySessionsViewController.m */,
+				138BFF271EA7996D00970B1D /* WFDaySessionsListViewController.h */,
+				138BFF281EA7996D00970B1D /* WFDaySessionsListViewController.m */,
 				137EC9471EA0FCD900C79A68 /* WFWeekSessionsListViewController.h */,
 				137EC9481EA0FCD900C79A68 /* WFWeekSessionsListViewController.m */,
 			);
@@ -841,7 +841,7 @@
 				13B005B51E855F0400C1D90B /* WFNewsDetailsViewController.m in Sources */,
 				13DAA9C11E65AA3900C8F343 /* WFFacebookConstants.m in Sources */,
 				137EC9501EA100B500C79A68 /* WFJSONReader.m in Sources */,
-				138BFF291EA7996D00970B1D /* WFDaySessionsViewController.m in Sources */,
+				138BFF291EA7996D00970B1D /* WFDaySessionsListViewController.m in Sources */,
 				138A1CF71E856CC10010D83D /* WFBaseViewController.m in Sources */,
 				138BFF341EA7AC0900970B1D /* WFSportsServices.m in Sources */,
 				137EC9531EA112E400C79A68 /* WFDaySessionModel.m in Sources */,

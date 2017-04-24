@@ -10,7 +10,7 @@
 #import "WFSessionsWeekViewModel.h"
 #import "WFWeekSessionsTableViewCell.h"
 #import "WFDaySessionModel.h"
-#import "WFDaySessionsViewController.h"
+#import "WFDaySessionsListViewController.h"
 #import "WFSessionsDayViewModel.h"
 #import "WFSportsServices.h"
 
@@ -164,7 +164,7 @@
       takeUntil:cell.rac_prepareForReuseSignal]
      subscribeNext:^(id __unused x) {
          @strongify(self)
-         WFDaySessionsViewController * dayViewController = [self.viewModel clickSessionsWithSessionsType:RPM
+         WFDaySessionsListViewController * dayViewController = [self.viewModel clickSessionsWithSessionsType:RPM
                                                                                                   forDay:indexPath.row];
          if(dayViewController) {
              [self.navigationController pushViewController:dayViewController animated:YES];
@@ -176,7 +176,7 @@
       takeUntil:cell.rac_prepareForReuseSignal]
      subscribeNext:^(id __unused x) {
          @strongify(self)
-         WFDaySessionsViewController * dayViewController = [self.viewModel clickSessionsWithSessionsType:MILLS
+         WFDaySessionsListViewController * dayViewController = [self.viewModel clickSessionsWithSessionsType:MILLS
                                                                                                   forDay:indexPath.row];
          if(dayViewController) {
              [self.navigationController pushViewController:dayViewController animated:YES];

@@ -23,7 +23,6 @@
 #pragma mark - Data
 
 - (void)setupCellWithModel:(WFDaySessionModel *)model {
-    self.backgroundColor = [UIColor whiteColor];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.daySessionModel = model;
     self.dayLabel.text = [model dayString];

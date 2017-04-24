@@ -6,20 +6,20 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFDaySessionsViewController.h"
+#import "WFDaySessionsListViewController.h"
 #import "WFDaySessionsTableViewCell.h"
 #import "WFSessionModel.h"
 #import "WFSessionsWeekViewModel.h"
 #import "WFSessionsDayViewModel.h"
 #import "WFDaySessionModel+Additions.h"
 
-@interface WFDaySessionsViewController ()
+@interface WFDaySessionsListViewController ()
 
 @property(nonatomic,strong) WFSessionsDayViewModel *viewModel;
 @property(nonatomic,strong) WFSessionModel *selectedSession;
 @end
 
-@implementation WFDaySessionsViewController
+@implementation WFDaySessionsListViewController
 
 - (instancetype)initWithSessionsDayViewModel:(WFSessionsDayViewModel *)viewModel {
     self = [super init];
@@ -76,7 +76,8 @@
 #pragma mark - Table view data source
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    WFDaySessionsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellDaysSessionsIdentifier forIndexPath:indexPath];
+    WFDaySessionsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellDaysSessionsIdentifier
+                                                                       forIndexPath:indexPath];
     [cell setupCellWithModel:(WFSessionModel *)self.datasArray[indexPath.row]];
     return cell;
 }

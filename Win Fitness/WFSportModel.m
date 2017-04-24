@@ -12,7 +12,7 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     if ((self = [super init])) {
-        _idSport  = dictionary[@"id"];
+        _idSport  = [dictionary[@"id"] integerValue];
         _name = dictionary[@"name"];
         _description_id = dictionary[@"description_id"];
         _color  = dictionary[@"color"];

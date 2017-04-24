@@ -18,7 +18,7 @@
 
             for (WFSessionModel *session in sessions) {
                 if (!session.titleSport) {
-                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.idSport LIKE[c] %@", session.idSport];
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.idSport == %d", session.idSport];
                     NSArray<WFSportModel *> *searchResults = [allSports filteredArrayUsingPredicate:predicate];
                     if (searchResults.count == 1) {
                         session.titleSport = searchResults[0].name;

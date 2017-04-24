@@ -12,11 +12,10 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     if ((self = [super init])) {
-        _idSession  = dictionary[@"id"];
-        _idSport = dictionary[@"sport_id"];
+        _idSport = [dictionary[@"sport_id"] integerValue];
         _from  = dictionary[@"from"];
         _duration = dictionary[@"duration"];
-        _attendance = dictionary[@"attendance"];
+        _attendance = [dictionary[@"attendance"] boolValue];
         _day = dictionary[@"day"];
     }
     return self;

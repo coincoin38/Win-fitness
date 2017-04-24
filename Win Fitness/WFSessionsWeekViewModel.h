@@ -12,7 +12,7 @@
 
 @class WFSessionsServices;
 @class WFSessionModel;
-@class WFDaySessionsViewController;
+@class WFDaySessionsListViewController;
 
 @interface WFSessionsWeekViewModel : WFBaseViewModel
 
@@ -20,6 +20,6 @@
 @property (nonatomic, strong) WFFullSessionsModel *sessionsWeek;
 
 - (instancetype)initWithSessionsServices:(WFSessionsServices *)services;
-- (WFDaySessionsViewController *)clickSessionsWithSessionsType:(WFSessionsType)type forDay:(NSInteger)day;
+- (WFDaySessionsListViewController *)clickSessionsWithSessionsType:(WFSessionsType)type forDay:(NSInteger)day;
 
 @end
