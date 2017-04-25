@@ -7,8 +7,8 @@
 //
 
 #import "WFSportsServices.h"
-#import "WFSportModel+Additions.h"
 #import "WFSessionModel.h"
+#import "WFSportsProvider.h"
 
 @implementation WFSportsServices
 
@@ -38,7 +38,7 @@
 }
 
 - (void)parseSessions:(WFServiceHandler)handler {
-    handler([WFSportModel allSports], nil);
+    handler([[WFSportsProvider sharedInstance]allSports], nil);
 }
 
 @end

@@ -44,7 +44,6 @@
 		138BFF2D1EA7A42700970B1D /* WFBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 138BFF2C1EA7A42700970B1D /* WFBaseViewModel.m */; };
 		138BFF301EA7AB9200970B1D /* WFSessionsDayViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 138BFF2F1EA7AB9200970B1D /* WFSessionsDayViewModel.m */; };
 		138BFF341EA7AC0900970B1D /* WFSportsServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 138BFF331EA7AC0900970B1D /* WFSportsServices.m */; };
-		138BFF381EA7ACDA00970B1D /* WFSportModel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 138BFF371EA7ACDA00970B1D /* WFSportModel+Additions.m */; };
 		138BFF3C1EA7B55500970B1D /* sportsDescriptionsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 138BFF3A1EA7B55500970B1D /* sportsDescriptionsFeed.json */; };
 		138BFF3D1EA7B55500970B1D /* sportsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 138BFF3B1EA7B55500970B1D /* sportsFeed.json */; };
 		138BFF3F1EA7B55E00970B1D /* objectivesFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 138BFF3E1EA7B55E00970B1D /* objectivesFeed.json */; };
@@ -59,6 +58,9 @@
 		13BC85321E8E45DA00CF254C /* WFHeaderNewsDetailsTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BC85311E8E45DA00CF254C /* WFHeaderNewsDetailsTitleLabel.m */; };
 		13BC85381E8E4E3F00CF254C /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BC85371E8E4E3F00CF254C /* UIColor+Additions.m */; };
 		13BC85401E8E596600CF254C /* WFFooterButtonNewsDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BC853F1E8E596600CF254C /* WFFooterButtonNewsDetails.m */; };
+		13D07A451EAF5398004DF700 /* WFSportsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D07A441EAF5398004DF700 /* WFSportsListViewController.m */; };
+		13D07A491EAF5498004DF700 /* WFSportsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D07A481EAF5498004DF700 /* WFSportsViewModel.m */; };
+		13D07A4C1EAF54AD004DF700 /* WFSportDetailsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D07A4B1EAF54AD004DF700 /* WFSportDetailsViewModel.m */; };
 		13DAA9C11E65AA3900C8F343 /* WFFacebookConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DAA9C01E65AA3900C8F343 /* WFFacebookConstants.m */; };
 		13DAA9C41E672D3400C8F343 /* WFFacebookNewsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DAA9C31E672D3400C8F343 /* WFFacebookNewsViewModel.m */; };
 		13DDB0421E8D3DD800BDE55B /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 13DDB0411E8D3DD800BDE55B /* NSString+Additions.m */; };
@@ -67,6 +69,7 @@
 		13E3282D1E64AB9D00F1A4EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13E3282C1E64AB9D00F1A4EC /* Assets.xcassets */; };
 		13E328301E64AB9D00F1A4EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E3282E1E64AB9D00F1A4EC /* LaunchScreen.storyboard */; };
 		13EC255B1E6ABB9A003FC5D4 /* WFNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EC25591E6ABB9A003FC5D4 /* WFNewsTableViewCell.m */; };
+		13EE1EC81EAF6EE700803B1A /* WFSportsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EE1EC71EAF6EE700803B1A /* WFSportsProvider.m */; };
 		13F3F2E61E6EEF9F007ABCD2 /* WFDownloadImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F3F2E51E6EEF9F007ABCD2 /* WFDownloadImageService.m */; };
 		13FDABAB1EA78DCC001CF0E5 /* WFSessionsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FDABAA1EA78DCC001CF0E5 /* WFSessionsConstants.m */; };
 		13FDABAE1EA793E1001CF0E5 /* WFDaySessionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FDABAD1EA793E1001CF0E5 /* WFDaySessionsTableViewCell.m */; };
@@ -140,8 +143,6 @@
 		138BFF2F1EA7AB9200970B1D /* WFSessionsDayViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFSessionsDayViewModel.m; sourceTree = "<group>"; };
 		138BFF321EA7AC0900970B1D /* WFSportsServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSportsServices.h; sourceTree = "<group>"; };
 		138BFF331EA7AC0900970B1D /* WFSportsServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFSportsServices.m; sourceTree = "<group>"; };
-		138BFF361EA7ACDA00970B1D /* WFSportModel+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WFSportModel+Additions.h"; sourceTree = "<group>"; };
-		138BFF371EA7ACDA00970B1D /* WFSportModel+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WFSportModel+Additions.m"; sourceTree = "<group>"; };
 		138BFF3A1EA7B55500970B1D /* sportsDescriptionsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sportsDescriptionsFeed.json; sourceTree = "<group>"; };
 		138BFF3B1EA7B55500970B1D /* sportsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sportsFeed.json; sourceTree = "<group>"; };
 		138BFF3E1EA7B55E00970B1D /* objectivesFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = objectivesFeed.json; sourceTree = "<group>"; };
@@ -169,6 +170,12 @@
 		13BC85371E8E4E3F00CF254C /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		13BC853E1E8E596600CF254C /* WFFooterButtonNewsDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFooterButtonNewsDetails.h; sourceTree = "<group>"; };
 		13BC853F1E8E596600CF254C /* WFFooterButtonNewsDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFooterButtonNewsDetails.m; sourceTree = "<group>"; };
+		13D07A431EAF5398004DF700 /* WFSportsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSportsListViewController.h; sourceTree = "<group>"; };
+		13D07A441EAF5398004DF700 /* WFSportsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFSportsListViewController.m; sourceTree = "<group>"; };
+		13D07A471EAF5498004DF700 /* WFSportsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSportsViewModel.h; sourceTree = "<group>"; };
+		13D07A481EAF5498004DF700 /* WFSportsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFSportsViewModel.m; sourceTree = "<group>"; };
+		13D07A4A1EAF54AD004DF700 /* WFSportDetailsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSportDetailsViewModel.h; sourceTree = "<group>"; };
+		13D07A4B1EAF54AD004DF700 /* WFSportDetailsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFSportDetailsViewModel.m; sourceTree = "<group>"; };
 		13DAA9BF1E65AA3900C8F343 /* WFFacebookConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookConstants.h; sourceTree = "<group>"; };
 		13DAA9C01E65AA3900C8F343 /* WFFacebookConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFFacebookConstants.m; sourceTree = "<group>"; };
 		13DAA9C21E672D3400C8F343 /* WFFacebookNewsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFFacebookNewsViewModel.h; sourceTree = "<group>"; };
@@ -184,6 +191,8 @@
 		13E328311E64AB9D00F1A4EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13EC25581E6ABB9A003FC5D4 /* WFNewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFNewsTableViewCell.h; sourceTree = "<group>"; };
 		13EC25591E6ABB9A003FC5D4 /* WFNewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFNewsTableViewCell.m; sourceTree = "<group>"; };
+		13EE1EC61EAF6EE700803B1A /* WFSportsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSportsProvider.h; sourceTree = "<group>"; };
+		13EE1EC71EAF6EE700803B1A /* WFSportsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFSportsProvider.m; sourceTree = "<group>"; };
 		13F3F2E41E6EEF9F007ABCD2 /* WFDownloadImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFDownloadImageService.h; sourceTree = "<group>"; };
 		13F3F2E51E6EEF9F007ABCD2 /* WFDownloadImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFDownloadImageService.m; sourceTree = "<group>"; };
 		13FDABA91EA78DCC001CF0E5 /* WFSessionsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSessionsConstants.h; sourceTree = "<group>"; };
@@ -294,6 +303,7 @@
 				138BFF2A1EA7A40400970B1D /* Bases */,
 				131B1A5E1EA8BC0100B760FD /* News */,
 				131B1A5F1EA8BC1400B760FD /* Sessions */,
+				13D07A461EAF545E004DF700 /* Sports */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -304,6 +314,7 @@
 				13A3D4291E697F6400B38EEF /* Bases */,
 				13E02C3D1E9E5141003CEB0A /* News */,
 				137EC9461EA0FCA000C79A68 /* Sessions */,
+				13D07A421EAF535D004DF700 /* Sports */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -353,7 +364,6 @@
 		137EC92C1EA0F99100C79A68 /* Sports */ = {
 			isa = PBXGroup;
 			children = (
-				138BFF401EA7B6AE00970B1D /* Additions */,
 				138BFF391EA7B54000970B1D /* Stubs */,
 				137EC92D1EA0F9C800C79A68 /* WFSportModel.h */,
 				137EC92E1EA0F9C800C79A68 /* WFSportModel.m */,
@@ -441,15 +451,6 @@
 				138BFF3B1EA7B55500970B1D /* sportsFeed.json */,
 			);
 			name = Stubs;
-			sourceTree = "<group>";
-		};
-		138BFF401EA7B6AE00970B1D /* Additions */ = {
-			isa = PBXGroup;
-			children = (
-				138BFF361EA7ACDA00970B1D /* WFSportModel+Additions.h */,
-				138BFF371EA7ACDA00970B1D /* WFSportModel+Additions.m */,
-			);
-			name = Additions;
 			sourceTree = "<group>";
 		};
 		13943EDB1EA3A24300C671E8 /* News */ = {
@@ -543,6 +544,26 @@
 			name = UIButtons;
 			sourceTree = "<group>";
 		};
+		13D07A421EAF535D004DF700 /* Sports */ = {
+			isa = PBXGroup;
+			children = (
+				13D07A431EAF5398004DF700 /* WFSportsListViewController.h */,
+				13D07A441EAF5398004DF700 /* WFSportsListViewController.m */,
+			);
+			name = Sports;
+			sourceTree = "<group>";
+		};
+		13D07A461EAF545E004DF700 /* Sports */ = {
+			isa = PBXGroup;
+			children = (
+				13D07A471EAF5498004DF700 /* WFSportsViewModel.h */,
+				13D07A481EAF5498004DF700 /* WFSportsViewModel.m */,
+				13D07A4A1EAF54AD004DF700 /* WFSportDetailsViewModel.h */,
+				13D07A4B1EAF54AD004DF700 /* WFSportDetailsViewModel.m */,
+			);
+			name = Sports;
+			sourceTree = "<group>";
+		};
 		13DAA9BE1E65AA1600C8F343 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,6 +623,7 @@
 				135E07451EA0E65400F58C18 /* Build */,
 				13DAA9BE1E65AA1600C8F343 /* Constants */,
 				1348EC541E660EC100FA3843 /* Models */,
+				13EE1EC51EAF6EB900803B1A /* Providers */,
 				1348EC561E660EDE00FA3843 /* ViewControllers */,
 				1348EC551E660ECB00FA3843 /* ViewModels */,
 				13EC25541E6ABB36003FC5D4 /* Views */,
@@ -633,6 +655,15 @@
 				13E3282E1E64AB9D00F1A4EC /* LaunchScreen.storyboard */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		13EE1EC51EAF6EB900803B1A /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				13EE1EC61EAF6EE700803B1A /* WFSportsProvider.h */,
+				13EE1EC71EAF6EE700803B1A /* WFSportsProvider.m */,
+			);
+			name = Providers;
 			sourceTree = "<group>";
 		};
 		13F3F2E31E6EEF67007ABCD2 /* Services */ = {
@@ -816,6 +847,7 @@
 			files = (
 				132BAB821E89554300471DBB /* WFFacebookFeedModel+Additions.m in Sources */,
 				137EC92F1EA0F9C800C79A68 /* WFSportModel.m in Sources */,
+				13D07A491EAF5498004DF700 /* WFSportsViewModel.m in Sources */,
 				13DDB0421E8D3DD800BDE55B /* NSString+Additions.m in Sources */,
 				13BC85381E8E4E3F00CF254C /* UIColor+Additions.m in Sources */,
 				13FDABB21EA79511001CF0E5 /* WFTableViewCell.m in Sources */,
@@ -834,6 +866,7 @@
 				138BFF431EA7BC6E00970B1D /* WFSessionModel+Additions.m in Sources */,
 				130C4F071E9BA8F50020172C /* WFBaseLabel.m in Sources */,
 				1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */,
+				13D07A4C1EAF54AD004DF700 /* WFSportDetailsViewModel.m in Sources */,
 				13943EDF1EA3A27800C671E8 /* WFWeekSessionsTableViewCell.m in Sources */,
 				136342CC1E85308900BBBCC6 /* WFHeaderCellLabel.m in Sources */,
 				134025851EAA2F2C0068670B /* WFFullSessionsModel.m in Sources */,
@@ -850,13 +883,14 @@
 				138A1CFB1E856D7E0010D83D /* WFNewsTextView.m in Sources */,
 				13FDABAE1EA793E1001CF0E5 /* WFDaySessionsTableViewCell.m in Sources */,
 				137EC92B1EA0F96F00C79A68 /* WFSessionModel.m in Sources */,
-				138BFF381EA7ACDA00970B1D /* WFSportModel+Additions.m in Sources */,
 				13BC85401E8E596600CF254C /* WFFooterButtonNewsDetails.m in Sources */,
 				137EC94D1EA0FE0900C79A68 /* WFSessionsServices.m in Sources */,
 				13A3D4241E68A39E00B38EEF /* WFNewsListViewController.m in Sources */,
 				130C4F0B1E9BAFFA0020172C /* WFNewsDetailTextView.m in Sources */,
 				130C4F041E9BA8970020172C /* WFHeaderNewsDetailsDateLabel.m in Sources */,
+				13D07A451EAF5398004DF700 /* WFSportsListViewController.m in Sources */,
 				13FDABAB1EA78DCC001CF0E5 /* WFSessionsConstants.m in Sources */,
+				13EE1EC81EAF6EE700803B1A /* WFSportsProvider.m in Sources */,
 				136B81FE1EA8DA6B00804ACE /* WFService.m in Sources */,
 				137EC9321EA0F9EE00C79A68 /* WFSportDescriptionModel.m in Sources */,
 				130E4B631E812202001C33DE /* WFDatesConverter.m in Sources */,
