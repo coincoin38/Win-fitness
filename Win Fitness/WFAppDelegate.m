@@ -13,31 +13,36 @@
 #import "WFFacebookNewsViewModel.h"
 #import "WFSessionsWeekViewModel.h"
 #import "WFSportsViewModel.h"
+#import "WFInformationsViewModel.h"
 
 #import "WFNewsListViewController.h"
 #import "WFWeekSessionsListViewController.h"
 #import "WFSportsListViewController.h"
+#import "WFInformationsListViewController.h"
 
 #import "WFFacebookServices.h"
 #import "WFSessionsServices.h"
 #import "WFSportsServices.h"
+#import "WFInformationsServices.h"
 
 @interface WFAppDelegate ()
 
 @property (nonatomic, retain) UINavigationController *newsNavigationController;
 @property (nonatomic, retain) UINavigationController *sessionsNavigationController;
 @property (nonatomic, retain) UINavigationController *sportsNavigationController;
+@property (nonatomic, retain) UINavigationController *informationsNavigationController;
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
 @property (strong, nonatomic) WFFacebookServices *facebookServices;
 @property (strong, nonatomic) WFSessionsServices *sessionsServices;
 @property (strong, nonatomic) WFSportsServices *sportsServices;
+@property (strong, nonatomic) WFInformationsServices *informationsServices;
 
 @property (strong, nonatomic) WFFacebookNewsViewModel *facebookNewsViewModel;
 @property (strong, nonatomic) WFSessionsWeekViewModel *sessionsViewModel;
 @property (strong, nonatomic) WFSportsViewModel *sportsViewModel;
-
+@property (strong, nonatomic) WFInformationsViewModel *informationsViewModel;
 
 @end
 
@@ -64,6 +69,9 @@
     self.sportsNavigationController = [self customNavigationController];
     self.sportsNavigationController.viewControllers = [NSArray arrayWithObjects:[self createSportsViewController], nil];
 
+    self.informationsNavigationController = [self customNavigationController];
+    self.informationsNavigationController.viewControllers = [NSArray arrayWithObjects:[self createInformationsViewController], nil];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
 
@@ -72,7 +80,9 @@
                                              self.newsNavigationController,
                                              self.sessionsNavigationController,
                                              self.sportsNavigationController,
+                                             self.informationsNavigationController,
                                              nil];
+
     self.tabBarController.tabBar.translucent = YES;
     self.tabBarController.tabBar.barTintColor = [UIColor darkGrayWF];
     self.tabBarController.tabBar.tintColor = [UIColor orangeWF];
@@ -80,6 +90,7 @@
     [[self.tabBarController.tabBar.items objectAtIndex:0] setTitle:WFLocalisedString(@"NEWS")];
     [[self.tabBarController.tabBar.items objectAtIndex:1] setTitle:WFLocalisedString(@"SESSIONS")];
     [[self.tabBarController.tabBar.items objectAtIndex:2] setTitle:WFLocalisedString(@"ACTIVITIES")];
+    [[self.tabBarController.tabBar.items objectAtIndex:3] setTitle:WFLocalisedString(@"INFORMATIONS")];
 
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
@@ -109,6 +120,12 @@
     self.sportsServices = [WFSportsServices new];
     self.sportsViewModel = [[WFSportsViewModel alloc]initWithSportsServices:self.sportsServices];
     return [[WFSportsListViewController alloc] initWithSportsViewModel:self.sportsViewModel];
+}
+
+- (UIViewController *)createInformationsViewController {
+    self.informationsServices = [WFInformationsServices new];
+    self.informationsViewModel = [[WFInformationsViewModel alloc]initWithInformationsServices:self.informationsServices];
+    return [[WFInformationsListViewController alloc] initWithInformationsViewModel:self.informationsViewModel];
 }
 
 - (BOOL)application:(UIApplication *)application

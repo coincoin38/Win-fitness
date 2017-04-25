@@ -13,7 +13,6 @@
 @interface WFFacebookServices : WFService
 
 - (instancetype)initService;
-
 - (RACSignal *)newsServiceSignal;
 
 @end

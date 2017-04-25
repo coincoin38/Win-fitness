@@ -13,8 +13,6 @@
 #import "WFFacebookServices.h"
 #import "WFNewsTableViewCell.h"
 
-@class WFBaseListViewController;
-
 @interface WFFacebookNewsViewModel ()
 
 @property (nonatomic, strong) WFFacebookServices *services;

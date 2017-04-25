@@ -6,26 +6,37 @@
   Copyright © 2017 julien gimenez. All rights reserved.
 */
 
+//Name
 "WINFITNESS" = "WinFitness";
+
+//Actions
 "PULL TO REFRESH" = "Tirer pour rafraîchir";
-"NEWS" = "Actualités Facebook";
-"SESSIONS" = "Sessions";
 "BACK" = "Retour";
+"OK" = "OK";
+
+//TabBar
+"NEWS" = "Actualités";
+"SESSIONS" = "Calendrier";
+"ACTIVITIES" = "Cours";
+"INFORMATIONS" = "Informations";
+
 "NO DESCRIPTION" = "Pas de description";
 "MORE INFORMATIONS" = "Plus d'informations : ";
 "WIN FITNESS HAS SHARED THE PUBLICATION OF" = "WinFitness a partagé la publication de";
 "WIN FITNESS HAS SHARED THE EVENT OF" = "WinFitness a partagé l'évènement de";
 "WIN FITNESS HAS ADDED" = "WinFitness a ajouté";
-"OK" = "OK";
+
+//Days
 "MONDAY" = "Lundi";
 "TUESDAY" = "Mardi";
 "WEDNESDAY" = "Mercredi";
 "THURSDAY" = "Jeudi";
 "FRIDAY" = "Vendredi";
 "SATURDAY" = "Samedi";
+
 "PLANING MAY CHANGE" = "Le planing peut faire l'objet de modifications afin d'améliorer le service";
 "EXPLORER" = "EXPLORER";
-"ACTIVITIES" = "Cours";
+"SPORTS" = "Sports";
 
 //ERRORS
 
