@@ -33,6 +33,8 @@
     return self;
 }
 
+#pragma mark - View Life Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupViews];

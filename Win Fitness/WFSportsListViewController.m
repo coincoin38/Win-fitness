@@ -6,8 +6,10 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
+#import "WFSportCollectionViewCell.h"
 #import "WFSportsListViewController.h"
 #import "WFSportsViewModel.h"
+#import "WFSportModel.h"
 
 @interface WFSportsListViewController ()
 
@@ -16,6 +18,8 @@
 @end
 
 @implementation WFSportsListViewController
+
+#pragma mark - Init
 
 - (instancetype)initWithSportsViewModel:(WFSportsViewModel *)viewModel {
     self = [super init];
@@ -26,12 +30,57 @@
     return self;
 }
 
+#pragma mark - View Life Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupViews];
+    [self bindViewModel];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
+- (void)setupViews {
+    [self.collectionView registerClass:[WFSportCollectionViewCell class]
+            forCellWithReuseIdentifier:cellSportSessionsIdentifier];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:nil
+                                                                            action:nil];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.collectionView];
+    [self addCustomStatusBar:[UIColor darkGrayWF]];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+}
+
+#pragma mark - Binding
+
+- (void)bindViewModel {
+    @weakify(self)
+
+    RAC(self,datasArray) = RACObserve(self.viewModel, sportsList);
+
+    [RACObserve(self, datasArray)
+     subscribeNext:^(id news) {
+         @strongify(self)
+         if (news) {
+             [self reloadCollectionView];
+         }
+     }];
+}
+
+#pragma mark - Table view data source & delegate
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    WFSportCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellSportSessionsIdentifier
+                                                                                forIndexPath:indexPath];
+    [cell setupCellWithModel:(WFSportModel *)self.datasArray[indexPath.row]];
+    return cell;
 }
 
 @end

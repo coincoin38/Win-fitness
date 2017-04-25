@@ -13,5 +13,6 @@
 @interface WFSportsServices : WFService
 
 - (RACSignal *)sportTitleForSessionsServiceSignal:(NSArray<WFSessionModel *> *)session;
+- (RACSignal *)allSportsServiceSignal;
 
 @end

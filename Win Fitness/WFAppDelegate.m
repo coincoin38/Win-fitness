@@ -92,6 +92,15 @@
     [[self.tabBarController.tabBar.items objectAtIndex:2] setTitle:WFLocalisedString(@"ACTIVITIES")];
     [[self.tabBarController.tabBar.items objectAtIndex:3] setTitle:WFLocalisedString(@"INFORMATIONS")];
 
+    [[self.tabBarController.tabBar.items objectAtIndex:0] setImage:[UIImage imageNamed:@"news"]];
+    [[self.tabBarController.tabBar.items objectAtIndex:0] setSelectedImage:[UIImage imageNamed:@"news_selected"]];
+    [[self.tabBarController.tabBar.items objectAtIndex:1] setImage:[UIImage imageNamed:@"calendar"]];
+    [[self.tabBarController.tabBar.items objectAtIndex:1] setSelectedImage:[UIImage imageNamed:@"calendar_selected"]];
+    [[self.tabBarController.tabBar.items objectAtIndex:2] setImage:[UIImage imageNamed:@"activities"]];
+    [[self.tabBarController.tabBar.items objectAtIndex:2] setSelectedImage:[UIImage imageNamed:@"activities_selected"]];
+    [[self.tabBarController.tabBar.items objectAtIndex:3] setImage:[UIImage imageNamed:@"informations"]];
+    [[self.tabBarController.tabBar.items objectAtIndex:3] setSelectedImage:[UIImage imageNamed:@"informations_selected"]];
+
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
 }

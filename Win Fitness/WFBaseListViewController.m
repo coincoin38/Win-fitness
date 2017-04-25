@@ -69,7 +69,7 @@
     [self.view addSubview:statusBar];
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table view data source & delegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return nil;

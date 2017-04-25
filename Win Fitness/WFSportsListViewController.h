@@ -6,11 +6,11 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import "WFBaseListViewController.h"
+#import "WFBaseCollectionViewController.h"
 
 @class WFSportsViewModel;
 
-@interface WFSportsListViewController : WFBaseListViewController
+@interface WFSportsListViewController : WFBaseCollectionViewController
 
 - (instancetype)initWithSportsViewModel:(WFSportsViewModel *)viewModel;
 

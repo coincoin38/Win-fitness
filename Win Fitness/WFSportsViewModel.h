@@ -9,8 +9,11 @@
 #import "WFBaseViewModel.h"
 
 @class WFSportsServices;
+@class WFSportModel;
 
 @interface WFSportsViewModel : WFBaseViewModel
+
+@property (nonatomic, strong) NSArray<WFSportModel *> *sportsList;
 
 - (instancetype)initWithSportsServices:(WFSportsServices *)services;
 

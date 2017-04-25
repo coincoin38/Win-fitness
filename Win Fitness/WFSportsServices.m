@@ -37,6 +37,16 @@
     }];
 }
 
+- (RACSignal *)allSportsServiceSignal {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [self parseSessions:^(NSArray *allSports, NSError *error) {
+            [subscriber sendNext:allSports];
+            [subscriber sendCompleted];
+        }];
+        return [RACDisposable disposableWithBlock:^{}];
+    }];
+}
+
 - (void)parseSessions:(WFServiceHandler)handler {
     handler([[WFSportsProvider sharedInstance]allSports], nil);
 }
