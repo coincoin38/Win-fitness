@@ -14,25 +14,31 @@
 
 - (RACSignal *)sportTitleForSessionsServiceSignal:(NSArray<WFSessionModel *> *)sessions {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        [self parseSessions:^(NSArray *allSports, NSError *error) {
-            for (WFSessionModel *session in sessions) {
-                if (!session.sport) {
-                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.idSport == %d", session.idSport];
-                    NSArray<WFSportModel *> *searchResults = [allSports filteredArrayUsingPredicate:predicate];
-                    if (searchResults.count == 1) {
-                        session.sport = searchResults[0];
-                    }
-                }
-            }
+        if(sessions[0].sport) {
             [subscriber sendNext:sessions];
             [subscriber sendCompleted];
-        }];
+        }
+        else{
+            [self parseSessions:^(NSArray *allSports, NSError *error) {
+                for (WFSessionModel *session in sessions) {
+                    if (!session.sport) {
+                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.idSport == %d", session.idSport];
+                        NSArray<WFSportModel *> *searchResults = [allSports filteredArrayUsingPredicate:predicate];
+                        if (searchResults.count == 1) {
+                            session.sport = searchResults[0];
+                        }
+                    }
+                }
+                [subscriber sendNext:sessions];
+                [subscriber sendCompleted];
+            }];
+        }
         return [RACDisposable disposableWithBlock:^{}];
     }];
 }
 
 - (void)parseSessions:(WFServiceHandler)handler {
-    handler([[WFSportModel new]allSports], nil);
+    handler([WFSportModel allSports], nil);
 }
 
 @end

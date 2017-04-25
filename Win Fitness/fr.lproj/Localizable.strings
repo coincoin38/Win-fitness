@@ -28,7 +28,7 @@
 
 //ERRORS
 
-"EMPTY" = "Vide";
+"EMPTY" = "";
 "ERROR" = "Erreur";
 "COULD NOT OPEN URL" = "Impossible d'ouvrir la page";
 "COULD NOT DOWNLOAD FACEBOOK NEWS" = "Impossible de télécharger les news de Facebook";

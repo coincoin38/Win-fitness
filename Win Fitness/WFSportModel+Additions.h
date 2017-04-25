@@ -11,6 +11,6 @@
 
 @interface WFSportModel (Additions)
 
-- (NSArray *)allSports;
++ (NSArray *)allSports;
 
 @end

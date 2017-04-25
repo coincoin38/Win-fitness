@@ -25,9 +25,7 @@
     if (self) {
         _services = services;
         _daySessions = sessions;
-        if (!_daySessions.sessions[0].sport) {
-            [self startSportParsing];
-        }
+        [self startSportParsing];
     }
     return self;
 }

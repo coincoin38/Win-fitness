@@ -12,7 +12,7 @@
 
 @implementation WFSportModel (Additions)
 
-- (NSArray *)allSports {
++ (NSArray *)allSports {
     NSMutableArray *sports = [NSMutableArray new];
     for (id sport in [WFJSONReader JSONFromFile:kSportsFeed].allValues[0]) {
         [sports addObject:[[WFSportModel alloc]initWithDictionary:sport]];
