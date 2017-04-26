@@ -14,7 +14,9 @@
 @interface WFSportsViewModel : WFBaseViewModel
 
 @property (nonatomic, strong) NSArray<WFSportModel *> *sportsList;
+@property (nonatomic, strong) WFSportModel *selectedSport;
 
 - (instancetype)initWithSportsServices:(WFSportsServices *)services;
+- (void)startSportCompletionParsing;
 
 @end

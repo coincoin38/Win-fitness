@@ -8,6 +8,7 @@
 
 #import "WFSportsViewModel.h"
 #import "WFSportsServices.h"
+#import "WFSportModel.h"
 
 @interface WFSportsViewModel ()
 
@@ -30,16 +31,23 @@
 
 - (void)startSportParsing {
     @weakify(self)
-    [[self.sportsCommand execute:self]subscribeNext:^(id sessions) {
+    [[self.sportsCommand execute:self]subscribeNext:^(id sports) {
         @strongify(self)
-        [self checkResultParsing:sessions];
+        [self checkResultParsing:sports];
     }];
 }
 
 - (void)startSportCompletionParsing {
-    [[self.objectivesSportCommand execute:self]subscribeNext:^(id sessions) {
+    @weakify(self)
+    [[self.objectivesSportCommand execute:self]subscribeNext:^(id sport) {
+        @strongify(self)
+        self.selectedSport = sport;
+        NSLog(@"objectives %@",self.selectedSport.objectives);
     }];
-    [[self.descriptionSportCommand execute:self]subscribeNext:^(id sessions) {
+    [[self.descriptionSportCommand execute:self]subscribeNext:^(id sport) {
+        @strongify(self)
+        self.selectedSport = sport;
+        NSLog(@"sportDescription %@",self.selectedSport.sportDescription);
     }];
 }
 
@@ -51,7 +59,7 @@
     }
     else {
         self.sportsList = sports;
-        [self startSportCompletionParsing];
+        //[self startSportCompletionParsing];
     }
 }
 
@@ -82,11 +90,11 @@
 }
 
 - (RACSignal *)objectivesSportSignal {
-    return [[self.services completeObjectivesSport:self.sportsList[0]]deliverOnMainThread];
+    return [[self.services completeObjectivesSport:self.selectedSport]deliverOnMainThread];
 }
 
 - (RACSignal *)descriptionSportSignal {
-    return [[self.services completeDescriptionSport:self.sportsList[0]]deliverOnMainThread];
+    return [[self.services completeDescriptionSport:self.selectedSport]deliverOnMainThread];
 }
 
 - (void)errorParsingSports {

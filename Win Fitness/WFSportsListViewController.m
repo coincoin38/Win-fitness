@@ -14,6 +14,7 @@
 @interface WFSportsListViewController ()
 
 @property(nonatomic,strong) WFSportsViewModel *viewModel;
+@property(nonatomic,strong) WFSportModel *selectedSport;
 
 @end
 
@@ -64,12 +65,21 @@
     @weakify(self)
 
     RAC(self,datasArray) = RACObserve(self.viewModel, sportsList);
+    RAC(self.viewModel,selectedSport) = RACObserve(self, selectedSport);
 
     [RACObserve(self, datasArray)
      subscribeNext:^(id news) {
          @strongify(self)
          if (news) {
              [self reloadCollectionView];
+         }
+     }];
+
+    [RACObserve(self, selectedSport)
+     subscribeNext:^(id sport) {
+         @strongify(self)
+         if(sport) {
+             [self.viewModel startSportCompletionParsing];
          }
      }];
 }
@@ -81,6 +91,10 @@
                                                                                 forIndexPath:indexPath];
     [cell setupCellWithModel:(WFSportModel *)self.datasArray[indexPath.row]];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedSport = self.datasArray[indexPath.row];
 }
 
 @end
