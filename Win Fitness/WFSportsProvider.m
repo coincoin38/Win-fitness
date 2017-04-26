@@ -10,6 +10,8 @@
 #import "WFJSONReader.h"
 #import "WFSessionsConstants.h"
 #import "WFSportModel.h"
+#import "WFObjectiveModel.h"
+#import "WFSportDescriptionModel.h"
 
 @implementation WFSportsProvider
 
@@ -31,6 +33,28 @@
         _allSports = [sports copy];
     }
     return _allSports;
+}
+
+- (NSArray *)allObjectives {
+    if (!_allObjectives) {
+        NSMutableArray *objectives = [NSMutableArray new];
+        for (id objective in [WFJSONReader JSONFromFile:kObjectivesFeed].allValues[0]) {
+            [objectives addObject:[[WFObjectiveModel alloc]initWithDictionary:objective]];
+        }
+        _allObjectives = [objectives copy];
+    }
+    return _allObjectives;
+}
+
+- (NSArray *)allDescriptions {
+    if (!_allDescriptions) {
+        NSMutableArray *descriptions = [NSMutableArray new];
+        for (id _description in [WFJSONReader JSONFromFile:kSportsDescriptionsFeed].allValues[0]) {
+            [descriptions addObject:[[WFSportDescriptionModel alloc]initWithDictionary:_description]];
+        }
+        _allDescriptions = [descriptions copy];
+    }
+    return _allDescriptions;
 }
 
 @end

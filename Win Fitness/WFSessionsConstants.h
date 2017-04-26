@@ -21,3 +21,5 @@ extern NSString * const kFridayRPM;
 extern NSString * const kSaturdayRPM;
 
 extern NSString * const kSportsFeed;
+extern NSString * const kObjectivesFeed;
+extern NSString * const kSportsDescriptionsFeed;

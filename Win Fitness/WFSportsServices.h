@@ -9,10 +9,13 @@
 #import "WFService.h"
 
 @class WFSessionModel;
+@class WFSportModel;
 
 @interface WFSportsServices : WFService
 
 - (RACSignal *)sportTitleForSessionsServiceSignal:(NSArray<WFSessionModel *> *)session;
+- (RACSignal *)completeObjectivesSport:(WFSportModel *)sport;
+- (RACSignal *)completeDescriptionSport:(WFSportModel *)sport;
 - (RACSignal *)allSportsServiceSignal;
 
 @end

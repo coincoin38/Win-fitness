@@ -13,5 +13,7 @@
 + (instancetype)sharedInstance;
 
 @property (nonatomic, retain) NSArray * allSports;
+@property (nonatomic, retain) NSArray * allObjectives;
+@property (nonatomic, retain) NSArray * allDescriptions;
 
 @end

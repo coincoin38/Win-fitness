@@ -36,6 +36,13 @@
     }];
 }
 
+- (void)startSportCompletionParsing {
+    [[self.objectivesSportCommand execute:self]subscribeNext:^(id sessions) {
+    }];
+    [[self.descriptionSportCommand execute:self]subscribeNext:^(id sessions) {
+    }];
+}
+
 #pragma mark - Checks
 
 - (void)checkResultParsing:(id)sports {
@@ -44,6 +51,7 @@
     }
     else {
         self.sportsList = sports;
+        [self startSportCompletionParsing];
     }
 }
 
@@ -55,10 +63,30 @@
     }];
 }
 
+- (RACCommand *)objectivesSportCommand {
+    return [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [self objectivesSportSignal];
+    }];
+}
+
+- (RACCommand *)descriptionSportCommand {
+    return [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        return [self descriptionSportSignal];
+    }];
+}
+
 #pragma mark - Signals
 
 - (RACSignal *)sportSignal {
     return [[self.services allSportsServiceSignal]deliverOnMainThread];
+}
+
+- (RACSignal *)objectivesSportSignal {
+    return [[self.services completeObjectivesSport:self.sportsList[0]]deliverOnMainThread];
+}
+
+- (RACSignal *)descriptionSportSignal {
+    return [[self.services completeDescriptionSport:self.sportsList[0]]deliverOnMainThread];
 }
 
 - (void)errorParsingSports {

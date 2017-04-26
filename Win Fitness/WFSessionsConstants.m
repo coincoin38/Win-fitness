@@ -23,3 +23,5 @@ NSString * const kFridayRPM = @"VendrediRPM";
 NSString * const kSaturdayRPM = @"SamediRPM";
 
 NSString * const kSportsFeed = @"sportsFeed";
+NSString * const kObjectivesFeed = @"objectivesFeed";
+NSString * const kSportsDescriptionsFeed = @"sportsDescriptionsFeed";

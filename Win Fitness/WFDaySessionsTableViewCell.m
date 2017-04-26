@@ -8,7 +8,7 @@
 
 #import "UIColor+Additions.h"
 #import "WFDaySessionsTableViewCell.h"
-#import "WFSessionModel+Additions.h"
+#import "WFSessionModel.h"
 #import "WFSportModel.h"
 
 @interface WFDaySessionsTableViewCell ()

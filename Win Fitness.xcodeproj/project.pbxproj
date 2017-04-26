@@ -48,7 +48,6 @@
 		138BFF3C1EA7B55500970B1D /* sportsDescriptionsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 138BFF3A1EA7B55500970B1D /* sportsDescriptionsFeed.json */; };
 		138BFF3D1EA7B55500970B1D /* sportsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 138BFF3B1EA7B55500970B1D /* sportsFeed.json */; };
 		138BFF3F1EA7B55E00970B1D /* objectivesFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 138BFF3E1EA7B55E00970B1D /* objectivesFeed.json */; };
-		138BFF431EA7BC6E00970B1D /* WFSessionModel+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 138BFF421EA7BC6E00970B1D /* WFSessionModel+Additions.m */; };
 		138D6B481EAF8AD3005DA14B /* WFSportCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D6B471EAF8AD3005DA14B /* WFSportCollectionViewCell.m */; };
 		13943EDF1EA3A27800C671E8 /* WFWeekSessionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13943EDE1EA3A27800C671E8 /* WFWeekSessionsTableViewCell.m */; };
 		13A3D4241E68A39E00B38EEF /* WFNewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A3D4231E68A39E00B38EEF /* WFNewsListViewController.m */; };
@@ -154,8 +153,6 @@
 		138BFF3A1EA7B55500970B1D /* sportsDescriptionsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sportsDescriptionsFeed.json; sourceTree = "<group>"; };
 		138BFF3B1EA7B55500970B1D /* sportsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sportsFeed.json; sourceTree = "<group>"; };
 		138BFF3E1EA7B55E00970B1D /* objectivesFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = objectivesFeed.json; sourceTree = "<group>"; };
-		138BFF411EA7BC6E00970B1D /* WFSessionModel+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WFSessionModel+Additions.h"; sourceTree = "<group>"; };
-		138BFF421EA7BC6E00970B1D /* WFSessionModel+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WFSessionModel+Additions.m"; sourceTree = "<group>"; };
 		138D6B461EAF8AD3005DA14B /* WFSportCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFSportCollectionViewCell.h; sourceTree = "<group>"; };
 		138D6B471EAF8AD3005DA14B /* WFSportCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFSportCollectionViewCell.m; sourceTree = "<group>"; };
 		13943EDD1EA3A27800C671E8 /* WFWeekSessionsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFWeekSessionsTableViewCell.h; sourceTree = "<group>"; };
@@ -261,8 +258,6 @@
 			children = (
 				13168F911EA765D90070219A /* WFDaySessionModel+Additions.h */,
 				13168F921EA765D90070219A /* WFDaySessionModel+Additions.m */,
-				138BFF411EA7BC6E00970B1D /* WFSessionModel+Additions.h */,
-				138BFF421EA7BC6E00970B1D /* WFSessionModel+Additions.m */,
 			);
 			name = Additions;
 			sourceTree = "<group>";
@@ -934,7 +929,6 @@
 				13EE1ED11EAF77C200803B1A /* WFInformationsListViewController.m in Sources */,
 				13DAA9C41E672D3400C8F343 /* WFFacebookNewsViewModel.m in Sources */,
 				137EC9351EA0FA1000C79A68 /* WFObjectiveModel.m in Sources */,
-				138BFF431EA7BC6E00970B1D /* WFSessionModel+Additions.m in Sources */,
 				130C4F071E9BA8F50020172C /* WFBaseLabel.m in Sources */,
 				1348EC591E66150100FA3843 /* WFFacebookFeedModel.m in Sources */,
 				13D07A4C1EAF54AD004DF700 /* WFSportDetailsViewModel.m in Sources */,
