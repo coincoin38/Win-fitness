@@ -10,4 +10,12 @@
 
 @implementation WFSportDescriptionModel
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    if ((self = [super init])) {
+        _key_sport  = [dictionary[@"key_sport"] integerValue];
+        _content = dictionary[@"content"];
+    }
+    return self;
+}
+
 @end

@@ -6,8 +6,11 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "WFBaseModel.h"
 
-@interface WFSportDescriptionModel : NSObject
+@interface WFSportDescriptionModel : WFBaseModel
+
+@property(nonatomic) NSInteger key_sport;
+@property(nonatomic, strong) NSString *content;
 
 @end

@@ -6,14 +6,14 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "WFBaseModel.h"
 
 typedef NS_ENUM(NSInteger, WFSessionsType) {
     MILLS  = 0,
     RPM = 1
 };
 
-@interface WFFullSessionsModel : NSObject
+@interface WFFullSessionsModel : WFBaseModel
 
 @property(nonatomic,strong) NSArray *millsSessions;
 @property(nonatomic,strong) NSArray *rpmSessions;

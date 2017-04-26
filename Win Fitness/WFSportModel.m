@@ -23,4 +23,8 @@
     return self;
 }
 
+- (void)addDescription:(WFSportDescriptionModel *)description withObjectives:(NSArray<WFObjectiveModel *>*)objectives {
+    
+}
+
 @end

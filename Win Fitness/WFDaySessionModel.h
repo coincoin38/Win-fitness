@@ -6,7 +6,7 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "WFBaseModel.h"
 
 typedef NS_ENUM(NSInteger, WFDays) {
     Monday  = 0,
@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, WFDays) {
 };
 @class WFSessionModel;
 
-@interface WFDaySessionModel : NSObject
+@interface WFDaySessionModel : WFBaseModel
 
 @property(nonatomic,strong) NSMutableArray<WFSessionModel *> *sessions;
 @property(nonatomic) NSInteger day;

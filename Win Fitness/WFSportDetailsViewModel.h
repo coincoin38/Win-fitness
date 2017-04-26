@@ -6,8 +6,8 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "WFBaseViewModel.h"
 
-@interface WFSportDetailsViewModel : NSObject
+@interface WFSportDetailsViewModel : WFBaseViewModel
 
 @end

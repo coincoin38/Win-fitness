@@ -6,10 +6,11 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "WFBaseModel.h"
+
 @class WFSportModel;
 
-@interface WFSessionModel : NSObject
+@interface WFSessionModel : WFBaseModel
 
 @property(nonatomic) BOOL attendance;
 
@@ -19,7 +20,5 @@
 @property(nonatomic,strong) NSString *day;
 
 @property(nonatomic,strong) WFSportModel *sport;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

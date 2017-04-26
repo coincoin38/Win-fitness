@@ -6,8 +6,6 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 extern NSString * const kMonday;
 extern NSString * const kThuesday;
 extern NSString * const kWednesday;

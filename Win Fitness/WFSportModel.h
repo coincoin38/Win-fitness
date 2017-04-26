@@ -6,10 +6,12 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#import "WFBaseModel.h"
 
-@interface WFSportModel : NSObject
+@class WFObjectiveModel;
+@class WFSportDescriptionModel;
+
+@interface WFSportModel : WFBaseModel
 
 @property(nonatomic) NSInteger idSport;
 @property(nonatomic,strong) NSString *name;
@@ -17,7 +19,9 @@
 @property(nonatomic,strong) NSString *colorString;
 @property(nonatomic,strong) NSString *image;
 @property(nonatomic,strong) UIColor *colorFromHexa;
+@property(nonatomic,strong) WFSportDescriptionModel *sportDescription;
+@property(nonatomic,strong) NSArray<WFObjectiveModel *> *objectives;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (void)addDescription:(WFSportDescriptionModel *)description withObjectives:(NSArray<WFObjectiveModel *>*)objectives;
 
 @end

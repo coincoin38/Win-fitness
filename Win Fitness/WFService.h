@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import <ReactiveObjC.h>
 
 typedef void (^WFServiceHandler)(id result,NSError *error);

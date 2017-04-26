@@ -6,8 +6,12 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "WFBaseModel.h"
 
-@interface WFObjectiveModel : NSObject
+@interface WFObjectiveModel : WFBaseModel
+
+@property(nonatomic, strong) NSString *firstPart;
+@property(nonatomic, strong) NSString *secondPart;
+@property(nonatomic) NSInteger sport_id;
 
 @end

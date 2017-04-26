@@ -10,4 +10,13 @@
 
 @implementation WFObjectiveModel
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    if ((self = [super init])) {
+        _sport_id  = [dictionary[@"sport_id"] integerValue];
+        _firstPart = dictionary[@"firstPart"];
+        _secondPart = dictionary[@"secondPart"];
+    }
+    return self;
+}
+
 @end

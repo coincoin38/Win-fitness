@@ -6,10 +6,9 @@
 //  Copyright © 2017 julien gimenez. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#import "WFBaseModel.h"
 
-@interface WFFacebookFeedModel : NSObject
+@interface WFFacebookFeedModel : WFBaseModel
 
 @property(nonatomic,strong) NSString *created_time;
 @property(nonatomic,strong) NSString *_description;
@@ -23,7 +22,5 @@
 @property(nonatomic,strong) NSDictionary *data;
 
 @property(nonatomic,strong) UIImage * downloadedPicture;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
