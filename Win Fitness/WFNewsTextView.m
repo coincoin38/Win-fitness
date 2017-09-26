@@ -17,6 +17,7 @@
         self.userInteractionEnabled = NO;
         self.textAlignment = NSTextAlignmentLeft;
         self.font = [UIFont systemFontOfSize:14];
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }

@@ -805,7 +805,7 @@
 				TargetAttributes = {
 					13E3281C1E64AB9D00F1A4EC = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = BQ534PD778;
+						DevelopmentTeam = 5ZA9Y5XJME;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -885,7 +885,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F9632449BA0A745FDF768F7A /* [CP] Embed Pods Frameworks */ = {
@@ -1088,7 +1088,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = BQ534PD778;
+				DEVELOPMENT_TEAM = 5ZA9Y5XJME;
 				GCC_PREFIX_HEADER = "Win Fitness/WFPrefixHeader.pch";
 				INFOPLIST_FILE = "Win Fitness/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -1105,7 +1105,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = BQ534PD778;
+				DEVELOPMENT_TEAM = 5ZA9Y5XJME;
 				GCC_PREFIX_HEADER = "Win Fitness/WFPrefixHeader.pch";
 				INFOPLIST_FILE = "Win Fitness/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;

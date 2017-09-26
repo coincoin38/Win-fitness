@@ -21,6 +21,21 @@
 
 @implementation WFNewsTableViewCell
 
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
+         self.backgroundColor = [UIColor lightGrayColor];
+        [self setupView];
+        [self setupConstraints];
+    }
+    return self;
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    self.headerLabel.text = nil;
+    self.bodyTextView.text = nil;
+}
+
 #pragma mark - init
 
 - (UIImageView *)newsImage {
@@ -49,12 +64,10 @@
 #pragma mark - Data
 
 - (void)setupCellWithModel:(WFFacebookFeedModel *)model {
-    self.backgroundColor = [UIColor lightGrayColor];
+   
     self.facebookModel = model;
     self.headerLabel.text = self.facebookModel.headerCell;
     self.bodyTextView.text = self.facebookModel.bodyCell;
-    [self setupView];
-    [self setupConstraints];
 }
 
 #pragma mark - User Interface Elements
